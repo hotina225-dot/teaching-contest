@@ -34,13 +34,13 @@ h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;c
 
 .section{padding:2rem 2.5rem 3rem;max-width:1100px;margin:0 auto;overflow:visible;}
 
-.work-item{display:grid;grid-template-columns:200px 1fr;gap:2.5rem;padding:2rem;border-radius:14px;margin-bottom:2rem;align-items:start;}
-.work-left{display:flex;flex-direction:column;gap:12px;position:sticky;top:80px;align-self:start;height:fit-content;}
-.work-rank{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;line-height:1.2;}
-.work-name{font-family:'Noto Serif TC',serif;font-size:32px;font-weight:700;color:#0D3A5E;line-height:1.2;}
-.work-open-btn{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#E8581A;padding:8px 16px;border-radius:6px;text-decoration:none;margin-top:6px;}
+.work-item{display:flex;flex-direction:column;gap:1rem;padding:2rem;border-radius:14px;margin-bottom:2rem;}
+.work-left{display:flex;align-items:center;gap:1.5rem;flex-shrink:0;}
+.work-rank{font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;line-height:1;}
+.work-name{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:#0D3A5E;line-height:1;}
+.work-open-btn{display:inline-block;font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:9px 20px;border-radius:6px;text-decoration:none;margin-left:auto;}
 .work-open-btn:hover{background:#C84A10;}
-.work-preview{border-radius:10px;overflow:hidden;}
+.work-preview{border-radius:10px;overflow:hidden;width:100%;}
 
 @media(max-width:700px){
   .work-item{grid-template-columns:1fr;}
