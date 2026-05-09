@@ -6,23 +6,57 @@
 <title>作品分享 | 數位教學演示競賽</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-size:16px;}
-body{font-family:'Noto Sans TC',sans-serif;background:#F7F9FF;color:#1A1A18;padding-top:60px;}
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(255,255,255,0.97);border-bottom:2px solid #E8581A;width:100%;position:fixed;top:0;z-index:1000;transform:translateY(0);transition:transform 0.3s ease;backdrop-filter:blur(8px);}
-.nav-trigger{position:fixed;top:0;left:0;width:100%;height:16px;z-index:999;}
+
+/* ── NAV ── */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:60px;background:rgba(255,255,255,0.97);border-bottom:2px solid #E8581A;width:100%;position:relative;z-index:10;}
+.nav-wrapper{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:transform 0.3s ease;}
+.nav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
 .nav-name{font-size:15px;font-weight:700;color:#1A1A18;}
 .nav-sub{font-size:12px;color:#A0A09A;display:block;}
-.nav-links{display:flex;gap:3px;list-style:none;position:relative;}
+.nav-links{display:flex;gap:3px;list-style:none;align-items:center;}
 .nav-links a{font-size:14px;color:#555;text-decoration:none;padding:5px 10px;border-radius:6px;}
-.nav-links a:hover,.nav-links a.active{color:#E8581A;}
-.nav-reg{background:#E8581A !important;color:#fff !important;font-weight:700 !important;border-radius:6px !important;}
+.nav-links a:hover{color:#E8581A;}
+.nav-reg{background:#E8581A !important;color:#fff !important;font-weight:700 !important;border-radius:6px !important;padding:7px 14px !important;}
 .nav-dropdown{position:relative;}
 .nav-submenu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #E8E4DC;border-radius:8px;min-width:160px;padding:6px 0;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
 .nav-submenu li{list-style:none;}
-.nav-submenu a{display:block;padding:8px 16px;font-size:12px;color:#555;border-radius:0;}
+.nav-submenu a{display:block;padding:8px 16px;font-size:13px;color:#555;}
 .nav-submenu a:hover{background:#FFF3EE;color:#E8581A;}
 .nav-dropdown:hover .nav-submenu{display:block;}
+/* hamburger */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:6px;background:none;border:none;width:36px;height:36px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#1A1A18;border-radius:2px;transition:all .25s;}
+/* mobile menu */
+.nav-mobile-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid #EEE;padding:0;overflow:hidden;}
+.nav-mobile-menu.open{display:flex;}
+.nav-mobile-menu a{font-size:15px;color:#333;text-decoration:none;padding:14px 1.5rem;border-bottom:1px solid #F2F2F2;display:block;}
+.nav-mobile-menu a:last-child{border-bottom:none;}
+.nav-mobile-menu a:hover,.nav-mobile-menu a:active{color:#E8581A;background:#FFF8F5;}
+.nav-mobile-menu .mob-sub{font-size:14px;color:#888;padding:10px 1.5rem 10px 2.5rem;background:#FAFAFA;}
+.nav-mobile-menu .mob-reg{background:#E8581A;color:#fff !important;font-weight:700;text-align:center;margin:10px 1.5rem;border-radius:6px;padding:12px !important;border-bottom:none !important;}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  body{padding-top:60px;}
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-size:16px;}
+body{font-family:'Noto Sans TC',sans-serif;background:#F7F9FF;color:#1A1A18;padding-top:60px;}
+
+.nav-trigger{position:fixed;top:0;left:0;width:100%;height:16px;z-index:999;}
+
+
+
+
+
+
+
+
+
+
+
+.nav-dropdown:hover 
 
 .page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;}
 .page-label{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.5rem;display:block;}
@@ -50,24 +84,8 @@ h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;c
 footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
 .footer-t{font-size:13px;color:#4A7A9A;}
 
-.nav-wrapper{position:fixed;top:0;left:0;width:100%;z-index:1000;}
-/* ── MOBILE NAV ── */
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
-.nav-hamburger span{display:block;width:22px;height:2px;background:#1A1A18;border-radius:2px;transition:all .3s;}
-.nav-mobile-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid #EEE;padding:0.75rem 1.5rem 1rem;gap:4px;}
-.nav-mobile-menu a{font-size:15px;color:#333;text-decoration:none;padding:10px 0;border-bottom:1px solid #F0F0F0;display:block;}
-.nav-mobile-menu a:last-child{border-bottom:none;}
-.nav-mobile-menu a:hover{color:#E8581A;}
-.nav-mobile-menu .nav-reg{background:#E8581A;color:#fff !important;border-radius:6px;padding:10px 16px;text-align:center;margin-top:6px;}
-.nav-mobile-submenu{padding-left:1rem;}
-.nav-mobile-submenu a{font-size:14px;color:#888;}
-@media(max-width:768px){
-  nav{padding:0 1.25rem;transform:translateY(0) !important;position:relative;}
-  .nav-wrapper{position:fixed !important;top:0;left:0;width:100%;}
-  .nav-links{display:none;}
-  .nav-hamburger{display:flex;}
-  .nav-mobile-menu.open{display:flex;}
-  .hero{flex-direction:column;min-height:auto;}
+
+.hero{flex-direction:column;min-height:auto;}
   .hero-left{width:100%;padding:2.5rem 1.5rem 2rem;}
   h1.hero-h1{font-size:36px;white-space:normal;}
   .hero-sub-title{font-size:22px;}
@@ -100,7 +118,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 /* ── TABLET (768px - 1024px) ── */
 @media(min-width:769px) and (max-width:1024px){
   nav{padding:0 1.5rem;}
-  .nav-links a{font-size:12px;padding:5px 7px;}
+  
   .hero{min-height:420px;}
   .hero-left{width:52%;padding:3rem 0 2rem 2rem;}
   h1.hero-h1{font-size:40px;}
@@ -133,9 +151,9 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </style>
 </head>
 <body>
-<div class="nav-wrapper"><div class="nav-trigger"></div>
+<div class="nav-wrapper">
 <nav>
-  <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:9px;">
+  <a class="nav-brand" href="index.html">
     <img src="unnamed.png" alt="Logo" style="height:36px;width:auto;"/>
     <div>
       <span class="nav-name">數位教學演示競賽</span>
@@ -153,17 +171,27 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
         <li><a href="photos.html#y2025">2025 活動照片</a></li>
       </ul>
     </li>
-    <li><a href="share.html" class="active">作品分享</a></li>
+    <li><a href="share.html">作品分享</a></li>
     <li><a href="download.html">檔案下載</a></li>
-    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>  <button class="nav-hamburger" id="hamburger" aria-label="選單" onclick="toggleMenu()">
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="選單">
     <span></span><span></span><span></span>
   </button>
 </nav>
-  </div>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="index.html">首頁</a>
+  <a href="index.html#schedule" onclick="toggleMenu()">活動時程表</a>
+  <a href="photos.html">活動照片</a>
+  <a href="photos.html" class="mob-sub">→ 全部照片</a>
+  <a href="photos.html#y2024" class="mob-sub">→ 2024 活動照片</a>
+  <a href="photos.html#y2025" class="mob-sub">→ 2025 活動照片</a>
   <a href="share.html">作品分享</a>
   <a href="download.html">檔案下載</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a>
-</div></div>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="mob-reg">前往報名</a>
+</div>
+</div>
+
 
 <div class="page-hero">
   <span class="page-label">作品分享</span>
@@ -266,8 +294,25 @@ window.addEventListener('scroll', updateNav, {passive: true});
 // 滑鼠移到最頂端也顯示
 trigger.addEventListener('mouseenter', ()=> nav.style.transform = 'translateY(0)');
 
+
+</script>
+<script>
+// ── NAV SCROLL HIDE/SHOW ──
+(function(){
+  const wrapper = document.querySelector('.nav-wrapper');
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', function(){
+    if(window.innerWidth <= 768) return;
+    const y = window.scrollY;
+    wrapper.style.transform = (y > lastY && y > 80) ? 'translateY(-100%)' : 'translateY(0)';
+    lastY = y;
+  }, {passive:true});
+})();
+
+// ── HAMBURGER ──
 function toggleMenu(){
-  document.getElementById('mobileMenu').classList.toggle('open');
+  const m = document.getElementById('mobileMenu');
+  if(m) m.classList.toggle('open');
 }
 </script>
 </body>
