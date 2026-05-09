@@ -245,12 +245,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 .work-item:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.08);transition:transform 0.25s ease,box-shadow 0.25s ease;}
 .file-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,80,160,0.1);transition:transform 0.25s ease,box-shadow 0.25s ease;}
 
-/* Counter animation */
-@keyframes countUp {
-  from{opacity:0;transform:scale(0.8);}
-  to{opacity:1;transform:scale(1);}
-}
-.stat-n{animation:countUp 0.6s ease forwards;}
+
 </style>
 </head>
 <body>
@@ -608,35 +603,7 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold: 0.12});
 revealEls.forEach(el => observer.observe(el));
 
-// ── COUNTER ANIMATION for stats ──
-function animateCount(el, target, duration=1200){
-  let start = 0;
-  const isNum = !isNaN(parseInt(target));
-  if(!isNum) return;
-  const num = parseInt(target);
-  const step = num / (duration / 16);
-  const timer = setInterval(() => {
-    start += step;
-    if(start >= num){
-      el.textContent = target;
-      clearInterval(timer);
-    } else {
-      el.textContent = Math.floor(start);
-    }
-  }, 16);
-}
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const el = entry.target;
-      const original = el.getAttribute('data-target') || el.textContent;
-      el.setAttribute('data-target', original);
-      animateCount(el, original);
-      statObserver.unobserve(el);
-    }
-  });
-}, {threshold: 0.5});
-document.querySelectorAll('.stat-n').forEach(el => statObserver.observe(el));
+
 </script>
 
 </body>
