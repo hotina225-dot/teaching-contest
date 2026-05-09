@@ -6,177 +6,71 @@
 <title>檔案下載 | 數位教學演示競賽</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
-
-/* ── NAV ── */
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:60px;background:rgba(255,255,255,0.97);border-bottom:2px solid #E8581A;width:100%;position:relative;z-index:10;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;}
+body{font-family:'Noto Sans TC',sans-serif;background:#F7F9FF;color:#1A1A18;padding-top:60px;}
 .nav-wrapper{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:transform 0.3s ease;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:#fff;border-bottom:2px solid #E8581A;width:100%;}
 .nav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
 .nav-name{font-size:15px;font-weight:700;color:#1A1A18;}
 .nav-sub{font-size:12px;color:#A0A09A;display:block;}
 .nav-links{display:flex;gap:3px;list-style:none;align-items:center;}
-.nav-links a{font-size:14px;color:#555;text-decoration:none;padding:5px 10px;border-radius:6px;}
-.nav-links a:hover{color:#E8581A;}
+.nav-links li a{font-size:14px;color:#555;text-decoration:none;padding:5px 10px;border-radius:6px;}
+.nav-links li a:hover{color:#E8581A;}
+.nav-links li a.active{font-weight:700;color:#E8581A;}
 .nav-reg{background:#E8581A !important;color:#fff !important;font-weight:700 !important;border-radius:6px !important;padding:7px 14px !important;}
 .nav-dropdown{position:relative;}
-.nav-submenu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #E8E4DC;border-radius:8px;min-width:160px;padding:6px 0;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+.nav-submenu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #EEE;border-radius:8px;min-width:160px;padding:6px 0;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.1);}
 .nav-submenu li{list-style:none;}
-.nav-submenu a{display:block;padding:8px 16px;font-size:13px;color:#555;}
-.nav-submenu a:hover{background:#FFF3EE;color:#E8581A;}
+.nav-submenu li a{display:block;padding:8px 16px;font-size:13px;color:#555;border-radius:0;}
+.nav-submenu li a:hover{background:#FFF3EE;color:#E8581A;}
 .nav-dropdown:hover .nav-submenu{display:block;}
-/* hamburger */
-.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:6px;background:none;border:none;width:36px;height:36px;}
-.nav-hamburger span{display:block;width:22px;height:2px;background:#1A1A18;border-radius:2px;transition:all .25s;}
-/* mobile menu */
-.nav-mobile-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid #EEE;padding:0;overflow:hidden;}
-.nav-mobile-menu.open{display:flex;}
-.nav-mobile-menu a{font-size:15px;color:#333;text-decoration:none;padding:14px 1.5rem;border-bottom:1px solid #F2F2F2;display:block;}
-.nav-mobile-menu a:last-child{border-bottom:none;}
-.nav-mobile-menu a:hover,.nav-mobile-menu a:active{color:#E8581A;background:#FFF8F5;}
-.nav-mobile-menu .mob-sub{font-size:14px;color:#888;padding:10px 1.5rem 10px 2.5rem;background:#FAFAFA;}
-.nav-mobile-menu .mob-reg{background:#E8581A;color:#fff !important;font-weight:700;text-align:center;margin:10px 1.5rem;border-radius:6px;padding:12px !important;border-bottom:none !important;}
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .nav-hamburger{display:flex;}
-  body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;padding-top:60px;margin:0;}
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-size:16px;}
-body{font-family:'Noto Sans TC',sans-serif;background:#F7F9FF;color:#1A1A18;padding-top:60px;}
-
-.nav-trigger{position:fixed;top:0;left:0;width:100%;height:16px;z-index:999;}
-
-
-
-
-
-
-
-
-
-
-
-.nav-dropdown:hover 
-
-.page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;width:100%;}
-.page-label{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.5rem;display:block;}
-h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#0D3A5E;margin-bottom:0.4rem;}
-.page-desc{font-size:14px;color:#3A6A8A;}
-
-.wave{display:block;width:100%;height:50px;}
-
-.section{padding:2rem 2.5rem 3rem;max-width:1000px;margin:0 auto;}
-
-.file-card{background:#fff;border:1px solid #D8E8F4;border-radius:14px;padding:0;margin-bottom:2rem;overflow:hidden;box-shadow:0 2px 12px rgba(0,80,160,0.06);}
-.file-card-header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid #E8F0FA;}
-.file-header-left{display:flex;align-items:center;gap:14px;}
-.file-type-badge{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
-.badge-pdf{background:#FFEEEE;color:#C8201A;}
-.badge-word{background:#EEF0FF;color:#2A50C8;}
-.file-name{font-size:15px;font-weight:700;color:#0D3A5E;margin-bottom:3px;}
-.file-desc{font-size:12px;color:#7A9AB8;}
-.file-btns{display:flex;gap:8px;}
-.btn-preview{font-size:12px;font-weight:700;color:#1A5A8A;background:#EAF4FF;border:1px solid #A8D4F0;padding:8px 16px;border-radius:6px;text-decoration:none;}
-.btn-download{font-size:12px;font-weight:700;color:#fff;background:#E8581A;padding:8px 16px;border-radius:6px;text-decoration:none;}
-.btn-download:hover{background:#C84A10;}
-.btn-preview:hover{background:#D8ECFF;}
-
-.file-preview{padding:1.25rem 1.5rem;background:#F7F9FF;}
-.preview-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#A8B8C8;margin-bottom:10px;}
-.file-preview iframe{border-radius:8px;border:1px solid #D8E8F4;display:block;}
-
-footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
-.footer-t{font-size:13px;color:#4A7A9A;}
-
-
-.hero{flex-direction:column;min-height:auto;}
-  .hero-left{width:100%;padding:2.5rem 1.5rem 2rem;}
-  h1.hero-h1{font-size:36px;white-space:normal;}
-  .hero-sub-title{font-size:22px;}
-  .stats-bar{padding:1rem 1.25rem;flex-wrap:wrap;gap:1rem;}
-  .stat-item{flex:1;min-width:40%;border-right:none;padding:0;}
-  .s-blue,.s-blue-mid,.s-white,.s-cream{padding:2rem 1.25rem;}
-  .cards-2{grid-template-columns:1fr;}
-  .tl-row{grid-template-columns:1fr 1fr;}
-  .score-tbl{font-size:13px;}
-  .sub-grid{grid-template-columns:1fr;}
-  .teach-row{flex-direction:column;}
-  .two-col{grid-template-columns:1fr;}
-  .wave-block svg{height:40px;}
-  .hero-btns{flex-direction:column;align-items:flex-start;gap:8px;}
-  .btn-main,.btn-sec{width:100%;text-align:center;}
-  /* photos */
-  .year-tabs{padding:1rem 1.25rem;flex-wrap:wrap;gap:8px;}
-  .photo-grid{grid-template-columns:1fr 1fr;}
-  /* share */
-  .work-item{padding:1.25rem;}
-  .work-left{flex-wrap:wrap;}
-  .work-name{font-size:20px;}
-  /* download */
-  .file-card-header{flex-direction:column;gap:12px;align-items:flex-start;}
-  .file-btns{width:100%;}
-  .file-btns a{flex:1;text-align:center;}
-  .section{padding:1.5rem 1.25rem;}
-}
-
-/* ── TABLET (768px - 1024px) ── */
-@media(min-width:769px) and (max-width:1024px){
-  nav{padding:0 1.5rem;}
-  
-  .hero{min-height:420px;}
-  .hero-left{width:52%;padding:3rem 0 2rem 2rem;}
-  h1.hero-h1{font-size:40px;}
-  .hero-sub-title{font-size:24px;}
-  .s-blue,.s-blue-mid,.s-white,.s-cream{padding:2.5rem 2rem;}
-  .cards-2{grid-template-columns:1fr 1fr;gap:10px;}
-  .tl-row{grid-template-columns:1fr 1fr;}
-  .score-tbl{font-size:13px;}
-  .sub-grid{grid-template-columns:1fr 1fr;}
-  .teach-row{flex-direction:row;}
-  .stats-bar{padding:1rem 2rem;}
-  .section{padding:2rem 2rem;}
-  .work-item{padding:1.5rem;}
-  .work-name{font-size:22px;}
-  .photo-grid{grid-template-columns:1fr 1fr;}
-  .file-card-header{flex-wrap:wrap;gap:10px;}
-}
-/* ── SMALL MOBILE (max 480px) ── */
-@media(max-width:480px){
-  h1.hero-h1{font-size:28px;}
-  .hero-sub-title{font-size:18px;}
-  .hero-sub{font-size:13px;}
-  .stat-n{font-size:20px;}
-  h2.sec-h2{font-size:22px;}
-  .tl-row{grid-template-columns:1fr;}
-  .photo-grid{grid-template-columns:1fr;}
-  .work-name{font-size:18px;}
-  .page-title{font-size:26px;}
-}
-
-/* ── MOBILE DRAWER ── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#1A1A18;border-radius:2px;}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1998;}
 .nav-overlay.open{display:block;}
 .nav-drawer{position:fixed;top:0;left:0;height:100%;width:72%;max-width:300px;background:#1A1A18;z-index:1999;transform:translateX(-100%);transition:transform 0.3s ease;display:flex;flex-direction:column;overflow-y:auto;}
 .nav-drawer.open{transform:translateX(0);}
-.nav-drawer-close{display:flex;align-items:center;padding:1.25rem 1.25rem 0.5rem;background:none;border:none;cursor:pointer;color:#fff;font-size:22px;line-height:1;align-self:flex-start;}
-.nav-drawer a{font-size:16px;color:#fff;text-decoration:none;padding:14px 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);display:block;font-weight:500;}
-.nav-drawer a:hover,.nav-drawer a:active{background:rgba(255,255,255,0.08);color:#E8A070;}
-.nav-drawer .mob-sub{font-size:14px;color:#AAA;padding:11px 1.5rem 11px 2.5rem;background:rgba(0,0,0,0.2);}
-.nav-drawer .mob-reg{background:#E8581A;color:#fff !important;font-weight:700;text-align:center;margin:1rem 1.25rem;border-radius:8px;padding:13px 1rem !important;border-bottom:none !important;display:block;font-size:15px;}
-.nav-drawer .mob-reg:hover{background:#C84A10;}
-.nav-drawer-title{font-size:12px;color:#888;padding:1rem 1.5rem 0.25rem;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.08);}
+.nav-drawer-close{display:flex;align-items:center;padding:1.25rem 1.25rem 0.75rem;background:none;border:none;cursor:pointer;color:#fff;font-size:22px;align-self:flex-start;}
+.nav-drawer a{font-size:16px;color:#fff;text-decoration:none;padding:14px 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);display:block;}
+.nav-drawer a:hover{background:rgba(255,255,255,0.08);}
+.nav-drawer a.active{font-weight:700;color:#E8A070;}
+.mob-sub{font-size:14px !important;color:#AAA !important;padding:11px 1.5rem 11px 2.5rem !important;background:rgba(0,0,0,0.2);}
+.mob-reg{background:#E8581A !important;color:#fff !important;font-weight:700;text-align:center;margin:1rem 1.25rem;border-radius:8px;padding:13px !important;border-bottom:none !important;display:block;}
 @media(max-width:768px){
   .nav-links{display:none;}
   .nav-hamburger{display:flex;}
   nav{padding:0 1.25rem;}
 }
 
-/* Active page nav item */
-.nav-active{font-weight:700 !important;color:#E8581A !important;}
-.nav-active-parent > a{font-weight:700 !important;color:#E8581A !important;}
+.page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;width:100%;}
+.page-label{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.5rem;display:block;}
+h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#0D3A5E;margin-bottom:0.5rem;}
+.page-desc{font-size:14px;color:#3A6A8A;}
+.wave{display:block;width:100%;height:50px;}
+.section{padding:2rem 2.5rem 3rem;max-width:1000px;margin:0 auto;}
+.file-card{background:#fff;border:1px solid #D8E8F4;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,80,160,0.06);margin-bottom:2rem;}
+.file-card-header{display:flex;align-items:center;justify-content:space-between;padding:1.5rem;border-bottom:1px solid #E8F0FA;}
+.file-header-left{display:flex;align-items:center;gap:14px;}
+.file-type-badge{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;background:#FFEEEE;color:#C8201A;}
+.file-name{font-size:15px;font-weight:700;color:#0D3A5E;margin-bottom:3px;}
+.file-desc{font-size:12px;color:#7A9AB8;}
+.btn-download{font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:10px 20px;border-radius:6px;text-decoration:none;display:inline-block;}
+.btn-download:hover{background:#C84A10;}
+.file-preview{padding:1.25rem 1.5rem;background:#F7F9FF;}
+.preview-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#A8B8C8;margin-bottom:10px;}
+.file-preview iframe{border-radius:8px;border:1px solid #D8E8F4;display:block;width:100%;}
+footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
+.footer-t{font-size:13px;color:#4A7A9A;}
+@media(max-width:768px){
+  .section{padding:1.5rem 1rem;}
+  .file-card-header{flex-direction:column;align-items:flex-start;gap:12px;}
+  .btn-download{width:100%;text-align:center;}
+}
 </style>
 </head>
 <body>
+
 <div class="nav-wrapper">
 <nav>
   <a class="nav-brand" href="index.html">
@@ -198,18 +92,30 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
       </ul>
     </li>
     <li><a href="share.html">作品分享</a></li>
-    <li><a href="download.html" class="nav-active">檔案下載</a></li>
+    <li><a href="download.html" class="active">檔案下載</a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>
   </ul>
-  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="選單">
+  <button class="nav-hamburger" onclick="openDrawer()" aria-label="選單">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 </div>
 
+<div class="nav-overlay" id="navOverlay" onclick="closeDrawer()"></div>
+<div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" onclick="closeDrawer()">✕</button>
+  <a href="index.html">首頁</a>
+  <a href="index.html#schedule">活動時程表</a>
+  <a href="photos.html">活動照片</a>
+  <a href="photos.html" class="mob-sub">→ 全部照片</a>
+  <a href="photos.html#y2024" class="mob-sub">→ 2024 活動照片</a>
+  <a href="photos.html#y2025" class="mob-sub">→ 2025 活動照片</a>
+  <a href="share.html">作品分享</a>
+  <a href="download.html" class="active">檔案下載</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="mob-reg">前往報名</a>
+</div>
 
-<div class="page-hero" style="padding-top:4rem;">
+<div class="page-hero">
   <span class="page-label">檔案下載</span>
   <h1 class="page-title">競賽相關檔案</h1>
   <p class="page-desc">下載競賽說明書等相關資料</p>
@@ -221,37 +127,22 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </svg>
 
 <div class="section">
-
-  <!-- PDF -->
   <div class="file-card">
     <div class="file-card-header">
       <div class="file-header-left">
-        <div class="file-type-badge badge-pdf">PDF</div>
+        <div class="file-type-badge">PDF</div>
         <div>
           <p class="file-name">114年度數位教學演示競賽說明書</p>
           <p class="file-desc">競賽目的、參賽對象、評分標準、繳交規範完整說明</p>
         </div>
       </div>
-      <div class="file-btns">
-        <a href="https://drive.google.com/file/d/15jBAsfKbDwXU86eqvf5q9lb02Oo0lS6A/view?usp=sharing" target="_blank" class="btn-download">下載 PDF ↓</a>
-      </div>
+      <a href="https://drive.google.com/file/d/15jBAsfKbDwXU86eqvf5q9lb02Oo0lS6A/view?usp=sharing" target="_blank" class="btn-download">下載 PDF ↓</a>
     </div>
     <div class="file-preview">
       <p class="preview-label">預覽</p>
-      <iframe src="https://drive.google.com/file/d/15jBAsfKbDwXU86eqvf5q9lb02Oo0lS6A/preview" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://drive.google.com/file/d/15jBAsfKbDwXU86eqvf5q9lb02Oo0lS6A/preview" height="500" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
-      <div class="file-btns">
-        <a href="https://docs.google.com/document/d/1qMJqjBfrjqfWoMQ4pvZtIjA9PCf0V0wO/preview" target="_blank" class="btn-preview">線上預覽 ↗</a>
-        <a href="https://docs.google.com/document/d/1qMJqjBfrjqfWoMQ4pvZtIjA9PCf0V0wO/export?format=docx" class="btn-download">下載 Word ↓</a>
-      </div>
-    </div>
-    <div class="file-preview">
-      <p class="preview-label">預覽</p>
-      <iframe src="https://docs.google.com/document/d/1qMJqjBfrjqfWoMQ4pvZtIjA9PCf0V0wO/preview" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
 </div>
 
 <footer>
@@ -260,58 +151,28 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </footer>
 
 <script>
-const nav = document.querySelector('nav');
-const trigger = document.querySelector('.nav-trigger');
-let lastY = window.scrollY;
-
-function updateNav(){
-  const currentY = window.scrollY;
-  if(currentY <= 0){
-    // 在最頂端 → 永遠顯示
-    nav.style.transform = 'translateY(0)';
-  } else if(currentY > lastY){
-    // 下滑 → 收起
-    nav.style.transform = 'translateY(-100%)';
-  } else {
-    // 上滑 → 顯示
-    nav.style.transform = 'translateY(0)';
-  }
-  lastY = currentY;
-}
-
-window.addEventListener('scroll', updateNav, {passive: true});
-
-// 滑鼠移到最頂端也顯示
-trigger.addEventListener('mouseenter', ()=> nav.style.transform = 'translateY(0)');
-
-
-
-function toggleMenu(){
-  document.getElementById('navDrawer').classList.toggle('open');
-  document.getElementById('navOverlay').classList.toggle('open');
-  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
+const navWrapper = document.querySelector('.nav-wrapper');
+let lastY = 0;
+window.addEventListener('scroll', function(){
+  if(window.innerWidth <= 768) return;
+  const y = window.scrollY;
+  navWrapper.style.transform = (y > lastY && y > 80) ? 'translateY(-100%)' : 'translateY(0)';
+  lastY = y;
+}, {passive:true});
+document.addEventListener('mousemove', function(e){
+  if(window.innerWidth <= 768) return;
+  if(e.clientY < 20) navWrapper.style.transform = 'translateY(0)';
+});
+function openDrawer(){
+  document.getElementById('navDrawer').classList.add('open');
+  document.getElementById('navOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 function closeDrawer(){
   document.getElementById('navDrawer').classList.remove('open');
   document.getElementById('navOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
-</script>
-<script>
-// ── NAV SCROLL HIDE/SHOW ──
-(function(){
-  const wrapper = document.querySelector('.nav-wrapper');
-  let lastY = window.scrollY;
-  window.addEventListener('scroll', function(){
-    if(window.innerWidth <= 768) return;
-    const y = window.scrollY;
-    wrapper.style.transform = (y > lastY && y > 80) ? 'translateY(-100%)' : 'translateY(0)';
-    lastY = y;
-  }, {passive:true});
-})();
-
-// ── HAMBURGER ──
-
 </script>
 </body>
 </html>

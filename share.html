@@ -6,173 +6,71 @@
 <title>作品分享 | 數位教學演示競賽</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
-
-/* ── NAV ── */
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:60px;background:rgba(255,255,255,0.97);border-bottom:2px solid #E8581A;width:100%;position:relative;z-index:10;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;}
+body{font-family:'Noto Sans TC',sans-serif;background:#F7F9FF;color:#1A1A18;padding-top:60px;}
 .nav-wrapper{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:transform 0.3s ease;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:#fff;border-bottom:2px solid #E8581A;width:100%;}
 .nav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
 .nav-name{font-size:15px;font-weight:700;color:#1A1A18;}
 .nav-sub{font-size:12px;color:#A0A09A;display:block;}
 .nav-links{display:flex;gap:3px;list-style:none;align-items:center;}
-.nav-links a{font-size:14px;color:#555;text-decoration:none;padding:5px 10px;border-radius:6px;}
-.nav-links a:hover{color:#E8581A;}
+.nav-links li a{font-size:14px;color:#555;text-decoration:none;padding:5px 10px;border-radius:6px;}
+.nav-links li a:hover{color:#E8581A;}
+.nav-links li a.active{font-weight:700;color:#E8581A;}
 .nav-reg{background:#E8581A !important;color:#fff !important;font-weight:700 !important;border-radius:6px !important;padding:7px 14px !important;}
 .nav-dropdown{position:relative;}
-.nav-submenu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #E8E4DC;border-radius:8px;min-width:160px;padding:6px 0;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+.nav-submenu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #EEE;border-radius:8px;min-width:160px;padding:6px 0;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.1);}
 .nav-submenu li{list-style:none;}
-.nav-submenu a{display:block;padding:8px 16px;font-size:13px;color:#555;}
-.nav-submenu a:hover{background:#FFF3EE;color:#E8581A;}
+.nav-submenu li a{display:block;padding:8px 16px;font-size:13px;color:#555;border-radius:0;}
+.nav-submenu li a:hover{background:#FFF3EE;color:#E8581A;}
 .nav-dropdown:hover .nav-submenu{display:block;}
-/* hamburger */
-.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:6px;background:none;border:none;width:36px;height:36px;}
-.nav-hamburger span{display:block;width:22px;height:2px;background:#1A1A18;border-radius:2px;transition:all .25s;}
-/* mobile menu */
-.nav-mobile-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid #EEE;padding:0;overflow:hidden;}
-.nav-mobile-menu.open{display:flex;}
-.nav-mobile-menu a{font-size:15px;color:#333;text-decoration:none;padding:14px 1.5rem;border-bottom:1px solid #F2F2F2;display:block;}
-.nav-mobile-menu a:last-child{border-bottom:none;}
-.nav-mobile-menu a:hover,.nav-mobile-menu a:active{color:#E8581A;background:#FFF8F5;}
-.nav-mobile-menu .mob-sub{font-size:14px;color:#888;padding:10px 1.5rem 10px 2.5rem;background:#FAFAFA;}
-.nav-mobile-menu .mob-reg{background:#E8581A;color:#fff !important;font-weight:700;text-align:center;margin:10px 1.5rem;border-radius:6px;padding:12px !important;border-bottom:none !important;}
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .nav-hamburger{display:flex;}
-  body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;padding-top:60px;margin:0;}
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-size:16px;}
-body{font-family:'Noto Sans TC',sans-serif;background:#F7F9FF;color:#1A1A18;padding-top:60px;}
-
-.nav-trigger{position:fixed;top:0;left:0;width:100%;height:16px;z-index:999;}
-
-
-
-
-
-
-
-
-
-
-
-.nav-dropdown:hover 
-
-.page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;width:100%;}
-.page-label{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.5rem;display:block;}
-h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#0D3A5E;margin-bottom:0.4rem;}
-.page-desc{font-size:14px;color:#3A6A8A;}
-.page-year{display:inline-block;margin-top:0.75rem;background:#E8581A;color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px;letter-spacing:0.05em;}
-
-.wave{display:block;width:100%;height:50px;}
-
-.section{padding:2rem 2.5rem 3rem;max-width:1100px;margin:0 auto;overflow:visible;}
-
-.work-item{display:flex;flex-direction:column;gap:1rem;padding:2rem;border-radius:14px;margin-bottom:2rem;}
-.work-left{display:flex;align-items:center;gap:1.5rem;flex-shrink:0;}
-.work-rank{font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;line-height:1;}
-.work-name{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:#0D3A5E;line-height:1;}
-.work-open-btn{display:inline-block;font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:9px 20px;border-radius:6px;text-decoration:none;margin-left:auto;}
-.work-open-btn:hover{background:#C84A10;}
-.work-preview{border-radius:10px;overflow:hidden;width:100%;}
-
-@media(max-width:700px){
-  .work-item{grid-template-columns:1fr;}
-  .work-left{position:static;}
-}
-
-footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
-.footer-t{font-size:13px;color:#4A7A9A;}
-
-
-.hero{flex-direction:column;min-height:auto;}
-  .hero-left{width:100%;padding:2.5rem 1.5rem 2rem;}
-  h1.hero-h1{font-size:36px;white-space:normal;}
-  .hero-sub-title{font-size:22px;}
-  .stats-bar{padding:1rem 1.25rem;flex-wrap:wrap;gap:1rem;}
-  .stat-item{flex:1;min-width:40%;border-right:none;padding:0;}
-  .s-blue,.s-blue-mid,.s-white,.s-cream{padding:2rem 1.25rem;}
-  .cards-2{grid-template-columns:1fr;}
-  .tl-row{grid-template-columns:1fr 1fr;}
-  .score-tbl{font-size:13px;}
-  .sub-grid{grid-template-columns:1fr;}
-  .teach-row{flex-direction:column;}
-  .two-col{grid-template-columns:1fr;}
-  .wave-block svg{height:40px;}
-  .hero-btns{flex-direction:column;align-items:flex-start;gap:8px;}
-  .btn-main,.btn-sec{width:100%;text-align:center;}
-  /* photos */
-  .year-tabs{padding:1rem 1.25rem;flex-wrap:wrap;gap:8px;}
-  .photo-grid{grid-template-columns:1fr 1fr;}
-  /* share */
-  .work-item{padding:1.25rem;}
-  .work-left{flex-wrap:wrap;}
-  .work-name{font-size:20px;}
-  /* download */
-  .file-card-header{flex-direction:column;gap:12px;align-items:flex-start;}
-  .file-btns{width:100%;}
-  .file-btns a{flex:1;text-align:center;}
-  .section{padding:1.5rem 1.25rem;}
-}
-
-/* ── TABLET (768px - 1024px) ── */
-@media(min-width:769px) and (max-width:1024px){
-  nav{padding:0 1.5rem;}
-  
-  .hero{min-height:420px;}
-  .hero-left{width:52%;padding:3rem 0 2rem 2rem;}
-  h1.hero-h1{font-size:40px;}
-  .hero-sub-title{font-size:24px;}
-  .s-blue,.s-blue-mid,.s-white,.s-cream{padding:2.5rem 2rem;}
-  .cards-2{grid-template-columns:1fr 1fr;gap:10px;}
-  .tl-row{grid-template-columns:1fr 1fr;}
-  .score-tbl{font-size:13px;}
-  .sub-grid{grid-template-columns:1fr 1fr;}
-  .teach-row{flex-direction:row;}
-  .stats-bar{padding:1rem 2rem;}
-  .section{padding:2rem 2rem;}
-  .work-item{padding:1.5rem;}
-  .work-name{font-size:22px;}
-  .photo-grid{grid-template-columns:1fr 1fr;}
-  .file-card-header{flex-wrap:wrap;gap:10px;}
-}
-/* ── SMALL MOBILE (max 480px) ── */
-@media(max-width:480px){
-  h1.hero-h1{font-size:28px;}
-  .hero-sub-title{font-size:18px;}
-  .hero-sub{font-size:13px;}
-  .stat-n{font-size:20px;}
-  h2.sec-h2{font-size:22px;}
-  .tl-row{grid-template-columns:1fr;}
-  .photo-grid{grid-template-columns:1fr;}
-  .work-name{font-size:18px;}
-  .page-title{font-size:26px;}
-}
-
-/* ── MOBILE DRAWER ── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#1A1A18;border-radius:2px;}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1998;}
 .nav-overlay.open{display:block;}
 .nav-drawer{position:fixed;top:0;left:0;height:100%;width:72%;max-width:300px;background:#1A1A18;z-index:1999;transform:translateX(-100%);transition:transform 0.3s ease;display:flex;flex-direction:column;overflow-y:auto;}
 .nav-drawer.open{transform:translateX(0);}
-.nav-drawer-close{display:flex;align-items:center;padding:1.25rem 1.25rem 0.5rem;background:none;border:none;cursor:pointer;color:#fff;font-size:22px;line-height:1;align-self:flex-start;}
-.nav-drawer a{font-size:16px;color:#fff;text-decoration:none;padding:14px 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);display:block;font-weight:500;}
-.nav-drawer a:hover,.nav-drawer a:active{background:rgba(255,255,255,0.08);color:#E8A070;}
-.nav-drawer .mob-sub{font-size:14px;color:#AAA;padding:11px 1.5rem 11px 2.5rem;background:rgba(0,0,0,0.2);}
-.nav-drawer .mob-reg{background:#E8581A;color:#fff !important;font-weight:700;text-align:center;margin:1rem 1.25rem;border-radius:8px;padding:13px 1rem !important;border-bottom:none !important;display:block;font-size:15px;}
-.nav-drawer .mob-reg:hover{background:#C84A10;}
-.nav-drawer-title{font-size:12px;color:#888;padding:1rem 1.5rem 0.25rem;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.08);}
+.nav-drawer-close{display:flex;align-items:center;padding:1.25rem 1.25rem 0.75rem;background:none;border:none;cursor:pointer;color:#fff;font-size:22px;align-self:flex-start;}
+.nav-drawer a{font-size:16px;color:#fff;text-decoration:none;padding:14px 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);display:block;}
+.nav-drawer a:hover{background:rgba(255,255,255,0.08);}
+.nav-drawer a.active{font-weight:700;color:#E8A070;}
+.mob-sub{font-size:14px !important;color:#AAA !important;padding:11px 1.5rem 11px 2.5rem !important;background:rgba(0,0,0,0.2);}
+.mob-reg{background:#E8581A !important;color:#fff !important;font-weight:700;text-align:center;margin:1rem 1.25rem;border-radius:8px;padding:13px !important;border-bottom:none !important;display:block;}
 @media(max-width:768px){
   .nav-links{display:none;}
   .nav-hamburger{display:flex;}
   nav{padding:0 1.25rem;}
 }
 
-/* Active page nav item */
-.nav-active{font-weight:700 !important;color:#E8581A !important;}
-.nav-active-parent > a{font-weight:700 !important;color:#E8581A !important;}
+.page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;width:100%;}
+.page-label{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.5rem;display:block;}
+h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#0D3A5E;margin-bottom:0.5rem;}
+.page-desc{font-size:14px;color:#3A6A8A;}
+.page-year{display:inline-block;margin-top:0.75rem;background:#E8581A;color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px;}
+.wave{display:block;width:100%;height:50px;}
+.section{padding:2rem 2.5rem 3rem;max-width:1100px;margin:0 auto;}
+.work-item{padding:1.5rem 2rem;border-radius:14px;margin-bottom:2rem;}
+.work-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem;}
+.work-header-left{display:flex;align-items:center;gap:1.25rem;}
+.work-rank{font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;line-height:1;}
+.work-name{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:#0D3A5E;line-height:1;}
+.work-open-btn{display:inline-block;font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:10px 20px;border-radius:6px;text-decoration:none;white-space:nowrap;}
+.work-open-btn:hover{background:#C84A10;}
+.work-preview{border-radius:10px;overflow:hidden;width:100%;}
+.work-preview iframe{border-radius:8px;border:1px solid #D8E8F0;display:block;width:100%;}
+footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
+.footer-t{font-size:13px;color:#4A7A9A;}
+@media(max-width:768px){
+  .section{padding:1.5rem 1rem;}
+  .work-item{padding:1rem;}
+  .work-name{font-size:20px;}
+  .work-header{flex-direction:column;align-items:flex-start;}
+}
 </style>
 </head>
 <body>
+
 <div class="nav-wrapper">
 <nav>
   <a class="nav-brand" href="index.html">
@@ -193,19 +91,31 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
         <li><a href="photos.html#y2025">2025 活動照片</a></li>
       </ul>
     </li>
-    <li><a href="share.html" class="nav-active">作品分享</a></li>
+    <li><a href="share.html" class="active">作品分享</a></li>
     <li><a href="download.html">檔案下載</a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>
   </ul>
-  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="選單">
+  <button class="nav-hamburger" onclick="openDrawer()" aria-label="選單">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 </div>
 
+<div class="nav-overlay" id="navOverlay" onclick="closeDrawer()"></div>
+<div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" onclick="closeDrawer()">✕</button>
+  <a href="index.html">首頁</a>
+  <a href="index.html#schedule">活動時程表</a>
+  <a href="photos.html">活動照片</a>
+  <a href="photos.html" class="mob-sub">→ 全部照片</a>
+  <a href="photos.html#y2024" class="mob-sub">→ 2024 活動照片</a>
+  <a href="photos.html#y2025" class="mob-sub">→ 2025 活動照片</a>
+  <a href="share.html" class="active">作品分享</a>
+  <a href="download.html">檔案下載</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="mob-reg">前往報名</a>
+</div>
 
-<div class="page-hero" style="padding-top:4rem;">
+<div class="page-hero">
   <span class="page-label">作品分享</span>
   <h1 class="page-title">歷屆優秀教案作品</h1>
   <p class="page-desc">收錄競賽得獎教案，供師資培育生參考學習</p>
@@ -219,77 +129,70 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 
 <div class="section">
 
-<div class="work-item" style="border-left:5px solid #F5C840;background:#FFF8EE;">
-  <div class="work-left">
-    <p class="work-rank" style="color:#E8A020;">🥇 第一名</p>
-    <p class="work-name">黃鼎強</p>
-    <a href="https://drive.google.com/file/d/1ObQWsoEQBdhHbT3KhydyvR4yF7WTqBSf/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+  <div class="work-item" style="border-left:5px solid #F5C840;background:#FFF8EE;">
+    <div class="work-header">
+      <div class="work-header-left">
+        <p class="work-rank" style="color:#E8A020;">🥇 第一名</p>
+        <p class="work-name">黃鼎強</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1ObQWsoEQBdhHbT3KhydyvR4yF7WTqBSf/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+    </div>
+    <div class="work-preview">
+      <iframe src="https://drive.google.com/file/d/1ObQWsoEQBdhHbT3KhydyvR4yF7WTqBSf/preview" height="480" frameborder="0" allowfullscreen></iframe>
+    </div>
   </div>
-  <div class="work-preview">
-    <iframe src="https://drive.google.com/file/d/1ObQWsoEQBdhHbT3KhydyvR4yF7WTqBSf/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
-  </div>
-</div>
 
-<!-- Mobile Overlay + Drawer -->
-<div class="nav-overlay" id="navOverlay" onclick="closeDrawer()"></div>
-<div class="nav-drawer" id="navDrawer">
-  <button class="nav-drawer-close" onclick="closeDrawer()">✕</button>
-  <p class="nav-drawer-title">選單</p>
-  <a href="index.html" onclick="closeDrawer()">首頁</a>
-  <a href="index.html#schedule" onclick="closeDrawer()">活動時程表</a>
-  <a href="photos.html" onclick="closeDrawer()">活動照片</a>
-  <a href="photos.html" class="mob-sub" onclick="closeDrawer()">→ 全部照片</a>
-  <a href="photos.html#y2024" class="mob-sub" onclick="closeDrawer()">→ 2024 活動照片</a>
-  <a href="photos.html#y2025" class="mob-sub" onclick="closeDrawer()">→ 2025 活動照片</a>
-  <a href="share.html" onclick="closeDrawer()">作品分享</a>
-  <a href="download.html" onclick="closeDrawer()">檔案下載</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="mob-reg">前往報名</a>
-</div>
+  <div class="work-item" style="border-left:5px solid #A8C0D8;background:#F0F5FA;">
+    <div class="work-header">
+      <div class="work-header-left">
+        <p class="work-rank" style="color:#6A8AAA;">🥈 第二名</p>
+        <p class="work-name">易品涵</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1xWHjXt83gbAsMl0681kooo_7zI0uRacQ/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+    </div>
+    <div class="work-preview">
+      <iframe src="https://drive.google.com/file/d/1xWHjXt83gbAsMl0681kooo_7zI0uRacQ/preview" height="480" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 
+  <div class="work-item" style="border-left:5px solid #E8B090;background:#FFF4EE;">
+    <div class="work-header">
+      <div class="work-header-left">
+        <p class="work-rank" style="color:#C87840;">🥉 第三名</p>
+        <p class="work-name">胡逸敏</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1bZ8KcvCyaCYtfBpJpcNImsLG901aSJV_/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+    </div>
+    <div class="work-preview">
+      <iframe src="https://drive.google.com/file/d/1bZ8KcvCyaCYtfBpJpcNImsLG901aSJV_/preview" height="480" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 
-<div class="work-item" style="border-left:5px solid #A8C0D8;background:#F0F5FA;">
-  <div class="work-left">
-    <p class="work-rank" style="color:#6A8AAA;">🥈 第二名</p>
-    <p class="work-name">易品涵</p>
-    <a href="https://drive.google.com/file/d/1xWHjXt83gbAsMl0681kooo_7zI0uRacQ/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+  <div class="work-item" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
+    <div class="work-header">
+      <div class="work-header-left">
+        <p class="work-rank" style="color:#4A8A8A;">✦ 佳作</p>
+        <p class="work-name">李芳瑜</p>
+      </div>
+      <a href="https://drive.google.com/file/d/17fB2IomXtPtymCL6V49MMoqMoLyc6Svx/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+    </div>
+    <div class="work-preview">
+      <iframe src="https://drive.google.com/file/d/17fB2IomXtPtymCL6V49MMoqMoLyc6Svx/preview" height="480" frameborder="0" allowfullscreen></iframe>
+    </div>
   </div>
-  <div class="work-preview">
-    <iframe src="https://drive.google.com/file/d/1xWHjXt83gbAsMl0681kooo_7zI0uRacQ/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
-  </div>
-</div>
 
-<div class="work-item" style="border-left:5px solid #E8B090;background:#FFF4EE;">
-  <div class="work-left">
-    <p class="work-rank" style="color:#C87840;">🥉 第三名</p>
-    <p class="work-name">胡逸敏</p>
-    <a href="https://drive.google.com/file/d/1bZ8KcvCyaCYtfBpJpcNImsLG901aSJV_/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+  <div class="work-item" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
+    <div class="work-header">
+      <div class="work-header-left">
+        <p class="work-rank" style="color:#4A8A8A;">✦ 佳作</p>
+        <p class="work-name">蔡鈞彥</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1o_BSGG__6Q0_mEre5PWgOAdcC5Kq-MQF/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+    </div>
+    <div class="work-preview">
+      <iframe src="https://drive.google.com/file/d/1o_BSGG__6Q0_mEre5PWgOAdcC5Kq-MQF/preview" height="480" frameborder="0" allowfullscreen></iframe>
+    </div>
   </div>
-  <div class="work-preview">
-    <iframe src="https://drive.google.com/file/d/1bZ8KcvCyaCYtfBpJpcNImsLG901aSJV_/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
-  </div>
-</div>
-
-<div class="work-item" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
-  <div class="work-left">
-    <p class="work-rank" style="color:#4A8A8A;">✦ 佳作</p>
-    <p class="work-name">李芳瑜</p>
-    <a href="https://drive.google.com/file/d/17fB2IomXtPtymCL6V49MMoqMoLyc6Svx/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
-  </div>
-  <div class="work-preview">
-    <iframe src="https://drive.google.com/file/d/17fB2IomXtPtymCL6V49MMoqMoLyc6Svx/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
-  </div>
-</div>
-
-<div class="work-item" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
-  <div class="work-left">
-    <p class="work-rank" style="color:#4A8A8A;">✦ 佳作</p>
-    <p class="work-name">蔡鈞彥</p>
-    <a href="https://drive.google.com/file/d/1o_BSGG__6Q0_mEre5PWgOAdcC5Kq-MQF/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
-  </div>
-  <div class="work-preview">
-    <iframe src="https://drive.google.com/file/d/1o_BSGG__6Q0_mEre5PWgOAdcC5Kq-MQF/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
-  </div>
-</div>
 
 </div>
 
@@ -299,58 +202,28 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </footer>
 
 <script>
-const nav = document.querySelector('nav');
-const trigger = document.querySelector('.nav-trigger');
-let lastY = window.scrollY;
-
-function updateNav(){
-  const currentY = window.scrollY;
-  if(currentY <= 0){
-    // 在最頂端 → 永遠顯示
-    nav.style.transform = 'translateY(0)';
-  } else if(currentY > lastY){
-    // 下滑 → 收起
-    nav.style.transform = 'translateY(-100%)';
-  } else {
-    // 上滑 → 顯示
-    nav.style.transform = 'translateY(0)';
-  }
-  lastY = currentY;
-}
-
-window.addEventListener('scroll', updateNav, {passive: true});
-
-// 滑鼠移到最頂端也顯示
-trigger.addEventListener('mouseenter', ()=> nav.style.transform = 'translateY(0)');
-
-
-
-function toggleMenu(){
-  document.getElementById('navDrawer').classList.toggle('open');
-  document.getElementById('navOverlay').classList.toggle('open');
-  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
+const navWrapper = document.querySelector('.nav-wrapper');
+let lastY = 0;
+window.addEventListener('scroll', function(){
+  if(window.innerWidth <= 768) return;
+  const y = window.scrollY;
+  navWrapper.style.transform = (y > lastY && y > 80) ? 'translateY(-100%)' : 'translateY(0)';
+  lastY = y;
+}, {passive:true});
+document.addEventListener('mousemove', function(e){
+  if(window.innerWidth <= 768) return;
+  if(e.clientY < 20) navWrapper.style.transform = 'translateY(0)';
+});
+function openDrawer(){
+  document.getElementById('navDrawer').classList.add('open');
+  document.getElementById('navOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 function closeDrawer(){
   document.getElementById('navDrawer').classList.remove('open');
   document.getElementById('navOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
-</script>
-<script>
-// ── NAV SCROLL HIDE/SHOW ──
-(function(){
-  const wrapper = document.querySelector('.nav-wrapper');
-  let lastY = window.scrollY;
-  window.addEventListener('scroll', function(){
-    if(window.innerWidth <= 768) return;
-    const y = window.scrollY;
-    wrapper.style.transform = (y > lastY && y > 80) ? 'translateY(-100%)' : 'translateY(0)';
-    lastY = y;
-  }, {passive:true});
-})();
-
-// ── HAMBURGER ──
-
 </script>
 </body>
 </html>
