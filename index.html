@@ -254,7 +254,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     </div>
   </div>
   <ul class="nav-links">
-    <li><a href="https://sites.google.com/view/digitalteaching2025/index">首頁</a></li>
+    <li><a href="https://hotina225-dot.github.io/teaching-contest/index.html">首頁</a></li>
     <li><a href="#schedule">活動時程表</a></li>
     <li class="nav-dropdown">
       <a href="#" class="nav-drop-toggle">活動照片 ▾</a>
@@ -516,6 +516,19 @@ trigger.addEventListener('mouseenter', showNav);
 nav.addEventListener('mouseenter', showNav);
 nav.addEventListener('mouseleave', scheduleHide);
 trigger.addEventListener('mouseleave', scheduleHide);
+
+// 如果是首頁就永遠顯示導覽列
+if(window.location.pathname.includes('index.html') || window.location.pathname === '/teaching-contest/' || window.location.pathname === '/teaching-contest'){
+  showNav();
+  nav.addEventListener('mouseleave', ()=>{}); // 停用隱藏
+  trigger.addEventListener('mouseleave', ()=>{});
+  // 完全停用自動隱藏
+  nav.onmouseleave = null;
+  trigger.onmouseleave = null;
+  // 強制常駐
+  nav.style.transform = 'translateY(0)';
+  nav.style.transition = 'none';
+}
 </script>
 </body>
 </html>
