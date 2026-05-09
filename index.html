@@ -73,9 +73,10 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5r
 /* HERO */
 .hero{width:100%;background:#EEF6FF;position:relative;overflow:hidden;min-height:480px;display:flex;align-items:stretch;}
 .hero-left{width:42%;padding:4rem 0 3rem 3rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem;position:relative;z-index:2;}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#E8581A;color:#fff;font-size:10px;font-weight:700;padding:5px 13px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;width:fit-content;}
-h1.hero-h1{font-family:'Noto Serif TC',serif;font-size:38px;line-height:1.25;color:#0D2A50;font-weight:900;}
-h1.hero-h1 em{font-style:normal;color:#E8581A;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#E8581A;color:#fff;font-size:10px;font-weight:400;padding:5px 13px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;width:fit-content;}
+h1.hero-h1{font-family:'Noto Serif TC',serif;font-size:52px;line-height:1.2;color:#0D2A50;font-weight:900;letter-spacing:0.02em;white-space:nowrap;}
+h1.hero-h1 em{font-style:normal;color:#E8581A;letter-spacing:0.02em;}
+.hero-sub-title{font-family:'Noto Serif TC',serif;font-size:28px;font-weight:700;color:#E8581A;letter-spacing:0.04em;display:block;margin-top:8px;}
 .hero-sub{font-size:13px;color:#4A6A8A;line-height:1.75;max-width:320px;}
 .hero-btns{display:flex;gap:10px;align-items:center;padding-top:4px;flex-wrap:wrap;}
 .btn-main{font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:13px 26px;border-radius:6px;text-decoration:none;transition:opacity .15s;}
@@ -129,8 +130,8 @@ h2.sec-h2-blue{color:#0D3A5E;}
 
 /* TAGS */
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem;}
-.tag{font-size:11px;padding:4px 11px;border-radius:4px;border:1px solid #C8D8E8;color:#3A6A8A;background:#EAF4FF;font-weight:500;}
-.tag-em{background:#E8581A;border-color:#E8581A;color:#fff;font-weight:700;}
+.tag{font-size:12px;padding:6px 14px;border-radius:6px;border:1.5px solid #A8D4F0;color:#1A5A8A;background:#CAE9FF;font-weight:600;}
+.tag-em{background:#CAE9FF;border-color:#A8D4F0;color:#1A5A8A;font-weight:600;}
 
 /* TEACH */
 .teach-row{display:flex;gap:8px;margin-top:1.25rem;}
@@ -255,7 +256,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <div class="hero">
   <div class="hero-left">
     <span class="hero-badge">114-2 學年度 · 現正開放報名</span>
-    <h1 class="hero-h1">以 AI<br>賦能教學<br><em>打造未來</em><br><em>教育力</em></h1>
+    <h1 class="hero-h1">以 AI 賦能教學<span class="hero-sub-title">打造未來教育力</span></h1>
     <p class="hero-sub">鼓勵師資培育生運用 AI 與數位工具，以教育議題為核心，設計具創意與實踐性的教學方案。</p>
     <div class="hero-btns">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="btn-main">立即報名參賽 →</a>
@@ -395,7 +396,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   </div>
   <span class="s-label s-label-blue" style="display:block;margin-bottom:0.5rem;">教育議題涵蓋範圍</span>
   <div class="tags">
-    <span class="tag tag-em">性別平等</span><span class="tag tag-em">人權</span><span class="tag tag-em">環境</span><span class="tag tag-em">海洋</span>
+    <span class="tag">性別平等</span><span class="tag">人權</span><span class="tag">環境</span><span class="tag">海洋</span>
     <span class="tag">科技</span><span class="tag">資訊</span><span class="tag">能源</span><span class="tag">安全</span><span class="tag">防災</span><span class="tag">閱讀素養</span>
   </div>
 </section>
@@ -440,7 +441,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <section id="score" class="s-blue">
   <span class="s-label">肆 · 評分標準</span>
   <h2 class="sec-h2 sec-h2-blue" style="margin-bottom:0.5rem;">四大評分面向</h2>
-  <p class="sec-desc sec-desc-blue">教學表現佔最高比重，兼顧教案品質、內容深度與 AI 創意應用。</p>
+  <p class="sec-desc sec-desc-blue">教學表現佔最高比重，兼顧教案品質、內容深度與 AI 創意應用</p>
   <table class="score-tbl">
     <thead><tr><th style="width:32%;">評分項目</th><th style="width:22%;">比例</th><th>說明</th></tr></thead>
     <tbody>
@@ -545,7 +546,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </section>
 
 <footer>
-  <span class="footer-t">© 2025 銘傳大學師資培育中心 · 數位教學演示競賽</span>
+  <span class="footer-t">© 2026 銘傳大學師資培育中心 · 數位教學演示競賽</span>
   <span class="footer-t">網頁設計 / 何立亭</span>
 </footer>
 
