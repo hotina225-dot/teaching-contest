@@ -3,7 +3,55 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>114年度 數位教學演示競賽</title>
+<title>114年度 數位教學演示競賽 | 銘傳大學師資培育中心</title>
+
+<!-- SEO 基本標籤 -->
+<meta name="description" content="114年度銘傳大學數位教學演示競賽，以AI賦能教學，打造未來教育力。鼓勵師資培育生運用AI與數位工具，設計具創意與實踐性的教學方案。比賽日期：115年5月27日。"/>
+<meta name="keywords" content="數位教學演示競賽,銘傳大學,師資培育,AI教學,教育創新,114年度,數位教學,AI賦能,教案設計,教育議題"/>
+<meta name="author" content="銘傳大學師資培育中心"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://hotina225-dot.github.io/teaching-contest/index.html"/>
+
+<!-- Open Graph（分享到 Line、Facebook 時顯示預覽） -->
+<meta property="og:title" content="114年度 數位教學演示競賽 | 銘傳大學師資培育中心"/>
+<meta property="og:description" content="以AI賦能教學，打造未來教育力。銘傳大學師資培育生專屬競賽，比賽日期115年5月27日，即日起至5月13日報名。"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://hotina225-dot.github.io/teaching-contest/index.html"/>
+<meta property="og:locale" content="zh_TW"/>
+<meta property="og:site_name" content="銘傳大學數位教學演示競賽"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="114年度 數位教學演示競賽"/>
+<meta name="twitter:description" content="以AI賦能教學，打造未來教育力。銘傳大學師資培育生專屬競賽。"/>
+
+<!-- 結構化資料（讓 Google 更了解這是一個活動） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "114年度數位教學演示競賽",
+  "description": "以AI賦能教學，打造未來教育力。鼓勵銘傳大學師資培育生運用AI與數位工具，以教育議題為核心，設計具創意與實踐性的教學方案。",
+  "startDate": "2025-05-27T18:00",
+  "endDate": "2025-05-27T21:30",
+  "location": {
+    "@type": "Place",
+    "name": "銘傳大學師資培育中心EE410教室",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "桃園市",
+      "addressCountry": "TW"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "銘傳大學師資培育中心",
+    "email": "digitalinstruction0001@gmail.com"
+  },
+  "url": "https://hotina225-dot.github.io/teaching-contest/index.html"
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
@@ -139,7 +187,29 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 .footer-t{font-size:11px;color:#4A7A9A;}
 @media(max-width:500px){footer{flex-direction:column;gap:6px;}}
 
-/* RESPONSIVE HERO */
+/* DROPDOWN */
+.nav-dropdown{position:relative;}
+.nav-submenu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #E8E4DC;border-radius:8px;min-width:160px;padding:6px 0;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+.nav-submenu li{list-style:none;}
+.nav-submenu a{display:block;padding:8px 16px;font-size:12px;color:#555;border-radius:0;}
+.nav-submenu a:hover{background:#FFF3EE;color:#E8581A;}
+.nav-dropdown:hover .nav-submenu{display:block;}
+
+/* SCHEDULE SECTION */
+.schedule-notice{background:#FFF3EE;border:1px solid #F5C8A8;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;}
+.schedule-notice-date{font-size:14px;font-weight:700;color:#1A1A18;margin-bottom:4px;}
+.schedule-notice-warn{font-size:12px;color:#E8581A;font-weight:500;}
+.schedule-table{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;margin-bottom:2rem;}
+.schedule-table thead th{font-size:12px;font-weight:700;padding:11px 16px;text-align:center;background:#1A5A8A;color:#fff;letter-spacing:0.05em;}
+.schedule-table tbody tr:nth-child(odd) td{background:#F0F8FF;}
+.schedule-table tbody tr:nth-child(even) td{background:#fff;}
+.schedule-table td{font-size:13px;padding:13px 16px;border-top:1px solid #E0EEFA;text-align:center;vertical-align:middle;}
+.schedule-table td:first-child{font-weight:700;color:#1A5A8A;white-space:nowrap;}
+.event-title{font-size:15px;font-weight:700;color:#0D3A5E;margin:1.5rem 0 0.5rem;}
+.event-meta{font-size:13px;color:#555;margin-bottom:0.4rem;line-height:1.7;}
+.event-meta a{color:#E8581A;text-decoration:none;}
+.event-meta a:hover{text-decoration:underline;}
+.map-wrap{border-radius:10px;overflow:hidden;border:1px solid #D8E8F4;margin-top:1rem;}
 @media(max-width:768px){
   .hero{flex-direction:column;}
   .hero-left{width:100%;padding:2.5rem 1.5rem 1.5rem;}
@@ -165,12 +235,19 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     </div>
   </div>
   <ul class="nav-links">
-    <li><a href="#purpose">競賽目的</a></li>
-    <li><a href="#content">競賽內容</a></li>
-    <li><a href="#flow">試教流程</a></li>
-    <li><a href="#score">評分標準</a></li>
-    <li><a href="#submit">繳交資料</a></li>
-    <li><a href="#signup" class="nav-reg">前往報名</a></li>
+    <li><a href="https://sites.google.com/view/digitalteaching2025/index">首頁</a></li>
+    <li><a href="#schedule">活動時程表</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="nav-drop-toggle">活動照片 ▾</a>
+      <ul class="nav-submenu">
+        <li><a href="https://sites.google.com/view/digitalteaching2025/photo/2024-%E6%B4%BB%E5%8B%95%E7%85%A7%E7%89%87" target="_blank">2024 活動照片</a></li>
+        <li><a href="https://sites.google.com/view/digitalteaching2025/photo/2025-%E6%B4%BB%E5%8B%95%E7%85%A7%E7%89%87" target="_blank">2025 活動照片</a></li>
+        <li><a href="https://sites.google.com/view/digitalteaching2025/photo/2026-%E6%B4%BB%E5%8B%95%E7%85%A7%E7%89%87" target="_blank">2026 活動照片</a></li>
+      </ul>
+    </li>
+    <li><a href="https://sites.google.com/view/digitalteaching2025/share" target="_blank">作品分享</a></li>
+    <li><a href="https://sites.google.com/view/digitalteaching2025/download" target="_blank">檔案下載</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>
   </ul>
 </nav>
 
@@ -181,8 +258,8 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <h1 class="hero-h1">以 AI<br>賦能教學<br><em>打造未來</em><br><em>教育力</em></h1>
     <p class="hero-sub">鼓勵師資培育生運用 AI 與數位工具，以教育議題為核心，設計具創意與實踐性的教學方案。</p>
     <div class="hero-btns">
-      <a href="#signup" class="btn-main">立即報名參賽 →</a>
-      <a href="#" class="btn-sec">下載說明 ↓</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="btn-main">立即報名參賽 →</a>
+      <a href="https://sites.google.com/view/digitalteaching2025/download" target="_blank" class="btn-sec">檔案下載 ↓</a>
     </div>
   </div>
   <div class="hero-right">
@@ -401,6 +478,55 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   </div>
 </section>
 
+<!-- WAVE: CAE9FF → white before schedule -->
+<div class="wave-block" style="background:#CAE9FF;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#fff"/>
+  <path d="M0,28 C300,52 660,18 960,42 C1200,62 1344,30 1440,44 L1440,0 L0,0 Z" fill="#D8F0FF" opacity="0.7"/>
+  <path d="M0,46 C192,24 456,64 720,42 C984,20 1248,60 1440,38 L1440,0 L0,0 Z" fill="#CAE9FF"/>
+</svg>
+</div>
+
+<!-- SCHEDULE SECTION -->
+<section id="schedule" class="s-white">
+  <span class="s-label">活動時程表</span>
+  <h2 class="sec-h2" style="margin-bottom:1.25rem;">競賽時程與活動流程</h2>
+
+  <div class="schedule-notice">
+    <p class="schedule-notice-date">徵件日期：即日起至 5月13日 23:00</p>
+    <p class="schedule-notice-warn">※逾時不候，請留意截止日期及時間</p>
+  </div>
+
+  <table class="schedule-table">
+    <thead><tr><th style="width:35%;">時間</th><th>事項</th></tr></thead>
+    <tbody>
+      <tr><td>即日起 － 5/13</td><td>報名及繳交教案</td></tr>
+      <tr><td>5/13 之後</td><td>教案審查</td></tr>
+      <tr><td>5/27</td><td>比賽當天</td></tr>
+    </tbody>
+  </table>
+
+  <p class="event-title">114年5月27日（三）活動流程表</p>
+  <p class="event-meta">比賽日期：115年5月27日（三）18:00 ~ 21:30</p>
+  <p class="event-meta">比賽地點：<a href="https://maps.google.com/?q=銘傳大學師資培育中心" target="_blank">銘傳大學師資培育中心 EE410 教室 ↗</a></p>
+
+  <table class="schedule-table" style="margin-top:1rem;">
+    <thead><tr><th style="width:35%;">時間</th><th>事項</th></tr></thead>
+    <tbody>
+      <tr><td>18:00 － 20:00</td><td>活動準備與開場</td></tr>
+      <tr><td>20:00 － 21:00</td><td>教學演示比賽（每組限時 15 分鐘）</td></tr>
+    </tbody>
+  </table>
+
+  <div class="map-wrap" style="margin-top:1.5rem;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.6!2d121.2!3d25.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7e3c6f7b1c3%3A0x1234!2z6Ym056S-5aSn5biC5biC6LOH5Z-O5pS5!5e0!3m2!1szh-TW!2stw!4v1234567890"
+      width="100%" height="320" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
 <!-- WAVE 7 -->
 <div class="wave-block" style="background:#fff;">
 <svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
@@ -414,7 +540,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <section id="signup" class="s-orange">
   <h2 class="cta-h2">準備好展示你的教學創意了嗎？</h2>
   <p class="cta-sub">銘傳大學師資培育生 · 歡迎報名參賽</p>
-  <a href="mailto:digitalinstruction0001@gmail.com" class="cta-btn">立即報名參賽 →</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="cta-btn">立即報名參賽 →</a>
   <p class="cta-email">digitalinstruction0001@gmail.com</p>
 </section>
 
