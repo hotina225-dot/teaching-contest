@@ -58,7 +58,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-size:16px;}
 html,body{width:100%;overflow-x:hidden;}
-body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;}
+body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;padding-top:60px;}
 
 /* NAV */
 /* NAV - hide by default, show on hover */
@@ -242,24 +242,27 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 }
 
 /* ── MOBILE NAV ── */
+.nav-wrapper{position:fixed;top:0;left:0;width:100%;z-index:1000;}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
-.nav-hamburger span{display:block;width:22px;height:2px;background:#1A1A18;border-radius:2px;transition:all .3s;}
-.nav-mobile-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid #EEE;padding:0.75rem 1.5rem 1rem;gap:4px;}
+.nav-hamburger span{display:block;width:24px;height:2.5px;background:#1A1A18;border-radius:2px;transition:all .3s;}
+.nav-mobile-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid #EEE;padding:0.75rem 1.5rem 1rem;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
 .nav-mobile-menu a{font-size:15px;color:#333;text-decoration:none;padding:10px 0;border-bottom:1px solid #F0F0F0;display:block;}
 .nav-mobile-menu a:last-child{border-bottom:none;}
 .nav-mobile-menu a:hover{color:#E8581A;}
-.nav-mobile-menu .nav-reg{background:#E8581A;color:#fff !important;border-radius:6px;padding:10px 16px;text-align:center;margin-top:6px;}
+.nav-mobile-menu .nav-reg{background:#E8581A;color:#fff !important;border-radius:6px;padding:10px 16px;text-align:center;margin-top:6px;display:block;border-bottom:none;}
 .nav-mobile-submenu{padding-left:1rem;}
 .nav-mobile-submenu a{font-size:14px;color:#888;}
 @media(max-width:768px){
-  nav{padding:0 1.25rem;}
+  nav{padding:0 1.25rem;transform:translateY(0) !important;position:relative;}
+  .nav-wrapper{transform:none !important;}
   .nav-links{display:none;}
   .nav-hamburger{display:flex;}
   .nav-mobile-menu.open{display:flex;}
-  .hero{flex-direction:column;min-height:auto;}
-  .hero-left{width:100%;padding:2.5rem 1.5rem 2rem;}
-  h1.hero-h1{font-size:36px;white-space:normal;}
-  .hero-sub-title{font-size:22px;}
+  .hero{flex-direction:column;min-height:auto;background-position:right top;}
+  .hero-left{width:100%;padding:2.5rem 1.5rem 2rem;background:rgba(238,246,255,0.92);position:relative;z-index:2;}
+  h1.hero-h1{font-size:34px;white-space:normal;}
+  .hero-sub-title{font-size:20px;}
+  .hero-bg-overlay{background:linear-gradient(to bottom,rgba(238,246,255,0.95) 60%,rgba(238,246,255,0.5) 100%);}
   .stats-bar{padding:1rem 1.25rem;flex-wrap:wrap;gap:1rem;}
   .stat-item{flex:1;min-width:40%;border-right:none;padding:0;}
   .s-blue,.s-blue-mid,.s-white,.s-cream{padding:2rem 1.25rem;}
@@ -270,19 +273,8 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   .teach-row{flex-direction:column;}
   .two-col{grid-template-columns:1fr;}
   .wave-block svg{height:40px;}
-  .hero-btns{flex-direction:column;align-items:flex-start;gap:8px;}
-  .btn-main,.btn-sec{width:100%;text-align:center;}
-  /* photos */
-  .year-tabs{padding:1rem 1.25rem;flex-wrap:wrap;gap:8px;}
-  .photo-grid{grid-template-columns:1fr 1fr;}
-  /* share */
-  .work-item{padding:1.25rem;}
-  .work-left{flex-wrap:wrap;}
-  .work-name{font-size:20px;}
-  /* download */
-  .file-card-header{flex-direction:column;gap:12px;align-items:flex-start;}
-  .file-btns{width:100%;}
-  .file-btns a{flex:1;text-align:center;}
+  .hero-btns{flex-direction:column;align-items:stretch;gap:8px;}
+  .btn-main,.btn-sec{width:100%;text-align:center;display:block;}
   .section{padding:1.5rem 1.25rem;}
 }
 
@@ -324,7 +316,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <body>
 
 <!-- NAV -->
-<div class="nav-trigger"></div>
+<div class="nav-wrapper"><div class="nav-trigger"></div>
 <nav>
   <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:9px;">
     <img src="unnamed.png" alt="Logo" style="height:36px;width:auto;"/>
@@ -364,7 +356,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <a href="share.html">作品分享</a>
   <a href="download.html">檔案下載</a>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a>
-</div>
+</div></div>
 
 <!-- HERO -->
 <div class="hero">
@@ -596,27 +588,24 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <script>
 const nav = document.querySelector('nav');
 const trigger = document.querySelector('.nav-trigger');
+const wrapper = document.querySelector('.nav-wrapper');
 let lastY = window.scrollY;
 
 function updateNav(){
+  if(window.innerWidth <= 768) return; // 手機不做滑動隱藏
   const currentY = window.scrollY;
   if(currentY <= 0){
-    // 在最頂端 → 永遠顯示
-    nav.style.transform = 'translateY(0)';
+    wrapper.style.transform = 'translateY(0)';
   } else if(currentY > lastY){
-    // 下滑 → 收起
-    nav.style.transform = 'translateY(-100%)';
+    wrapper.style.transform = 'translateY(-100%)';
   } else {
-    // 上滑 → 顯示
-    nav.style.transform = 'translateY(0)';
+    wrapper.style.transform = 'translateY(0)';
   }
   lastY = currentY;
 }
 
 window.addEventListener('scroll', updateNav, {passive: true});
-
-// 滑鼠移到最頂端也顯示
-trigger.addEventListener('mouseenter', ()=> nav.style.transform = 'translateY(0)');
+trigger.addEventListener('mouseenter', ()=> wrapper.style.transform = 'translateY(0)');
 </script>
 </body>
 </html>

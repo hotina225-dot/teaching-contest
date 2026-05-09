@@ -50,6 +50,7 @@ h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;c
 footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
 .footer-t{font-size:13px;color:#4A7A9A;}
 
+.nav-wrapper{position:fixed;top:0;left:0;width:100%;z-index:1000;}
 /* ── MOBILE NAV ── */
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
 .nav-hamburger span{display:block;width:22px;height:2px;background:#1A1A18;border-radius:2px;transition:all .3s;}
@@ -61,7 +62,8 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 .nav-mobile-submenu{padding-left:1rem;}
 .nav-mobile-submenu a{font-size:14px;color:#888;}
 @media(max-width:768px){
-  nav{padding:0 1.25rem;}
+  nav{padding:0 1.25rem;transform:translateY(0) !important;position:relative;}
+  .nav-wrapper{position:fixed !important;top:0;left:0;width:100%;}
   .nav-links{display:none;}
   .nav-hamburger{display:flex;}
   .nav-mobile-menu.open{display:flex;}
@@ -131,7 +133,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </style>
 </head>
 <body>
-<div class="nav-trigger"></div>
+<div class="nav-wrapper"><div class="nav-trigger"></div>
 <nav>
   <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:9px;">
     <img src="unnamed.png" alt="Logo" style="height:36px;width:auto;"/>
@@ -171,7 +173,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <a href="share.html">作品分享</a>
   <a href="download.html">檔案下載</a>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a>
-</div>
+</div></div>
 
 <div class="page-hero">
   <span class="page-label">作品分享</span>
