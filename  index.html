@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>114年度 數位教學演示競賽 | 銘傳大學師資培育中心</title>
+<meta name="description" content="114年度銘傳大學數位教學演示競賽，以AI賦能教學，打造未來教育力。"/>
+<meta name="keywords" content="數位教學演示競賽,銘傳大學,師資培育,AI教學,教育創新"/>
+<link rel="canonical" href="https://hotina225-dot.github.io/teaching-contest/index.html"/>
+<meta property="og:title" content="114年度 數位教學演示競賽 | 銘傳大學師資培育中心"/>
+<meta property="og:description" content="以AI賦能教學，打造未來教育力。銘傳大學師資培育生專屬競賽。"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;}
+body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;padding-top:60px;}
+
+/* ── NAV ── */
+.nav-wrapper{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:transform 0.3s ease;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(255,255,255,0.97);border-bottom:2px solid #E8581A;width:100%;}
+.nav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.nav-name{font-size:15px;font-weight:700;color:#1A1A18;}
+.nav-sub{font-size:12px;color:#A0A09A;display:block;}
+.nav-links{display:flex;gap:3px;list-style:none;align-items:center;}
+.nav-links a{font-size:14px;color:#555;text-decoration:none;padding:5px 10px;border-radius:6px;}
+.nav-links a:hover{color:#E8581A;}
+.nav-reg{background:#E8581A !important;color:#fff !important;font-weight:700 !important;border-radius:6px !important;}
+.nav-dropdown{position:relative;}
+.nav-submenu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #E8E4DC;border-radius:8px;min-width:160px;padding:6px 0;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+.nav-submenu li{list-style:none;}
+.nav-submenu a{display:block;padding:8px 16px;font-size:13px;color:#555;}
+.nav-submenu a:hover{background:#FFF3EE;color:#E8581A;}
+.nav-dropdown:hover .nav-submenu{display:block;}
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#1A1A18;border-radius:2px;}
+.nav-mobile-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid #EEE;}
+.nav-mobile-menu.open{display:flex;}
+.nav-mobile-menu a{font-size:15px;color:#333;text-decoration:none;padding:14px 1.5rem;border-bottom:1px solid #F2F2F2;display:block;}
+.nav-mobile-menu a:hover{color:#E8581A;background:#FFF8F5;}
+.mob-sub{font-size:14px !important;color:#999 !important;padding:10px 1.5rem 10px 2.5rem !important;background:#FAFAFA;}
+.mob-reg{background:#E8581A !important;color:#fff !important;font-weight:700;text-align:center;margin:10px 1.5rem;border-radius:6px;padding:12px 1.5rem !important;border-bottom:none !important;display:block;}
+
+/* ── HERO ── */
+.hero{width:100%;position:relative;overflow:hidden;min-height:580px;display:flex;align-items:stretch;background-image:url('hero-bg.png');background-size:cover;background-position:center top;}
+.hero-left{width:52%;padding:4rem 0 3rem 3.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;position:relative;z-index:2;}
+.hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(238,246,255,1) 40%,rgba(238,246,255,0.7) 58%,rgba(238,246,255,0) 78%);z-index:1;pointer-events:none;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#E8581A;color:#fff;font-size:10px;font-weight:400;padding:5px 13px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;width:fit-content;}
+h1.hero-h1{font-family:'Noto Serif TC',serif;font-size:62px;line-height:1.2;color:#0D2A50;font-weight:900;letter-spacing:0.02em;white-space:nowrap;}
+.hero-sub-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#E8581A;letter-spacing:0.04em;display:block;margin-top:8px;}
+.hero-sub{font-size:15px;color:#4A6A8A;line-height:1.75;max-width:380px;}
+.hero-btns{display:flex;gap:10px;align-items:center;padding-top:4px;flex-wrap:wrap;}
+.btn-main{font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:13px 26px;border-radius:6px;text-decoration:none;}
+.btn-main:hover{opacity:.85;}
+.btn-sec{font-size:12px;color:#4A6A8A;text-decoration:none;border:1px solid #B8D4F0;padding:12px 18px;border-radius:6px;}
+.btn-sec:hover{background:#D8ECFF;}
+
+/* ── WAVE ── */
+.wave-block{display:block;width:100%;line-height:0;overflow:hidden;}
+.wave-block svg{display:block;width:100%;}
+
+/* ── STATS ── */
+.stats-bar{display:flex;background:#CAE9FF;padding:1.1rem 2.5rem;width:100%;}
+.stat-item{flex:1;display:flex;flex-direction:column;gap:2px;padding-right:1.5rem;border-right:1px solid rgba(60,100,140,0.18);}
+.stat-item:last-child{border-right:none;padding-right:0;padding-left:1.5rem;}
+.stat-item:not(:first-child):not(:last-child){padding-left:1.5rem;}
+.stat-n{font-family:'Noto Serif TC',serif;font-size:24px;color:#1A5A8A;font-weight:700;line-height:1;}
+.stat-l{font-size:12px;color:#5A88A8;letter-spacing:0.04em;margin-top:2px;}
+
+/* ── SECTIONS ── */
+.s-blue{background:#CAE9FF;padding:3rem 2.5rem;width:100%;}
+.s-blue-mid{background:#B0D8F5;padding:3rem 2.5rem;width:100%;}
+.s-white{background:#fff;padding:3rem 2.5rem;width:100%;}
+.s-orange{background:#E8581A;padding:3.5rem 2.5rem;width:100%;text-align:center;}
+.s-label{font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.45rem;display:block;}
+.s-label-blue{color:#1A5A8A;}
+h2.sec-h2{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:#1A1A18;line-height:1.3;margin-bottom:0.45rem;}
+h2.sec-h2-blue{color:#0D3A5E;}
+.sec-desc{font-size:15px;color:#666;line-height:1.75;margin-bottom:1.5rem;}
+.sec-desc-blue{color:#3A6A8A;margin-bottom:1.25rem;font-size:15px;}
+
+/* ── GOALS ── */
+.goals{display:flex;flex-direction:column;gap:8px;}
+.goal{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-radius:6px;background:rgba(255,255,255,0.65);border-left:3px solid #E8581A;}
+.goal-n{font-family:'Noto Serif TC',serif;font-size:20px;color:#E8581A;min-width:22px;font-weight:700;line-height:1.1;}
+.goal-t{font-size:15px;color:#1A3A5A;line-height:1.65;}
+
+/* ── CARDS ── */
+.cards-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem;}
+.card{background:#F8FCFF;border:1px solid #D8E8F4;border-radius:8px;padding:1.1rem;}
+.card-icon-row{display:flex;align-items:center;margin-bottom:8px;}
+.card-dot{width:8px;height:8px;border-radius:2px;background:#E8581A;margin-right:6px;display:inline-block;}
+.card-lbl{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#E8581A;}
+.card-title{font-size:15px;font-weight:700;color:#1A1A18;margin-bottom:4px;}
+.card-body{font-size:14px;color:#666;line-height:1.6;}
+
+/* ── TAGS ── */
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem;}
+.tag{font-size:13px;padding:6px 14px;border-radius:6px;border:1.5px solid #A8D4F0;color:#1A5A8A;background:#CAE9FF;font-weight:600;}
+
+/* ── TEACH ── */
+.teach-row{display:flex;gap:8px;margin-top:1.25rem;}
+.teach-seg{border-radius:8px;padding:1rem;}
+.teach-min{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;margin-bottom:3px;color:#0D3A5E;}
+.teach-name{font-size:14px;font-weight:700;color:#0D3A5E;margin-bottom:2px;}
+.teach-note{font-size:13px;color:#4A7A9A;}
+
+/* ── TIMELINE ── */
+.tl-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:8px;overflow:hidden;margin-top:1.5rem;border:1px solid rgba(255,255,255,0.5);}
+.tl-box{padding:1.1rem;border-right:1px solid rgba(255,255,255,0.5);}
+.tl-box:last-child{border-right:none;}
+.tl-n{font-family:'Noto Serif TC',serif;font-size:28px;color:rgba(13,58,94,0.1);font-weight:700;margin-bottom:4px;}
+.tl-time{font-size:10px;color:#E8581A;font-weight:700;letter-spacing:0.07em;margin-bottom:3px;}
+.tl-name{font-size:14px;font-weight:700;color:#0D3A5E;margin-bottom:4px;}
+.tl-desc{font-size:13px;color:#4A7A9A;line-height:1.5;}
+
+/* ── SCORE ── */
+.score-tbl{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;}
+.score-tbl thead th{font-size:10px;font-weight:700;padding:11px 13px;text-align:left;background:#E8581A;color:#fff;letter-spacing:0.07em;text-transform:uppercase;}
+.score-tbl tbody tr:nth-child(odd) td{background:#fff;}
+.score-tbl tbody tr:nth-child(even) td{background:#F0F7FF;}
+.score-tbl td{font-size:12px;padding:12px 13px;vertical-align:middle;border-top:1px solid #E0EEFA;}
+.score-pct{font-family:'Noto Serif TC',serif;font-size:20px;color:#E8581A;font-weight:700;}
+.bar-wrap{height:3px;background:#D8E8F4;border-radius:2px;margin-top:4px;}
+.bar-fill{height:3px;border-radius:2px;background:#E8581A;}
+
+/* ── SUBMIT ── */
+.sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.sub-item{background:#F0F8FF;border:1px solid #C8D8F0;border-radius:8px;padding:1.1rem;border-top:3px solid #E8581A;}
+.sub-n{font-family:'Noto Serif TC',serif;font-size:24px;color:rgba(13,58,94,0.13);font-weight:700;margin-bottom:6px;}
+.sub-title{font-size:12px;font-weight:700;color:#1A3A6A;margin-bottom:3px;}
+.sub-body{font-size:11px;color:#4A7A9A;line-height:1.55;}
+
+/* ── RULES ── */
+.rules{display:flex;flex-direction:column;gap:8px;margin-top:1.1rem;}
+.rule{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:6px;background:#EAF4FF;border-left:2px solid #E8581A;}
+.rule-ck{font-size:15px;color:#E8581A;margin-top:1px;}
+.rule-t{font-size:12px;color:#1A4A6A;line-height:1.55;}
+
+/* ── SCHEDULE ── */
+#purpose,#content,#flow,#score,#submit,#signup,#schedule{scroll-margin-top:70px;}
+.schedule-notice{background:#FFF3EE;border:1px solid #F5C8A8;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;}
+.schedule-notice-date{font-size:14px;font-weight:700;color:#1A1A18;margin-bottom:4px;}
+.schedule-notice-warn{font-size:12px;color:#E8581A;font-weight:500;}
+.schedule-table{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;margin-bottom:2rem;}
+.schedule-table thead th{font-size:12px;font-weight:700;padding:11px 16px;text-align:center;background:#1A5A8A;color:#fff;letter-spacing:0.05em;}
+.schedule-table tbody tr:nth-child(odd) td{background:#F0F8FF;}
+.schedule-table tbody tr:nth-child(even) td{background:#fff;}
+.schedule-table td{font-size:13px;padding:13px 16px;border-top:1px solid #E0EEFA;text-align:center;vertical-align:middle;}
+.schedule-table td:first-child{font-weight:700;color:#1A5A8A;white-space:nowrap;}
+.event-title{font-size:15px;font-weight:700;color:#0D3A5E;margin:1.5rem 0 0.5rem;}
+.event-meta{font-size:13px;color:#555;margin-bottom:0.4rem;line-height:1.7;}
+.event-meta a{color:#E8581A;text-decoration:none;}
+.map-wrap{border-radius:10px;overflow:hidden;border:1px solid #D8E8F4;margin-top:1rem;}
+
+/* ── CTA ── */
+h2.cta-h2{font-family:'Noto Serif TC',serif;font-size:28px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:0.5rem;}
+.cta-sub{font-size:13px;color:rgba(255,255,255,0.75);margin-bottom:1.75rem;line-height:1.6;}
+.cta-btn{display:inline-block;font-size:14px;font-weight:700;color:#E8581A;background:#fff;padding:14px 32px;border-radius:6px;text-decoration:none;}
+.cta-email{margin-top:1.25rem;font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.04em;}
+
+/* ── FOOTER ── */
+footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;width:100%;}
+.footer-t{font-size:13px;color:#4A7A9A;}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  nav{padding:0 1.25rem;}
+  .hero{min-height:auto;background-position:right top;}
+  .hero-left{width:100%;padding:2.5rem 1.5rem 2rem;background:rgba(238,246,255,0.92);position:relative;z-index:2;}
+  .hero-bg-overlay{background:linear-gradient(to bottom,rgba(238,246,255,0.95) 60%,rgba(238,246,255,0.3) 100%);}
+  h1.hero-h1{font-size:34px;white-space:normal;}
+  .hero-sub-title{font-size:20px;}
+  .hero-btns{flex-direction:column;align-items:stretch;}
+  .btn-main,.btn-sec{text-align:center;display:block;}
+  .stats-bar{padding:1rem 1.25rem;flex-wrap:wrap;gap:1rem;}
+  .stat-item{flex:1;min-width:40%;border-right:none;padding:0;}
+  .s-blue,.s-blue-mid,.s-white{padding:2rem 1.25rem;}
+  .cards-2{grid-template-columns:1fr;}
+  .tl-row{grid-template-columns:1fr 1fr;}
+  .sub-grid{grid-template-columns:1fr;}
+  .teach-row{flex-direction:column;}
+  footer{flex-direction:column;gap:6px;padding:1rem 1.25rem;}
+}
+/* ── TABLET ── */
+@media(min-width:769px) and (max-width:1024px){
+  .hero-left{width:52%;padding:3rem 0 2rem 2rem;}
+  h1.hero-h1{font-size:44px;}
+  .hero-sub-title{font-size:26px;}
+  .s-blue,.s-blue-mid,.s-white{padding:2.5rem 2rem;}
+  .sub-grid{grid-template-columns:1fr 1fr;}
+  .tl-row{grid-template-columns:1fr 1fr;}
+}
+
+/* ── MOBILE DRAWER ── */
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1998;}
+.nav-overlay.open{display:block;}
+.nav-drawer{position:fixed;top:0;left:0;height:100%;width:72%;max-width:300px;background:#1A1A18;z-index:1999;transform:translateX(-100%);transition:transform 0.3s ease;display:flex;flex-direction:column;overflow-y:auto;}
+.nav-drawer.open{transform:translateX(0);}
+.nav-drawer-close{display:flex;align-items:center;padding:1.25rem 1.25rem 0.5rem;background:none;border:none;cursor:pointer;color:#fff;font-size:22px;line-height:1;align-self:flex-start;}
+.nav-drawer a{font-size:16px;color:#fff;text-decoration:none;padding:14px 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);display:block;font-weight:500;}
+.nav-drawer a:hover,.nav-drawer a:active{background:rgba(255,255,255,0.08);color:#E8A070;}
+.nav-drawer .mob-sub{font-size:14px;color:#AAA;padding:11px 1.5rem 11px 2.5rem;background:rgba(0,0,0,0.2);}
+.nav-drawer .mob-reg{background:#E8581A;color:#fff !important;font-weight:700;text-align:center;margin:1rem 1.25rem;border-radius:8px;padding:13px 1rem !important;border-bottom:none !important;display:block;font-size:15px;}
+.nav-drawer .mob-reg:hover{background:#C84A10;}
+.nav-drawer-title{font-size:12px;color:#888;padding:1rem 1.5rem 0.25rem;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.08);}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  nav{padding:0 1.25rem;}
+}
+</style>
+</head>
+<body>
+<div class="nav-wrapper">
+<nav>
+  <a class="nav-brand" href="index.html">
+    <img src="unnamed.png" alt="Logo" style="height:36px;width:auto;"/>
+    <div>
+      <span class="nav-name">數位教學演示競賽</span>
+      <span class="nav-sub">銘傳大學師資培育中心</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="#schedule">活動時程表</a></li>
+    <li class="nav-dropdown">
+      <a href="photos.html">活動照片 ▾</a>
+      <ul class="nav-submenu">
+        <li><a href="photos.html">全部照片</a></li>
+        <li><a href="photos.html#y2024">2024 活動照片</a></li>
+        <li><a href="photos.html#y2025">2025 活動照片</a></li>
+      </ul>
+    </li>
+    <li><a href="share.html">作品分享</a></li>
+    <li><a href="download.html">檔案下載</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+</div>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-left">
+    <span class="hero-badge">114-2 學年度 · 現正開放報名</span>
+    <h1 class="hero-h1">以 AI 賦能教學<span class="hero-sub-title">打造未來教育力</span></h1>
+    <p class="hero-sub">鼓勵師資培育生運用 AI 與數位工具，以教育議題為核心，設計具創意與實踐性的教學方案</p>
+    <div class="hero-btns">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="btn-main">立即報名參賽 →</a>
+      <a href="download.html" class="btn-sec">檔案下載 ↓</a>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Overlay + Drawer -->
+<div class="nav-overlay" id="navOverlay" onclick="closeDrawer()"></div>
+<div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" onclick="closeDrawer()">✕</button>
+  <p class="nav-drawer-title">選單</p>
+  <a href="index.html" onclick="closeDrawer()">首頁</a>
+  <a href="index.html#schedule" onclick="closeDrawer()">活動時程表</a>
+  <a href="photos.html" onclick="closeDrawer()">活動照片</a>
+  <a href="photos.html" class="mob-sub" onclick="closeDrawer()">→ 全部照片</a>
+  <a href="photos.html#y2024" class="mob-sub" onclick="closeDrawer()">→ 2024 活動照片</a>
+  <a href="photos.html#y2025" class="mob-sub" onclick="closeDrawer()">→ 2025 活動照片</a>
+  <a href="share.html" onclick="closeDrawer()">作品分享</a>
+  <a href="download.html" onclick="closeDrawer()">檔案下載</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="mob-reg">前往報名</a>
+</div>
+
+
+<!-- WAVE 1 -->
+<div class="wave-block" style="background:#EEF6FF;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#CAE9FF"/>
+  <path d="M0,30 C240,65 540,18 840,52 C1140,86 1320,36 1440,58 L1440,0 L0,0 Z" fill="#D8F0FF" opacity="0.8"/>
+  <path d="M0,48 C216,22 432,68 648,44 C864,20 1080,60 1296,38 C1368,30 1410,42 1440,40 L1440,0 L0,0 Z" fill="#EEF6FF"/>
+</svg>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-n">2</span><span class="stat-l">競賽階段</span></div>
+  <div class="stat-item"><span class="stat-n">15'</span><span class="stat-l">試教時間</span></div>
+  <div class="stat-item"><span class="stat-n">4</span><span class="stat-l">評分面向</span></div>
+  <div class="stat-item"><span class="stat-n">MCU</span><span class="stat-l">銘傳師資培育生</span></div>
+</div>
+
+<!-- WAVE 2 -->
+<div class="wave-block" style="background:#CAE9FF;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#fff"/>
+  <path d="M0,30 C240,58 540,16 840,46 C1140,76 1320,32 1440,52 L1440,0 L0,0 Z" fill="#D8F0FF" opacity="0.8"/>
+  <path d="M0,46 C216,22 432,62 648,40 C864,18 1080,56 1296,36 C1368,28 1410,40 1440,38 L1440,0 L0,0 Z" fill="#CAE9FF"/>
+</svg>
+</div>
+
+<!-- SECTION 1 -->
+<section id="purpose" class="s-white">
+  <span class="s-label">壹 · 競賽目的</span>
+  <h2 class="sec-h2">為什麼舉辦這場競賽？</h2>
+  <p class="sec-desc">從教室出發，以 AI 為槳，划向更有意義的教育現場。</p>
+  <div class="goals">
+    <div class="goal"><span class="goal-n">1</span><span class="goal-t">鼓勵教育工作者運用 AI 與數位工具，發展創新教學模式</span></div>
+    <div class="goal"><span class="goal-n">2</span><span class="goal-t">促進教育議題融入教學，培養學生素養能力</span></div>
+    <div class="goal"><span class="goal-n">3</span><span class="goal-t">強化教學交流與專業發展，建立共好的教育生態</span></div>
+  </div>
+</section>
+
+<!-- WAVE 3 -->
+<div class="wave-block" style="background:#fff;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#B0D8F5"/>
+  <path d="M0,62 C300,82 600,48 900,72 C1140,92 1320,60 1440,72 L1440,90 L0,90 Z" fill="#CAE9FF" opacity="0.7"/>
+  <path d="M0,46 C240,70 480,26 780,54 C1080,82 1260,40 1440,58 L1440,0 L0,0 Z" fill="#fff"/>
+</svg>
+</div>
+
+<!-- SECTION 2 -->
+<section id="content" class="s-blue-mid">
+  <span class="s-label">貳 · 競賽內容</span>
+  <h2 class="sec-h2 sec-h2-blue" style="margin-bottom:0.5rem;">競賽形式與教案規範</h2>
+  <p class="sec-desc sec-desc-blue">分為教案預備與現場試教兩大階段，完整體驗教學創作的過程。</p>
+  <div class="cards-2">
+    <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">教案規範</span></div><p class="card-title">教案設計規範</p><p class="card-body">A4 格式呈現教學目標、素養指標、流程、評量，含至少一項法定教育議題</p></div>
+    <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">AI 規範</span></div><p class="card-title">AI 協作規範</p><p class="card-body">提交 AI 協作報告，含使用方式、至少 3 個 Prompts，及在地化調整說明</p></div>
+    <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">創新設計</span></div><p class="card-title">創新教學設計</p><p class="card-body">說明數位工具融入、合作學習設計，或跨領域與情境式教學的應用方式</p></div>
+    <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">設計理念</span></div><p class="card-title">設計說明</p><p class="card-body">簡要說明教案設計理念與情境設定，提升整體完整性與說服力</p></div>
+  </div>
+  <span class="s-label s-label-blue" style="display:block;margin-bottom:0.5rem;">教育議題涵蓋範圍</span>
+  <div class="tags">
+    <span class="tag">性別平等</span><span class="tag">人權</span><span class="tag">環境</span><span class="tag">海洋</span>
+    <span class="tag">科技</span><span class="tag">資訊</span><span class="tag">能源</span><span class="tag">安全</span><span class="tag">防災</span><span class="tag">閱讀素養</span>
+  </div>
+</section>
+
+<!-- WAVE 4 -->
+<div class="wave-block" style="background:#B0D8F5;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#fff"/>
+  <path d="M0,28 C360,58 720,14 1080,44 C1260,60 1368,30 1440,40 L1440,0 L0,0 Z" fill="#D8EEFA" opacity="0.7"/>
+  <path d="M0,48 C180,26 420,66 672,44 C924,22 1176,62 1440,40 L1440,0 L0,0 Z" fill="#B0D8F5"/>
+</svg>
+</div>
+
+<!-- SECTION 3 -->
+<section id="flow" class="s-white">
+  <span class="s-label">參 · 試教流程</span>
+  <h2 class="sec-h2" style="margin-bottom:0.5rem;">現場試教 15 分鐘架構</h2>
+  <p class="sec-desc">競賽分為教案預備（2 hr）與現場演示（1 hr）兩段，合計 3 小時。</p>
+  <div class="teach-row">
+    <div class="teach-seg" style="flex:1;background:#EAF4FF;border:1px solid #C8D8F0;border-radius:8px;padding:1rem;"><p class="teach-min tm1">1–3'</p><p class="teach-name" style="color:#1A3A6A;">動機引導</p><p class="teach-note">AI 教材展示</p></div>
+    <div class="teach-seg" style="flex:2.5;background:#D8ECFA;border:1px solid #B8D4F0;border-radius:8px;padding:1rem;"><p class="teach-min tm2">4–12'</p><p class="teach-name" style="color:#0D3A5E;">核心教學</p><p class="teach-note">互動活動展開</p></div>
+    <div class="teach-seg" style="flex:1;background:#EAF4FF;border:1px solid #C8D8F0;border-radius:8px;padding:1rem;"><p class="teach-min tm3">13–15'</p><p class="teach-name" style="color:#1A3A6A;">總結回饋</p><p class="teach-note">學習反思</p></div>
+  </div>
+  <div class="tl-row" style="background:rgba(0,80,160,0.06);">
+    <div class="tl-box" style="background:#F0F8FF;"><p class="tl-n">01</p><p class="tl-time">3 月中旬</p><p class="tl-name">開放報名</p><p class="tl-desc">填寫表單，提交初步構想</p></div>
+    <div class="tl-box" style="background:#EAF4FF;"><p class="tl-n">02</p><p class="tl-time">4 月上旬</p><p class="tl-name">作品提交</p><p class="tl-desc">繳交教案、教材、AI 報告</p></div>
+    <div class="tl-box" style="background:#F0F8FF;"><p class="tl-n">03</p><p class="tl-time">5 月初</p><p class="tl-name">初審結果</p><p class="tl-desc">公布晉級名單與回饋意見</p></div>
+    <div class="tl-box" style="background:#EAF4FF;"><p class="tl-n">04</p><p class="tl-time">5 月下旬</p><p class="tl-name">決賽頒獎</p><p class="tl-desc">現場演示、提問、頒獎</p></div>
+  </div>
+</section>
+
+<!-- WAVE 5 -->
+<div class="wave-block" style="background:#fff;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#CAE9FF"/>
+  <path d="M0,64 C360,82 720,50 1080,74 C1260,86 1368,64 1440,72 L1440,90 L0,90 Z" fill="#D8F0FF" opacity="0.8"/>
+  <path d="M0,50 C240,74 540,28 840,56 C1140,84 1320,46 1440,62 L1440,0 L0,0 Z" fill="#fff"/>
+</svg>
+</div>
+
+<!-- SECTION 4 -->
+<section id="score" class="s-blue">
+  <span class="s-label">肆 · 評分標準</span>
+  <h2 class="sec-h2 sec-h2-blue" style="margin-bottom:0.5rem;">四大評分面向</h2>
+  <p class="sec-desc sec-desc-blue">教學表現佔最高比重，兼顧教案品質、內容深度與 AI 創意應用</p>
+  <table class="score-tbl">
+    <thead><tr><th style="width:32%;">評分項目</th><th style="width:22%;">比例</th><th>說明</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="font-size:13px;">教學表現</strong></td><td><p class="score-pct">40%</p><div class="bar-wrap"><div class="bar-fill" style="width:40%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">口語表達 · 互動設計 · 時間掌控</span></td></tr>
+      <tr><td><strong style="font-size:13px;">教案完整度</strong></td><td><p class="score-pct">30%</p><div class="bar-wrap"><div class="bar-fill" style="width:30%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">目標明確 · 流程合理 · 評量具體</span></td></tr>
+      <tr><td><strong style="font-size:13px;">教學內容</strong></td><td><p class="score-pct">20%</p><div class="bar-wrap"><div class="bar-fill" style="width:20%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">符合教育議題 · 具創意與深度</span></td></tr>
+      <tr><td><strong style="font-size:13px;">AI 應用創意</strong></td><td><p class="score-pct">10%</p><div class="bar-wrap"><div class="bar-fill" style="width:10%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">善用 AI 提升教學品質</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- WAVE 6 -->
+<div class="wave-block" style="background:#CAE9FF;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#fff"/>
+  <path d="M0,28 C300,52 660,18 960,42 C1200,62 1344,30 1440,44 L1440,0 L0,0 Z" fill="#D8F0FF" opacity="0.7"/>
+  <path d="M0,46 C192,24 456,64 720,42 C984,20 1248,60 1440,38 L1440,0 L0,0 Z" fill="#CAE9FF"/>
+</svg>
+</div>
+
+<!-- SECTION 5 -->
+<section id="submit" class="s-white">
+  <span class="s-label">伍 · 繳交資料</span>
+  <h2 class="sec-h2" style="margin-bottom:1.5rem;">三份必繳文件</h2>
+  <div class="sub-grid" style="margin-bottom:2.5rem;">
+    <div class="sub-item"><p class="sub-n">01</p><p class="sub-title">教案 PDF</p><p class="sub-body">含教學目標、素養指標、教學流程與評量方式</p></div>
+    <div class="sub-item"><p class="sub-n">02</p><p class="sub-title">AI 協作報告</p><p class="sub-body">使用方式 + 3 個 Prompts + 在地化調整說明</p></div>
+    <div class="sub-item"><p class="sub-n">03</p><p class="sub-title">教學簡報</p><p class="sub-body">可附互動連結或數位媒材，輔助現場演示</p></div>
+  </div>
+  <span class="s-label">陸 · 作品規範</span>
+  <div class="rules">
+    <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">須為原創作品，不得侵犯他人著作權</span></div>
+    <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">AI 生成內容需標註來源與使用工具名稱</span></div>
+    <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">引用資料須清楚標示出處</span></div>
+  </div>
+</section>
+
+<!-- WAVE: CAE9FF → white before schedule -->
+<div class="wave-block" style="background:#CAE9FF;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#fff"/>
+  <path d="M0,28 C300,52 660,18 960,42 C1200,62 1344,30 1440,44 L1440,0 L0,0 Z" fill="#D8F0FF" opacity="0.7"/>
+  <path d="M0,46 C192,24 456,64 720,42 C984,20 1248,60 1440,38 L1440,0 L0,0 Z" fill="#CAE9FF"/>
+</svg>
+</div>
+
+<!-- SCHEDULE SECTION -->
+<section id="schedule" class="s-white">
+  <span class="s-label">活動時程表</span>
+  <h2 class="sec-h2" style="margin-bottom:1.25rem;">競賽時程與活動流程</h2>
+
+  <div class="schedule-notice">
+    <p class="schedule-notice-date">徵件日期：即日起至 5月13日 23:00</p>
+    <p class="schedule-notice-warn">※逾時不候，請留意截止日期及時間</p>
+  </div>
+
+  <table class="schedule-table">
+    <thead><tr><th style="width:35%;">時間</th><th>事項</th></tr></thead>
+    <tbody>
+      <tr><td>即日起 － 5/13</td><td>報名及繳交教案</td></tr>
+      <tr><td>5/13 之後</td><td>教案審查</td></tr>
+      <tr><td>5/27</td><td>比賽當天</td></tr>
+    </tbody>
+  </table>
+
+  <p class="event-title">114年5月27日（三）活動流程表</p>
+  <p class="event-meta">比賽日期：115年5月27日（三）18:00 ~ 21:30</p>
+  <p class="event-meta">比賽地點：<a href="https://maps.google.com/?q=銘傳大學師資培育中心" target="_blank">銘傳大學師資培育中心 EE410 教室 ↗</a></p>
+
+  <table class="schedule-table" style="margin-top:1rem;">
+    <thead><tr><th style="width:35%;">時間</th><th>事項</th></tr></thead>
+    <tbody>
+      <tr><td>18:00 － 20:00</td><td>活動準備與開場</td></tr>
+      <tr><td>20:00 － 21:00</td><td>教學演示比賽（每組限時 15 分鐘）</td></tr>
+    </tbody>
+  </table>
+
+  <div class="map-wrap" style="margin-top:1.5rem;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d7232.995983093606!2d121.341356!3d24.983189!3m2!1i1024!2i768!4f13.1!2m1!1zMzMz5Y-w5rm-5qGD5ZyS5biC6b6c5bGx5Y2A5b635piO6LevNeiZn-i-puWFrOWupOS9jeaWvDVG!5e0!3m2!1szh-TW!2sus!4v1778321630663!5m2!1szh-TW!2sus"
+      width="100%" height="320" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- WAVE 7 -->
+<div class="wave-block" style="background:#fff;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#E8581A"/>
+  <path d="M0,62 C336,82 696,46 1056,70 C1248,82 1368,56 1440,68 L1440,90 L0,90 Z" fill="#F08050" opacity="0.6"/>
+  <path d="M0,48 C264,72 552,24 864,52 C1176,80 1320,42 1440,58 L1440,0 L0,0 Z" fill="#fff"/>
+</svg>
+</div>
+
+<!-- CTA -->
+<section id="signup" class="s-orange">
+  <h2 class="cta-h2">準備好展示你的教學創意了嗎？</h2>
+  <p class="cta-sub">銘傳大學師資培育生 · 歡迎報名參賽</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="cta-btn">立即報名參賽 →</a>
+  <p class="cta-email">digitalinstruction0001@gmail.com</p>
+</section>
+
+<footer>
+  <span class="footer-t">© 2026 銘傳大學師資培育中心 · 數位教學演示競賽</span>
+  <span class="footer-t">網頁設計 / 何立亭</span>
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+const trigger = document.querySelector('.nav-trigger');
+const wrapper = document.querySelector('.nav-wrapper');
+let lastY = window.scrollY;
+
+function updateNav(){
+  if(window.innerWidth <= 768) return; // 手機不做滑動隱藏
+  const currentY = window.scrollY;
+  if(currentY <= 0){
+    wrapper.style.transform = 'translateY(0)';
+  } else if(currentY > lastY){
+    wrapper.style.transform = 'translateY(-100%)';
+  } else {
+    wrapper.style.transform = 'translateY(0)';
+  }
+  lastY = currentY;
+}
+
+window.addEventListener('scroll', updateNav, {passive: true});
+trigger.addEventListener('mouseenter', ()=> wrapper.style.transform = 'translateY(0)');
+
+function toggleMenu(){
+  document.getElementById('navDrawer').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeDrawer(){
+  document.getElementById('navDrawer').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+<script>
+// ── NAV SCROLL HIDE/SHOW ──
+(function(){
+  const wrapper = document.querySelector('.nav-wrapper');
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', function(){
+    if(window.innerWidth <= 768) return;
+    const y = window.scrollY;
+    wrapper.style.transform = (y > lastY && y > 80) ? 'translateY(-100%)' : 'translateY(0)';
+    lastY = y;
+  }, {passive:true});
+})();
+
+// ── HAMBURGER ──
+
+</script>
+
+<script>
+// NAV scroll
+const wrapper = document.querySelector('.nav-wrapper');
+let lastY = 0;
+window.addEventListener('scroll', function(){
+  if(window.innerWidth <= 768) return;
+  const y = window.scrollY;
+  wrapper.style.transform = (y > lastY && y > 80) ? 'translateY(-100%)' : 'translateY(0)';
+  lastY = y;
+}, {passive:true});
+
+// Hamburger
+
+</script>
+</body>
+</html>

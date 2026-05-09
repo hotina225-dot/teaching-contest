@@ -148,6 +148,24 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   .work-name{font-size:18px;}
   .page-title{font-size:26px;}
 }
+
+/* ── MOBILE DRAWER ── */
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1998;}
+.nav-overlay.open{display:block;}
+.nav-drawer{position:fixed;top:0;left:0;height:100%;width:72%;max-width:300px;background:#1A1A18;z-index:1999;transform:translateX(-100%);transition:transform 0.3s ease;display:flex;flex-direction:column;overflow-y:auto;}
+.nav-drawer.open{transform:translateX(0);}
+.nav-drawer-close{display:flex;align-items:center;padding:1.25rem 1.25rem 0.5rem;background:none;border:none;cursor:pointer;color:#fff;font-size:22px;line-height:1;align-self:flex-start;}
+.nav-drawer a{font-size:16px;color:#fff;text-decoration:none;padding:14px 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);display:block;font-weight:500;}
+.nav-drawer a:hover,.nav-drawer a:active{background:rgba(255,255,255,0.08);color:#E8A070;}
+.nav-drawer .mob-sub{font-size:14px;color:#AAA;padding:11px 1.5rem 11px 2.5rem;background:rgba(0,0,0,0.2);}
+.nav-drawer .mob-reg{background:#E8581A;color:#fff !important;font-weight:700;text-align:center;margin:1rem 1.25rem;border-radius:8px;padding:13px 1rem !important;border-bottom:none !important;display:block;font-size:15px;}
+.nav-drawer .mob-reg:hover{background:#C84A10;}
+.nav-drawer-title{font-size:12px;color:#888;padding:1rem 1.5rem 0.25rem;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.08);}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  nav{padding:0 1.25rem;}
+}
 </style>
 </head>
 <body>
@@ -179,17 +197,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="nav-mobile-menu" id="mobileMenu">
-  <a href="index.html">首頁</a>
-  <a href="index.html#schedule" onclick="toggleMenu()">活動時程表</a>
-  <a href="photos.html">活動照片</a>
-  <a href="photos.html" class="mob-sub">→ 全部照片</a>
-  <a href="photos.html#y2024" class="mob-sub">→ 2024 活動照片</a>
-  <a href="photos.html#y2025" class="mob-sub">→ 2025 活動照片</a>
-  <a href="share.html">作品分享</a>
-  <a href="download.html">檔案下載</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="mob-reg">前往報名</a>
-</div>
+
 </div>
 
 
@@ -217,6 +225,23 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <iframe src="https://drive.google.com/file/d/1ObQWsoEQBdhHbT3KhydyvR4yF7WTqBSf/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
   </div>
 </div>
+
+<!-- Mobile Overlay + Drawer -->
+<div class="nav-overlay" id="navOverlay" onclick="closeDrawer()"></div>
+<div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" onclick="closeDrawer()">✕</button>
+  <p class="nav-drawer-title">選單</p>
+  <a href="index.html" onclick="closeDrawer()">首頁</a>
+  <a href="index.html#schedule" onclick="closeDrawer()">活動時程表</a>
+  <a href="photos.html" onclick="closeDrawer()">活動照片</a>
+  <a href="photos.html" class="mob-sub" onclick="closeDrawer()">→ 全部照片</a>
+  <a href="photos.html#y2024" class="mob-sub" onclick="closeDrawer()">→ 2024 活動照片</a>
+  <a href="photos.html#y2025" class="mob-sub" onclick="closeDrawer()">→ 2025 活動照片</a>
+  <a href="share.html" onclick="closeDrawer()">作品分享</a>
+  <a href="download.html" onclick="closeDrawer()">檔案下載</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="mob-reg">前往報名</a>
+</div>
+
 
 <div class="work-item" style="border-left:5px solid #A8C0D8;background:#F0F5FA;">
   <div class="work-left">
@@ -295,6 +320,17 @@ window.addEventListener('scroll', updateNav, {passive: true});
 trigger.addEventListener('mouseenter', ()=> nav.style.transform = 'translateY(0)');
 
 
+
+function toggleMenu(){
+  document.getElementById('navDrawer').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeDrawer(){
+  document.getElementById('navDrawer').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 </script>
 <script>
 // ── NAV SCROLL HIDE/SHOW ──
@@ -310,10 +346,7 @@ trigger.addEventListener('mouseenter', ()=> nav.style.transform = 'translateY(0)
 })();
 
 // ── HAMBURGER ──
-function toggleMenu(){
-  const m = document.getElementById('mobileMenu');
-  if(m) m.classList.toggle('open');
-}
+
 </script>
 </body>
 </html>
