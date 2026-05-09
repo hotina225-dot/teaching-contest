@@ -58,10 +58,13 @@ h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;c
 .photo-item:hover img{transform:scale(1.05);}
 
 
-.album-wrap{border-radius:12px;overflow:hidden;background:#F0F8FF;padding:0;}
-.album-link{text-align:right;padding:8px 0;font-size:12px;}
-.album-link a{color:#E8581A;text-decoration:none;font-weight:500;}
-.album-link a:hover{text-decoration:underline;}
+.album-card{display:flex;align-items:center;gap:2rem;background:#EAF4FF;border:2px solid #A8D4F0;border-radius:16px;padding:2rem 2.5rem;text-decoration:none;transition:all .2s;cursor:pointer;}
+.album-card:hover{background:#D8ECFF;border-color:#5A9AE8;transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,80,160,0.12);}
+.album-card-icon{color:#1A5A8A;flex-shrink:0;background:#CAE9FF;border-radius:14px;width:80px;height:80px;display:flex;align-items:center;justify-content:center;}
+.album-card-info{flex:1;}
+.album-card-title{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;color:#0D3A5E;margin-bottom:6px;}
+.album-card-desc{font-size:13px;color:#5A88A8;margin-bottom:12px;}
+.album-card-btn{display:inline-block;font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:8px 20px;border-radius:6px;}
 
 /* LIGHTBOX */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;}
@@ -123,21 +126,39 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <!-- 2025 -->
 <div id="y2025" class="year-section">
   <p class="year-heading">2025 年活動照片</p>
-  <div class="album-wrap">
-    <iframe src="https://photos.google.com/share/AF1QipruAwTzvHXMgcBJ176?key=ruAwTzvHXMgcBJ176"
-      width="100%" height="520" frameborder="0" allowfullscreen style="border-radius:12px;border:none;"></iframe>
-    <p class="album-link"><a href="https://photos.app.goo.gl/ruAwTzvHXMgcBJ176" target="_blank">在 Google 相簿中開啟完整相簿 ↗</a></p>
-  </div>
+  <a href="https://photos.app.goo.gl/ruAwTzvHXMgcBJ176" target="_blank" class="album-card">
+    <div class="album-card-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+        <rect x="3" y="3" width="18" height="18" rx="3"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <path d="M21 15l-5-5L5 21"/>
+      </svg>
+    </div>
+    <div class="album-card-info">
+      <p class="album-card-title">2025 活動照片相簿</p>
+      <p class="album-card-desc">點擊在 Google 相簿中瀏覽所有照片</p>
+      <span class="album-card-btn">開啟相簿 ↗</span>
+    </div>
+  </a>
 </div>
 
 <!-- 2024 -->
 <div id="y2024" class="year-section">
   <p class="year-heading">2024 年活動照片</p>
-  <div class="album-wrap">
-    <iframe src="https://photos.google.com/share/AF1QipNhksyKLaWhZ6?key=FiLJnMhksyKLaWhZ6" 
-      width="100%" height="520" frameborder="0" allowfullscreen style="border-radius:12px;border:none;"></iframe>
-    <p class="album-link"><a href="https://photos.app.goo.gl/FiLJnMhksyKLaWhZ6" target="_blank">在 Google 相簿中開啟完整相簿 ↗</a></p>
-  </div>
+  <a href="https://photos.app.goo.gl/FiLJnMhksyKLaWhZ6" target="_blank" class="album-card">
+    <div class="album-card-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+        <rect x="3" y="3" width="18" height="18" rx="3"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <path d="M21 15l-5-5L5 21"/>
+      </svg>
+    </div>
+    <div class="album-card-info">
+      <p class="album-card-title">2024 活動照片相簿</p>
+      <p class="album-card-desc">點擊在 Google 相簿中瀏覽所有照片</p>
+      <span class="album-card-btn">開啟相簿 ↗</span>
+    </div>
+  </a>
 </div>
 
 <!-- LIGHTBOX -->
