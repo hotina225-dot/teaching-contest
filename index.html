@@ -61,7 +61,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;}
 
 /* NAV */
 /* NAV - hide by default, show on hover */
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(255,255,255,0.95);border-bottom:2px solid #E8581A;width:100%;position:fixed;top:0;z-index:1000;transform:translateY(-100%);transition:transform 0.3s ease;backdrop-filter:blur(8px);}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(255,255,255,0.97);border-bottom:2px solid #E8581A;width:100%;position:fixed;top:0;z-index:1000;transform:translateY(0);transition:none;backdrop-filter:blur(8px);}
 nav:hover{transform:translateY(0);}
 
 /* trigger zone at top of page */
@@ -257,11 +257,12 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <li><a href="https://hotina225-dot.github.io/teaching-contest/index.html">首頁</a></li>
     <li><a href="#schedule">活動時程表</a></li>
     <li class="nav-dropdown">
-      <a href="#" class="nav-drop-toggle">活動照片 ▾</a>
+      <a href="photos.html" class="nav-drop-toggle">活動照片 ▾</a>
       <ul class="nav-submenu">
-        <li><a href="photos.html#y2024" target="_blank">2024 活動照片</a></li>
-        <li><a href="photos.html#y2025" target="_blank">2025 活動照片</a></li>
-        <li><a href="photos.html#y2026" target="_blank">2026 活動照片</a></li>
+        <li><a href="photos.html">全部照片</a></li>
+        <li><a href="photos.html#y2024">2024 活動照片</a></li>
+        <li><a href="photos.html#y2025">2025 活動照片</a></li>
+        <li><a href="photos.html#y2026">2026 活動照片</a></li>
       </ul>
     </li>
     <li><a href="share.html">作品分享</a></li>
@@ -500,35 +501,10 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <script>
 const nav = document.querySelector('nav');
 const trigger = document.querySelector('.nav-trigger');
-let hideTimer;
 
-function showNav(){
-  clearTimeout(hideTimer);
-  nav.style.transform = 'translateY(0)';
-}
-function scheduleHide(){
-  hideTimer = setTimeout(()=>{
-    nav.style.transform = 'translateY(-100%)';
-  }, 600);
-}
-
-trigger.addEventListener('mouseenter', showNav);
-nav.addEventListener('mouseenter', showNav);
-nav.addEventListener('mouseleave', scheduleHide);
-trigger.addEventListener('mouseleave', scheduleHide);
-
-// 如果是首頁就永遠顯示導覽列
-if(window.location.pathname.includes('index.html') || window.location.pathname === '/teaching-contest/' || window.location.pathname === '/teaching-contest'){
-  showNav();
-  nav.addEventListener('mouseleave', ()=>{}); // 停用隱藏
-  trigger.addEventListener('mouseleave', ()=>{});
-  // 完全停用自動隱藏
-  nav.onmouseleave = null;
-  trigger.onmouseleave = null;
-  // 強制常駐
-  nav.style.transform = 'translateY(0)';
-  nav.style.transition = 'none';
-}
+// 首頁：導覽列永遠固定顯示
+nav.style.transform = 'translateY(0)';
+nav.style.transition = 'none';
 </script>
 </body>
 </html>
