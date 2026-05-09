@@ -60,7 +60,22 @@ html,body{width:100%;overflow-x:hidden;}
 body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;}
 
 /* NAV */
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:#fff;border-bottom:2px solid #E8581A;width:100%;position:sticky;top:0;z-index:100;}
+/* NAV - hide by default, show on hover */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(255,255,255,0.95);border-bottom:2px solid #E8581A;width:100%;position:fixed;top:0;z-index:1000;transform:translateY(-100%);transition:transform 0.3s ease;backdrop-filter:blur(8px);}
+nav:hover{transform:translateY(0);}
+
+/* trigger zone at top of page */
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:20px;z-index:999;}
+body::before:hover ~ nav{transform:translateY(0);}
+
+/* show nav when hovering trigger zone */
+body:has(nav:hover) nav,
+nav:hover{transform:translateY(0);}
+
+/* top hover trigger */
+.nav-trigger{position:fixed;top:0;left:0;width:100%;height:16px;z-index:999;background:transparent;}
+.nav-trigger:hover + nav,
+.nav-trigger:hover ~ nav{transform:translateY(0);}
 .nav-brand{display:flex;align-items:center;gap:9px;}
 .nav-accent{width:7px;height:7px;border-radius:50%;background:#E8581A;}
 .nav-name{font-size:13px;font-weight:700;color:#1A1A18;}
@@ -71,13 +86,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5r
 .nav-reg{background:#E8581A !important;color:#fff !important;font-weight:700 !important;border-radius:6px !important;}
 
 /* HERO */
-.hero{width:100%;position:relative;overflow:hidden;min-height:520px;display:flex;align-items:stretch;background-image:url('hero-bg.png');background-size:cover;background-position:center top;}
-.hero-left{width:50%;padding:4rem 0 3rem 3rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem;position:relative;z-index:2;}
-.hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(238,246,255,1) 38%,rgba(238,246,255,0.7) 55%,rgba(238,246,255,0) 75%);z-index:1;pointer-events:none;}.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#E8581A;color:#fff;font-size:10px;font-weight:400;padding:5px 13px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;width:fit-content;}
-h1.hero-h1{font-family:'Noto Serif TC',serif;font-size:52px;line-height:1.2;color:#0D2A50;font-weight:900;letter-spacing:0.02em;white-space:nowrap;}
+.hero{width:100%;position:relative;overflow:hidden;min-height:580px;display:flex;align-items:stretch;background-image:url('hero-bg.png');background-size:cover;background-position:center top;}
+.hero-left{width:52%;padding:4rem 0 3rem 3.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;position:relative;z-index:2;}
+.hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(238,246,255,1) 40%,rgba(238,246,255,0.7) 58%,rgba(238,246,255,0) 78%);z-index:1;pointer-events:none;}.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#E8581A;color:#fff;font-size:10px;font-weight:400;padding:5px 13px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;width:fit-content;}
+h1.hero-h1{font-family:'Noto Serif TC',serif;font-size:62px;line-height:1.2;color:#0D2A50;font-weight:900;letter-spacing:0.02em;white-space:nowrap;}
 h1.hero-h1 em{font-style:normal;color:#E8581A;letter-spacing:0.02em;}
-.hero-sub-title{font-family:'Noto Serif TC',serif;font-size:28px;font-weight:700;color:#E8581A;letter-spacing:0.04em;display:block;margin-top:8px;}
-.hero-sub{font-size:13px;color:#4A6A8A;line-height:1.75;max-width:320px;}
+.hero-sub-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#E8581A;letter-spacing:0.04em;display:block;margin-top:8px;}
+.hero-sub{font-size:15px;color:#4A6A8A;line-height:1.75;max-width:380px;}
 .hero-btns{display:flex;gap:10px;align-items:center;padding-top:4px;flex-wrap:wrap;}
 .btn-main{font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:13px 26px;border-radius:6px;text-decoration:none;transition:opacity .15s;}
 .btn-main:hover{opacity:.85;}
@@ -189,7 +204,8 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 .footer-t{font-size:11px;color:#4A7A9A;}
 @media(max-width:500px){footer{flex-direction:column;gap:6px;}}
 
-/* DROPDOWN */
+/* SCROLL OFFSET for fixed nav */
+#purpose,#content,#flow,#score,#submit,#signup,#schedule{scroll-margin-top:70px;}
 .nav-dropdown{position:relative;}
 .nav-submenu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #E8E4DC;border-radius:8px;min-width:160px;padding:6px 0;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
 .nav-submenu li{list-style:none;}
@@ -228,6 +244,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <body>
 
 <!-- NAV -->
+<div class="nav-trigger"></div>
 <nav>
   <div class="nav-brand">
     <img src="unnamed.png" alt="數位教學演示競賽 Logo" style="height:36px;width:auto;object-fit:contain;"/>
@@ -259,7 +276,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <div class="hero-left">
     <span class="hero-badge">114-2 學年度 · 現正開放報名</span>
     <h1 class="hero-h1">以 AI 賦能教學<span class="hero-sub-title">打造未來教育力</span></h1>
-    <p class="hero-sub">鼓勵師資培育生運用 AI 與數位工具，以教育議題為核心，設計具創意與實踐性的教學方案。</p>
+    <p class="hero-sub">鼓勵師資培育生運用 AI 與數位工具，以教育議題為核心，設計具創意與實踐性的教學方案</p>
     <div class="hero-btns">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="btn-main">立即報名參賽 →</a>
       <a href="https://sites.google.com/view/digitalteaching2025/download" target="_blank" class="btn-sec">檔案下載 ↓</a>
@@ -480,5 +497,25 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <span class="footer-t">網頁設計 / 何立亭</span>
 </footer>
 
+<script>
+const nav = document.querySelector('nav');
+const trigger = document.querySelector('.nav-trigger');
+let hideTimer;
+
+function showNav(){
+  clearTimeout(hideTimer);
+  nav.style.transform = 'translateY(0)';
+}
+function scheduleHide(){
+  hideTimer = setTimeout(()=>{
+    nav.style.transform = 'translateY(-100%)';
+  }, 600);
+}
+
+trigger.addEventListener('mouseenter', showNav);
+nav.addEventListener('mouseenter', showNav);
+nav.addEventListener('mouseleave', scheduleHide);
+trigger.addEventListener('mouseleave', scheduleHide);
+</script>
 </body>
 </html>
