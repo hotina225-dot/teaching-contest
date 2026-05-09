@@ -37,7 +37,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 @media(max-width:768px){
   .nav-links{display:none;}
   .nav-hamburger{display:flex;}
-  body{padding-top:60px;}
+  body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;padding-top:60px;margin:0;}
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -62,7 +62,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;padding
 .nav-dropdown:hover 
 
 /* PAGE HERO */
-.page-hero{background:#CAE9FF;padding:3.5rem 2.5rem 2.5rem;text-align:center;}
+.page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;width:100%;}
 .page-label{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.5rem;display:block;}
 h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#0D3A5E;margin-bottom:0.5rem;}
 .page-desc{font-size:14px;color:#3A6A8A;}
@@ -192,6 +192,10 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   .nav-hamburger{display:flex;}
   nav{padding:0 1.25rem;}
 }
+
+/* Active page nav item */
+.nav-active{font-weight:700 !important;color:#E8581A !important;}
+.nav-active-parent > a{font-weight:700 !important;color:#E8581A !important;}
 </style>
 </head>
 <body>
@@ -207,8 +211,8 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <ul class="nav-links">
     <li><a href="index.html">首頁</a></li>
     <li><a href="index.html#schedule">活動時程表</a></li>
-    <li class="nav-dropdown">
-      <a href="photos.html">活動照片 ▾</a>
+    <li class="nav-dropdown nav-active-parent">
+      <a href="photos.html" class="nav-active">活動照片 ▾</a>
       <ul class="nav-submenu">
         <li><a href="photos.html">全部照片</a></li>
         <li><a href="photos.html#y2024">2024 活動照片</a></li>
@@ -226,16 +230,10 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 
 </div>
 
-<div class="nav-wrapper">
 
-  </div>
-  <a href="share.html">作品分享</a>
-  <a href="download.html">檔案下載</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a>
-</div>
 
 <!-- HERO -->
-<div class="page-hero">
+<div class="page-hero" style="padding-top:4rem;">
   <span class="page-label">活動照片</span>
   <h1 class="page-title">歷年活動照片</h1>
   <p class="page-desc">記錄每一屆數位教學演示競賽的精彩瞬間</p>

@@ -37,7 +37,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 @media(max-width:768px){
   .nav-links{display:none;}
   .nav-hamburger{display:flex;}
-  body{padding-top:60px;}
+  body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;padding-top:60px;margin:0;}
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -58,7 +58,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:#F7F9FF;color:#1A1A18;padd
 
 .nav-dropdown:hover 
 
-.page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;}
+.page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;width:100%;}
 .page-label{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.5rem;display:block;}
 h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#0D3A5E;margin-bottom:0.4rem;}
 .page-desc{font-size:14px;color:#3A6A8A;}
@@ -170,6 +170,10 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   .nav-hamburger{display:flex;}
   nav{padding:0 1.25rem;}
 }
+
+/* Active page nav item */
+.nav-active{font-weight:700 !important;color:#E8581A !important;}
+.nav-active-parent > a{font-weight:700 !important;color:#E8581A !important;}
 </style>
 </head>
 <body>
@@ -194,7 +198,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
       </ul>
     </li>
     <li><a href="share.html">作品分享</a></li>
-    <li><a href="download.html">檔案下載</a></li>
+    <li><a href="download.html" class="nav-active">檔案下載</a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMenu()" aria-label="選單">
@@ -205,7 +209,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </div>
 
 
-<div class="page-hero">
+<div class="page-hero" style="padding-top:4rem;">
   <span class="page-label">檔案下載</span>
   <h1 class="page-title">競賽相關檔案</h1>
   <p class="page-desc">下載競賽說明書等相關資料</p>
