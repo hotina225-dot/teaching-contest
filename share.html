@@ -159,16 +159,6 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="nav-mobile-menu" id="mobileMenu">
-  <a href="index.html">首頁</a>
-  <a href="index.html#schedule">活動時程表</a>
-  <div>
-    <a href="photos.html">活動照片</a>
-    <div class="nav-mobile-submenu">
-      <a href="photos.html">全部照片</a>
-      <a href="photos.html#y2024">2024 活動照片</a>
-      <a href="photos.html#y2025">2025 活動照片</a>
-    </div>
   </div>
   <a href="share.html">作品分享</a>
   <a href="download.html">檔案下載</a>
@@ -275,6 +265,10 @@ window.addEventListener('scroll', updateNav, {passive: true});
 
 // 滑鼠移到最頂端也顯示
 trigger.addEventListener('mouseenter', ()=> nav.style.transform = 'translateY(0)');
+
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
 </script>
 </body>
 </html>

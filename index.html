@@ -50,6 +50,10 @@
   },
   "url": "https://hotina225-dot.github.io/teaching-contest/index.html"
 }
+
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -326,32 +330,24 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="https://hotina225-dot.github.io/teaching-contest/index.html">首頁</a></li>
+    <li><a href="index.html">首頁</a></li>
     <li><a href="#schedule">活動時程表</a></li>
     <li class="nav-dropdown">
       <a href="photos.html" class="nav-drop-toggle">活動照片 ▾</a>
       <ul class="nav-submenu">
-            <li><a href="photos.html">全部照片</a></li>
+        <li><a href="photos.html">全部照片</a></li>
         <li><a href="photos.html#y2024">2024 活動照片</a></li>
         <li><a href="photos.html#y2025">2025 活動照片</a></li>
       </ul>
     </li>
     <li><a href="share.html">作品分享</a></li>
     <li><a href="download.html">檔案下載</a></li>
-    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>  <button class="nav-hamburger" id="hamburger" aria-label="選單" onclick="toggleMenu()">
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="選單">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="nav-mobile-menu" id="mobileMenu">
-  <a href="index.html">首頁</a>
-  <a href="index.html#schedule">活動時程表</a>
-  <div>
-    <a href="photos.html">活動照片</a>
-    <div class="nav-mobile-submenu">
-      <a href="photos.html">全部照片</a>
-      <a href="photos.html#y2024">2024 活動照片</a>
-      <a href="photos.html#y2025">2025 活動照片</a>
-    </div>
   </div>
   <a href="share.html">作品分享</a>
   <a href="download.html">檔案下載</a>
