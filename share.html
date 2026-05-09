@@ -8,7 +8,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans TC',sans-serif;background:#F7F9FF;color:#1A1A18;padding-top:60px;}
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(255,255,255,0.97);border-bottom:2px solid #E8581A;width:100%;position:fixed;top:0;z-index:1000;transform:translateY(-100%);transition:transform 0.3s ease;backdrop-filter:blur(8px);}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(255,255,255,0.97);border-bottom:2px solid #E8581A;width:100%;position:fixed;top:0;z-index:1000;transform:translateY(0);transition:transform 0.3s ease;backdrop-filter:blur(8px);}
 .nav-trigger{position:fixed;top:0;left:0;width:100%;height:16px;z-index:999;}
 .nav-name{font-size:13px;font-weight:700;color:#1A1A18;}
 .nav-sub{font-size:10px;color:#A0A09A;display:block;}
@@ -156,13 +156,27 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <script>
 const nav = document.querySelector('nav');
 const trigger = document.querySelector('.nav-trigger');
-let hideTimer;
-function showNav(){clearTimeout(hideTimer);nav.style.transform='translateY(0)';}
-function scheduleHide(){hideTimer=setTimeout(()=>{nav.style.transform='translateY(-100%)';},600);}
-trigger.addEventListener('mouseenter',showNav);
-nav.addEventListener('mouseenter',showNav);
-nav.addEventListener('mouseleave',scheduleHide);
-trigger.addEventListener('mouseleave',scheduleHide);
+let lastY = window.scrollY;
+
+function updateNav(){
+  const currentY = window.scrollY;
+  if(currentY <= 0){
+    // 在最頂端 → 永遠顯示
+    nav.style.transform = 'translateY(0)';
+  } else if(currentY > lastY){
+    // 下滑 → 收起
+    nav.style.transform = 'translateY(-100%)';
+  } else {
+    // 上滑 → 顯示
+    nav.style.transform = 'translateY(0)';
+  }
+  lastY = currentY;
+}
+
+window.addEventListener('scroll', updateNav, {passive: true});
+
+// 滑鼠移到最頂端也顯示
+trigger.addEventListener('mouseenter', ()=> nav.style.transform = 'translateY(0)');
 </script>
 </body>
 </html>

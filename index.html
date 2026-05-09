@@ -500,10 +500,27 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <script>
 const nav = document.querySelector('nav');
 const trigger = document.querySelector('.nav-trigger');
+let lastY = window.scrollY;
 
-// 首頁：導覽列永遠固定顯示
-nav.style.transform = 'translateY(0)';
-nav.style.transition = 'none';
+function updateNav(){
+  const currentY = window.scrollY;
+  if(currentY <= 0){
+    // 在最頂端 → 永遠顯示
+    nav.style.transform = 'translateY(0)';
+  } else if(currentY > lastY){
+    // 下滑 → 收起
+    nav.style.transform = 'translateY(-100%)';
+  } else {
+    // 上滑 → 顯示
+    nav.style.transform = 'translateY(0)';
+  }
+  lastY = currentY;
+}
+
+window.addEventListener('scroll', updateNav, {passive: true});
+
+// 滑鼠移到最頂端也顯示
+trigger.addEventListener('mouseenter', ()=> nav.style.transform = 'translateY(0)');
 </script>
 </body>
 </html>
