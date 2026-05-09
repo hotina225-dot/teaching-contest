@@ -7,15 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;padding-top:60px;}
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(255,255,255,0.95);border-bottom:2px solid #E8581A;width:100%;position:fixed;top:0;z-index:1000;transform:translateY(-100%);transition:transform 0.3s ease;backdrop-filter:blur(8px);}
-.nav-trigger{position:fixed;top:0;left:0;width:100%;height:16px;z-index:999;background:transparent;}
-.nav-brand{display:flex;align-items:center;gap:9px;}
+body{font-family:'Noto Sans TC',sans-serif;background:#F7F9FF;color:#1A1A18;padding-top:60px;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(255,255,255,0.97);border-bottom:2px solid #E8581A;width:100%;position:fixed;top:0;z-index:1000;transform:translateY(-100%);transition:transform 0.3s ease;backdrop-filter:blur(8px);}
+.nav-trigger{position:fixed;top:0;left:0;width:100%;height:16px;z-index:999;}
 .nav-name{font-size:13px;font-weight:700;color:#1A1A18;}
 .nav-sub{font-size:10px;color:#A0A09A;display:block;}
 .nav-links{display:flex;gap:3px;list-style:none;position:relative;}
 .nav-links a{font-size:12px;color:#555;text-decoration:none;padding:5px 10px;border-radius:6px;}
-.nav-links a:hover{color:#E8581A;}
+.nav-links a:hover,.nav-links a.active{color:#E8581A;}
 .nav-reg{background:#E8581A !important;color:#fff !important;font-weight:700 !important;border-radius:6px !important;}
 .nav-dropdown{position:relative;}
 .nav-submenu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #E8E4DC;border-radius:8px;min-width:160px;padding:6px 0;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
@@ -24,28 +23,30 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5r
 .nav-submenu a:hover{background:#FFF3EE;color:#E8581A;}
 .nav-dropdown:hover .nav-submenu{display:block;}
 
-.page-hero{background:#CAE9FF;padding:4rem 2.5rem 3rem;text-align:center;}
+.page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;}
 .page-label{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.5rem;display:block;}
-h1.page-title{font-family:'Noto Serif TC',serif;font-size:36px;font-weight:700;color:#0D3A5E;margin-bottom:0.5rem;}
-.page-desc{font-size:14px;color:#3A6A8A;line-height:1.7;}
-.wave{display:block;width:100%;height:60px;}
+h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#0D3A5E;margin-bottom:0.4rem;}
+.page-desc{font-size:14px;color:#3A6A8A;}
+.page-year{display:inline-block;margin-top:0.75rem;background:#E8581A;color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px;letter-spacing:0.05em;}
 
-.section{padding:3rem 2.5rem;}
-.year-title{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;color:#0D3A5E;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid #CAE9FF;}
+.wave{display:block;width:100%;height:50px;}
 
-.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:3rem;}
-.work-card{background:#F0F8FF;border:1px solid #C8D8F0;border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;gap:10px;transition:box-shadow .2s;}
-.work-card:hover{box-shadow:0 4px 16px rgba(0,80,160,0.1);}
-.work-icon{width:48px;height:48px;background:#CAE9FF;border-radius:10px;display:flex;align-items:center;justify-content:center;}
-.work-icon svg{width:24px;height:24px;color:#1A5A8A;}
-.work-title{font-size:13px;font-weight:700;color:#0D3A5E;line-height:1.4;}
-.work-author{font-size:11px;color:#7A9AB8;font-weight:400;}
-.work-btn{display:inline-block;font-size:11px;font-weight:700;color:#E8581A;background:#FFF3EE;border:1px solid #F5C8A8;padding:6px 14px;border-radius:6px;text-decoration:none;width:fit-content;margin-top:auto;}
-.work-btn:hover{background:#FFE8D8;}
+.section{padding:2rem 2.5rem 3rem;max-width:1100px;margin:0 auto;}
 
-.placeholder-note{background:#FFF3EE;border:1px solid #F5C8A8;border-radius:8px;padding:1rem 1.25rem;font-size:13px;color:#C84A10;margin-bottom:2rem;}
+.work-item{display:grid;grid-template-columns:180px 1fr;gap:2rem;padding:2rem;border-radius:14px;margin-bottom:1.5rem;align-items:start;}
+.work-left{display:flex;flex-direction:column;gap:10px;position:sticky;top:80px;}
+.work-rank{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;line-height:1.2;}
+.work-name{font-family:'Noto Serif TC',serif;font-size:32px;font-weight:700;color:#0D3A5E;line-height:1.2;}
+.work-open-btn{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#E8581A;padding:8px 16px;border-radius:6px;text-decoration:none;margin-top:6px;}
+.work-open-btn:hover{background:#C84A10;}
+.work-preview{border-radius:10px;overflow:hidden;}
 
-footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;margin-top:2rem;}
+@media(max-width:700px){
+  .work-item{grid-template-columns:1fr;}
+  .work-left{position:static;}
+}
+
+footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
 .footer-t{font-size:11px;color:#4A7A9A;}
 </style>
 </head>
@@ -63,14 +64,14 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <li><a href="index.html">首頁</a></li>
     <li><a href="index.html#schedule">活動時程表</a></li>
     <li class="nav-dropdown">
-      <a href="#">活動照片 ▾</a>
+      <a href="photos.html">活動照片 ▾</a>
       <ul class="nav-submenu">
+        <li><a href="photos.html">全部照片</a></li>
         <li><a href="photos.html#y2024">2024 活動照片</a></li>
         <li><a href="photos.html#y2025">2025 活動照片</a></li>
-        <li><a href="photos.html#y2026">2026 活動照片</a></li>
       </ul>
     </li>
-    <li><a href="share.html">作品分享</a></li>
+    <li><a href="share.html" class="active">作品分享</a></li>
     <li><a href="download.html">檔案下載</a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>
   </ul>
@@ -78,61 +79,73 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 
 <div class="page-hero">
   <span class="page-label">作品分享</span>
-  <h1 class="page-title">歷年優秀作品</h1>
-  <p class="page-desc">收錄歷屆競賽優秀教案作品，供師資培育生參考學習</p>
+  <h1 class="page-title">歷屆優秀教案作品</h1>
+  <p class="page-desc">收錄競賽得獎教案，供師資培育生參考學習</p>
+  <span class="page-year">2025 年度</span>
 </div>
 
-<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1440" height="60" fill="#fff"/>
-  <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,0 L0,0 Z" fill="#CAE9FF"/>
+<svg class="wave" viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="50" fill="#F7F9FF"/>
+  <path d="M0,25 C240,50 480,0 720,25 C960,50 1200,0 1440,25 L1440,0 L0,0 Z" fill="#B0D8F5"/>
 </svg>
 
 <div class="section">
-  <div class="placeholder-note">📌 請將去年作品的 PDF 上傳至 GitHub，並將下方卡片的連結替換為實際 PDF 檔名。</div>
 
-  <p class="year-title">2025 年度作品</p>
-  <div class="works-grid">
-    <div class="work-card">
-      <div class="work-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-      <p class="work-title">作品名稱（請填入）</p>
-      <p class="work-author">作者：請填入姓名</p>
-      <a href="#" class="work-btn">下載 PDF ↓</a>
-    </div>
-    <div class="work-card">
-      <div class="work-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-      <p class="work-title">作品名稱（請填入）</p>
-      <p class="work-author">作者：請填入姓名</p>
-      <a href="#" class="work-btn">下載 PDF ↓</a>
-    </div>
-    <div class="work-card">
-      <div class="work-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-      <p class="work-title">作品名稱（請填入）</p>
-      <p class="work-author">作者：請填入姓名</p>
-      <a href="#" class="work-btn">下載 PDF ↓</a>
-    </div>
+<div class="work-item" style="border-left:5px solid #F5C840;background:#FFF8EE;">
+  <div class="work-left">
+    <p class="work-rank" style="color:#E8A020;">🥇 第一名</p>
+    <p class="work-name">黃鼎強</p>
+    <a href="https://drive.google.com/file/d/1ObQWsoEQBdhHbT3KhydyvR4yF7WTqBSf/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
   </div>
+  <div class="work-preview">
+    <iframe src="https://drive.google.com/file/d/1ObQWsoEQBdhHbT3KhydyvR4yF7WTqBSf/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
+  </div>
+</div>
 
-  <p class="year-title">2024 年度作品</p>
-  <div class="works-grid">
-    <div class="work-card">
-      <div class="work-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-      <p class="work-title">作品名稱（請填入）</p>
-      <p class="work-author">作者：請填入姓名</p>
-      <a href="#" class="work-btn">下載 PDF ↓</a>
-    </div>
-    <div class="work-card">
-      <div class="work-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-      <p class="work-title">作品名稱（請填入）</p>
-      <p class="work-author">作者：請填入姓名</p>
-      <a href="#" class="work-btn">下載 PDF ↓</a>
-    </div>
-    <div class="work-card">
-      <div class="work-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-      <p class="work-title">作品名稱（請填入）</p>
-      <p class="work-author">作者：請填入姓名</p>
-      <a href="#" class="work-btn">下載 PDF ↓</a>
-    </div>
+<div class="work-item" style="border-left:5px solid #A8C0D8;background:#F0F5FA;">
+  <div class="work-left">
+    <p class="work-rank" style="color:#6A8AAA;">🥈 第二名</p>
+    <p class="work-name">易品涵</p>
+    <a href="https://drive.google.com/file/d/1xWHjXt83gbAsMl0681kooo_7zI0uRacQ/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
   </div>
+  <div class="work-preview">
+    <iframe src="https://drive.google.com/file/d/1xWHjXt83gbAsMl0681kooo_7zI0uRacQ/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
+  </div>
+</div>
+
+<div class="work-item" style="border-left:5px solid #E8B090;background:#FFF4EE;">
+  <div class="work-left">
+    <p class="work-rank" style="color:#C87840;">🥉 第三名</p>
+    <p class="work-name">胡逸敏</p>
+    <a href="https://drive.google.com/file/d/1bZ8KcvCyaCYtfBpJpcNImsLG901aSJV_/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+  </div>
+  <div class="work-preview">
+    <iframe src="https://drive.google.com/file/d/1bZ8KcvCyaCYtfBpJpcNImsLG901aSJV_/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
+  </div>
+</div>
+
+<div class="work-item" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
+  <div class="work-left">
+    <p class="work-rank" style="color:#4A8A8A;">✦ 佳作</p>
+    <p class="work-name">李芳瑜</p>
+    <a href="https://drive.google.com/file/d/17fB2IomXtPtymCL6V49MMoqMoLyc6Svx/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+  </div>
+  <div class="work-preview">
+    <iframe src="https://drive.google.com/file/d/17fB2IomXtPtymCL6V49MMoqMoLyc6Svx/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
+  </div>
+</div>
+
+<div class="work-item" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
+  <div class="work-left">
+    <p class="work-rank" style="color:#4A8A8A;">✦ 佳作</p>
+    <p class="work-name">蔡鈞彥</p>
+    <a href="https://drive.google.com/file/d/1o_BSGG__6Q0_mEre5PWgOAdcC5Kq-MQF/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
+  </div>
+  <div class="work-preview">
+    <iframe src="https://drive.google.com/file/d/1o_BSGG__6Q0_mEre5PWgOAdcC5Kq-MQF/preview" width="100%" height="480" frameborder="0" allowfullscreen style="border-radius:8px;border:1px solid #E0E8F0;"></iframe>
+  </div>
+</div>
+
 </div>
 
 <footer>
