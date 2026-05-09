@@ -45,7 +45,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5r
 /* ── HERO ── */
 .hero{width:100%;position:relative;overflow:hidden;min-height:580px;display:flex;align-items:stretch;background-image:url('hero-bg.png');background-size:cover;background-position:center top;}
 .hero-left{width:52%;padding:4rem 0 3rem 3.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;position:relative;z-index:2;}
-.hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(238,246,255,1) 40%,rgba(238,246,255,0.7) 58%,rgba(238,246,255,0) 78%);z-index:1;pointer-events:none;}
+.hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(238,246,255,1) 38%,rgba(238,246,255,0.8) 52%,rgba(238,246,255,0) 72%);z-index:1;pointer-events:none;}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:#E8581A;color:#fff;font-size:10px;font-weight:400;padding:5px 13px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;width:fit-content;}
 h1.hero-h1{font-family:'Noto Serif TC',serif;font-size:62px;line-height:1.2;color:#0D2A50;font-weight:900;letter-spacing:0.02em;white-space:nowrap;}
 .hero-sub-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#E8581A;letter-spacing:0.04em;display:block;margin-top:8px;}
@@ -169,9 +169,11 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   .nav-links{display:none;}
   .nav-hamburger{display:flex;}
   nav{padding:0 1.25rem;}
-  .hero{min-height:auto;background-position:right top;}
-  .hero-left{width:100%;padding:2.5rem 1.5rem 2rem;background:rgba(238,246,255,0.92);position:relative;z-index:2;}
-  .hero-bg-overlay{background:linear-gradient(to bottom,rgba(238,246,255,0.95) 60%,rgba(238,246,255,0.3) 100%);}
+  .hero{min-height:480px;background-position:center top;display:block;position:relative;}
+  .hero-left{width:100%;padding:2.5rem 1.5rem 2rem;position:absolute;bottom:0;left:0;right:0;z-index:2;background:none;}
+  .hero-bg-overlay{background:linear-gradient(to top,rgba(238,246,255,1) 40%,rgba(238,246,255,0.6) 65%,rgba(238,246,255,0) 100%);}
+  h1.hero-h1{font-size:34px;white-space:normal;color:#0D2A50;}
+  .hero-sub-title{font-size:20px;}
   h1.hero-h1{font-size:34px;white-space:normal;}
   .hero-sub-title{font-size:20px;}
   .hero-btns{flex-direction:column;align-items:stretch;}
@@ -212,6 +214,39 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   .nav-hamburger{display:flex;}
   nav{padding:0 1.25rem;}
 }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.fade-up{opacity:0;animation:fadeUp 0.65s ease forwards;}
+.delay-1{animation-delay:0.1s;}
+.delay-2{animation-delay:0.2s;}
+.delay-3{animation-delay:0.3s;}
+.delay-4{animation-delay:0.4s;}
+.delay-5{animation-delay:0.5s;}
+.delay-6{animation-delay:0.6s;}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Hover float */
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,80,160,0.12);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.goal:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,80,160,0.08);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.sub-item:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,80,160,0.12);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.tl-box:hover{background:rgba(255,255,255,0.7) !important;transition:background 0.2s ease;}
+.album-card:hover{transform:translateY(-4px) !important;}
+.work-item:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.08);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.file-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,80,160,0.1);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+
+/* Counter animation */
+@keyframes countUp {
+  from{opacity:0;transform:scale(0.8);}
+  to{opacity:1;transform:scale(1);}
+}
+.stat-n{animation:countUp 0.6s ease forwards;}
 </style>
 </head>
 <body>
@@ -249,10 +284,10 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <div class="hero">
   <div class="hero-bg-overlay"></div>
   <div class="hero-left">
-    <span class="hero-badge">114-2 學年度 · 現正開放報名</span>
-    <h1 class="hero-h1">以 AI 賦能教學<span class="hero-sub-title">打造未來教育力</span></h1>
-    <p class="hero-sub">鼓勵師資培育生運用 AI 與數位工具，以教育議題為核心，設計具創意與實踐性的教學方案</p>
-    <div class="hero-btns">
+    <span class="hero-badge fade-up delay-1">114-2 學年度 · 現正開放報名</span>
+    <h1 class="hero-h1 fade-up delay-2">以 AI 賦能教學<span class="hero-sub-title">打造未來教育力</span></h1>
+    <p class="hero-sub fade-up delay-3">鼓勵師資培育生運用 AI 與數位工具，以教育議題為核心，設計具創意與實踐性的教學方案</p>
+    <div class="hero-btns fade-up delay-4">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="btn-main">立即報名參賽 →</a>
       <a href="download.html" class="btn-sec">檔案下載 ↓</a>
     </div>
@@ -307,7 +342,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <span class="s-label">壹 · 競賽目的</span>
   <h2 class="sec-h2">為什麼舉辦這場競賽？</h2>
   <p class="sec-desc">從教室出發，以 AI 為槳，划向更有意義的教育現場。</p>
-  <div class="goals">
+  <div class="goals reveal">
     <div class="goal"><span class="goal-n">1</span><span class="goal-t">鼓勵教育工作者運用 AI 與數位工具，發展創新教學模式</span></div>
     <div class="goal"><span class="goal-n">2</span><span class="goal-t">促進教育議題融入教學，培養學生素養能力</span></div>
     <div class="goal"><span class="goal-n">3</span><span class="goal-t">強化教學交流與專業發展，建立共好的教育生態</span></div>
@@ -328,7 +363,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <span class="s-label">貳 · 競賽內容</span>
   <h2 class="sec-h2 sec-h2-blue" style="margin-bottom:0.5rem;">競賽形式與教案規範</h2>
   <p class="sec-desc sec-desc-blue">分為教案預備與現場試教兩大階段，完整體驗教學創作的過程。</p>
-  <div class="cards-2">
+  <div class="cards-2 reveal">
     <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">教案規範</span></div><p class="card-title">教案設計規範</p><p class="card-body">A4 格式呈現教學目標、素養指標、流程、評量，含至少一項法定教育議題</p></div>
     <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">AI 規範</span></div><p class="card-title">AI 協作規範</p><p class="card-body">提交 AI 協作報告，含使用方式、至少 3 個 Prompts，及在地化調整說明</p></div>
     <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">創新設計</span></div><p class="card-title">創新教學設計</p><p class="card-body">說明數位工具融入、合作學習設計，或跨領域與情境式教學的應用方式</p></div>
@@ -355,12 +390,12 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <span class="s-label">參 · 試教流程</span>
   <h2 class="sec-h2" style="margin-bottom:0.5rem;">現場試教 15 分鐘架構</h2>
   <p class="sec-desc">競賽分為教案預備（2 hr）與現場演示（1 hr）兩段，合計 3 小時。</p>
-  <div class="teach-row">
+  <div class="teach-row reveal">
     <div class="teach-seg" style="flex:1;background:#EAF4FF;border:1px solid #C8D8F0;border-radius:8px;padding:1rem;"><p class="teach-min tm1">1–3'</p><p class="teach-name" style="color:#1A3A6A;">動機引導</p><p class="teach-note">AI 教材展示</p></div>
     <div class="teach-seg" style="flex:2.5;background:#D8ECFA;border:1px solid #B8D4F0;border-radius:8px;padding:1rem;"><p class="teach-min tm2">4–12'</p><p class="teach-name" style="color:#0D3A5E;">核心教學</p><p class="teach-note">互動活動展開</p></div>
     <div class="teach-seg" style="flex:1;background:#EAF4FF;border:1px solid #C8D8F0;border-radius:8px;padding:1rem;"><p class="teach-min tm3">13–15'</p><p class="teach-name" style="color:#1A3A6A;">總結回饋</p><p class="teach-note">學習反思</p></div>
   </div>
-  <div class="tl-row" style="background:rgba(0,80,160,0.06);">
+  <div class="tl-row reveal" style="background:rgba(0,80,160,0.06);">
     <div class="tl-box" style="background:#F0F8FF;"><p class="tl-n">01</p><p class="tl-time">3 月中旬</p><p class="tl-name">開放報名</p><p class="tl-desc">填寫表單，提交初步構想</p></div>
     <div class="tl-box" style="background:#EAF4FF;"><p class="tl-n">02</p><p class="tl-time">4 月上旬</p><p class="tl-name">作品提交</p><p class="tl-desc">繳交教案、教材、AI 報告</p></div>
     <div class="tl-box" style="background:#F0F8FF;"><p class="tl-n">03</p><p class="tl-time">5 月初</p><p class="tl-name">初審結果</p><p class="tl-desc">公布晉級名單與回饋意見</p></div>
@@ -382,7 +417,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <span class="s-label">肆 · 評分標準</span>
   <h2 class="sec-h2 sec-h2-blue" style="margin-bottom:0.5rem;">四大評分面向</h2>
   <p class="sec-desc sec-desc-blue">教學表現佔最高比重，兼顧教案品質、內容深度與 AI 創意應用</p>
-  <table class="score-tbl">
+  <table class="score-tbl reveal">
     <thead><tr><th style="width:32%;">評分項目</th><th style="width:22%;">比例</th><th>說明</th></tr></thead>
     <tbody>
       <tr><td><strong style="font-size:13px;">教學表現</strong></td><td><p class="score-pct">40%</p><div class="bar-wrap"><div class="bar-fill" style="width:40%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">口語表達 · 互動設計 · 時間掌控</span></td></tr>
@@ -412,7 +447,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <div class="sub-item"><p class="sub-n">03</p><p class="sub-title">教學簡報</p><p class="sub-body">可附互動連結或數位媒材，輔助現場演示</p></div>
   </div>
   <span class="s-label">陸 · 作品規範</span>
-  <div class="rules">
+  <div class="rules reveal">
     <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">須為原創作品，不得侵犯他人著作權</span></div>
     <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">AI 生成內容需標註來源與使用工具名稱</span></div>
     <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">引用資料須清楚標示出處</span></div>
@@ -433,12 +468,12 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <span class="s-label">活動時程表</span>
   <h2 class="sec-h2" style="margin-bottom:1.25rem;">競賽時程與活動流程</h2>
 
-  <div class="schedule-notice">
+  <div class="schedule-notice reveal">
     <p class="schedule-notice-date">徵件日期：即日起至 5月13日 23:00</p>
     <p class="schedule-notice-warn">※逾時不候，請留意截止日期及時間</p>
   </div>
 
-  <table class="schedule-table">
+  <table class="schedule-table reveal">
     <thead><tr><th style="width:35%;">時間</th><th>事項</th></tr></thead>
     <tbody>
       <tr><td>即日起 － 5/13</td><td>報名及繳交教案</td></tr>
@@ -553,5 +588,52 @@ window.addEventListener('scroll', function(){
 // Hamburger
 
 </script>
+
+<script>
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if(entry.isIntersecting){
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.12});
+revealEls.forEach(el => observer.observe(el));
+
+// ── COUNTER ANIMATION for stats ──
+function animateCount(el, target, duration=1200){
+  let start = 0;
+  const isNum = !isNaN(parseInt(target));
+  if(!isNum) return;
+  const num = parseInt(target);
+  const step = num / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if(start >= num){
+      el.textContent = target;
+      clearInterval(timer);
+    } else {
+      el.textContent = Math.floor(start);
+    }
+  }, 16);
+}
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const original = el.getAttribute('data-target') || el.textContent;
+      el.setAttribute('data-target', original);
+      animateCount(el, original);
+      statObserver.unobserve(el);
+    }
+  });
+}, {threshold: 0.5});
+document.querySelectorAll('.stat-n').forEach(el => statObserver.observe(el));
+</script>
+
 </body>
 </html>

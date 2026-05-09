@@ -67,6 +67,39 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   .work-name{font-size:20px;}
   .work-header{flex-direction:column;align-items:flex-start;}
 }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.fade-up{opacity:0;animation:fadeUp 0.65s ease forwards;}
+.delay-1{animation-delay:0.1s;}
+.delay-2{animation-delay:0.2s;}
+.delay-3{animation-delay:0.3s;}
+.delay-4{animation-delay:0.4s;}
+.delay-5{animation-delay:0.5s;}
+.delay-6{animation-delay:0.6s;}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Hover float */
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,80,160,0.12);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.goal:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,80,160,0.08);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.sub-item:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,80,160,0.12);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.tl-box:hover{background:rgba(255,255,255,0.7) !important;transition:background 0.2s ease;}
+.album-card:hover{transform:translateY(-4px) !important;}
+.work-item:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.08);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.file-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,80,160,0.1);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+
+/* Counter animation */
+@keyframes countUp {
+  from{opacity:0;transform:scale(0.8);}
+  to{opacity:1;transform:scale(1);}
+}
+.stat-n{animation:countUp 0.6s ease forwards;}
 </style>
 </head>
 <body>
@@ -116,9 +149,9 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </div>
 
 <div class="page-hero">
-  <span class="page-label">作品分享</span>
-  <h1 class="page-title">歷屆優秀教案作品</h1>
-  <p class="page-desc">收錄競賽得獎教案，供師資培育生參考學習</p>
+  <span class="page-label fade-up delay-1">作品分享</span>
+  <h1 class="page-title fade-up delay-2">歷屆優秀教案作品</h1>
+  <p class="page-desc fade-up delay-3">收錄競賽得獎教案，供師資培育生參考學習</p>
   <span class="page-year">2025 年度</span>
 </div>
 
@@ -129,7 +162,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 
 <div class="section">
 
-  <div class="work-item" style="border-left:5px solid #F5C840;background:#FFF8EE;">
+  <div class="work-item reveal" style="border-left:5px solid #F5C840;background:#FFF8EE;">
     <div class="work-header">
       <div class="work-header-left">
         <p class="work-rank" style="color:#E8A020;">🥇 第一名</p>
@@ -142,7 +175,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     </div>
   </div>
 
-  <div class="work-item" style="border-left:5px solid #A8C0D8;background:#F0F5FA;">
+  <div class="work-item reveal" style="border-left:5px solid #A8C0D8;background:#F0F5FA;">
     <div class="work-header">
       <div class="work-header-left">
         <p class="work-rank" style="color:#6A8AAA;">🥈 第二名</p>
@@ -155,7 +188,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     </div>
   </div>
 
-  <div class="work-item" style="border-left:5px solid #E8B090;background:#FFF4EE;">
+  <div class="work-item reveal" style="border-left:5px solid #E8B090;background:#FFF4EE;">
     <div class="work-header">
       <div class="work-header-left">
         <p class="work-rank" style="color:#C87840;">🥉 第三名</p>
@@ -168,7 +201,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     </div>
   </div>
 
-  <div class="work-item" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
+  <div class="work-item reveal" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
     <div class="work-header">
       <div class="work-header-left">
         <p class="work-rank" style="color:#4A8A8A;">✦ 佳作</p>
@@ -181,7 +214,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     </div>
   </div>
 
-  <div class="work-item" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
+  <div class="work-item reveal" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
     <div class="work-header">
       <div class="work-header-left">
         <p class="work-rank" style="color:#4A8A8A;">✦ 佳作</p>
@@ -225,5 +258,52 @@ function closeDrawer(){
   document.body.style.overflow = '';
 }
 </script>
+
+<script>
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if(entry.isIntersecting){
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.12});
+revealEls.forEach(el => observer.observe(el));
+
+// ── COUNTER ANIMATION for stats ──
+function animateCount(el, target, duration=1200){
+  let start = 0;
+  const isNum = !isNaN(parseInt(target));
+  if(!isNum) return;
+  const num = parseInt(target);
+  const step = num / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if(start >= num){
+      el.textContent = target;
+      clearInterval(timer);
+    } else {
+      el.textContent = Math.floor(start);
+    }
+  }, 16);
+}
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const original = el.getAttribute('data-target') || el.textContent;
+      el.setAttribute('data-target', original);
+      animateCount(el, original);
+      statObserver.unobserve(el);
+    }
+  });
+}, {threshold: 0.5});
+document.querySelectorAll('.stat-n').forEach(el => statObserver.observe(el));
+</script>
+
 </body>
 </html>
