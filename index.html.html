@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>114年度 數位教學演示競賽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;overflow-x:hidden;}
+body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1A1A18;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:#fff;border-bottom:2px solid #E8581A;width:100%;position:sticky;top:0;z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:9px;}
+.nav-accent{width:7px;height:7px;border-radius:50%;background:#E8581A;}
+.nav-name{font-size:13px;font-weight:700;color:#1A1A18;}
+.nav-sub{font-size:10px;color:#A0A09A;display:block;}
+.nav-links{display:flex;gap:3px;list-style:none;}
+.nav-links a{font-size:12px;color:#555;text-decoration:none;padding:5px 10px;border-radius:6px;transition:color .15s;}
+.nav-links a:hover{color:#E8581A;}
+.nav-reg{background:#E8581A !important;color:#fff !important;font-weight:700 !important;border-radius:6px !important;}
+
+/* HERO */
+.hero{width:100%;background:#EEF6FF;position:relative;overflow:hidden;min-height:480px;display:flex;align-items:stretch;}
+.hero-left{width:42%;padding:4rem 0 3rem 3rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem;position:relative;z-index:2;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#E8581A;color:#fff;font-size:10px;font-weight:700;padding:5px 13px;border-radius:4px;letter-spacing:0.07em;text-transform:uppercase;width:fit-content;}
+h1.hero-h1{font-family:'Noto Serif TC',serif;font-size:38px;line-height:1.25;color:#0D2A50;font-weight:900;}
+h1.hero-h1 em{font-style:normal;color:#E8581A;}
+.hero-sub{font-size:13px;color:#4A6A8A;line-height:1.75;max-width:320px;}
+.hero-btns{display:flex;gap:10px;align-items:center;padding-top:4px;flex-wrap:wrap;}
+.btn-main{font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:13px 26px;border-radius:6px;text-decoration:none;transition:opacity .15s;}
+.btn-main:hover{opacity:.85;}
+.btn-sec{font-size:12px;color:#4A6A8A;text-decoration:none;border:1px solid #B8D4F0;padding:12px 18px;border-radius:6px;transition:background .15s;}
+.btn-sec:hover{background:#D8ECFF;}
+.hero-right{width:58%;position:relative;overflow:hidden;}
+.hero-right svg{position:absolute;inset:0;width:100%;height:100%;}
+
+/* WAVE */
+.wave-block{display:block;width:100%;line-height:0;overflow:hidden;}
+.wave-block svg{display:block;width:100%;}
+
+/* STATS */
+.stats-bar{display:flex;background:#CAE9FF;padding:1.1rem 2.5rem;width:100%;}
+.stat-item{flex:1;display:flex;flex-direction:column;gap:2px;padding-right:1.5rem;border-right:1px solid rgba(60,100,140,0.18);}
+.stat-item:last-child{border-right:none;padding-right:0;padding-left:1.5rem;}
+.stat-item:not(:first-child):not(:last-child){padding-left:1.5rem;}
+.stat-n{font-family:'Noto Serif TC',serif;font-size:24px;color:#1A5A8A;font-weight:700;line-height:1;}
+.stat-l{font-size:10px;color:#5A88A8;letter-spacing:0.04em;margin-top:2px;}
+
+/* SECTIONS */
+.s-blue{background:#CAE9FF;padding:3rem 2.5rem;width:100%;}
+.s-blue-mid{background:#B0D8F5;padding:3rem 2.5rem;width:100%;}
+.s-white{background:#fff;padding:3rem 2.5rem;width:100%;}
+.s-orange{background:#E8581A;padding:3.5rem 2.5rem;width:100%;text-align:center;}
+
+/* TYPOGRAPHY */
+.s-label{font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.45rem;display:block;}
+.s-label-blue{color:#1A5A8A;}
+h2.sec-h2{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:#1A1A18;line-height:1.3;margin-bottom:0.45rem;}
+h2.sec-h2-blue{color:#0D3A5E;}
+.sec-desc{font-size:13px;color:#666;line-height:1.75;margin-bottom:1.5rem;}
+.sec-desc-blue{color:#3A6A8A;margin-bottom:1.25rem;}
+
+/* GOALS */
+.goals{display:flex;flex-direction:column;gap:8px;}
+.goal{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-radius:6px;background:rgba(255,255,255,0.65);border-left:3px solid #E8581A;}
+.goal-n{font-family:'Noto Serif TC',serif;font-size:20px;color:#E8581A;min-width:22px;font-weight:700;line-height:1.1;}
+.goal-t{font-size:13px;color:#1A3A5A;line-height:1.65;}
+
+/* CARDS */
+.cards-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem;}
+@media(max-width:600px){.cards-2{grid-template-columns:1fr;}}
+.card{background:#F8FCFF;border:1px solid #D8E8F4;border-radius:8px;padding:1.1rem;}
+.card-icon-row{display:flex;align-items:center;margin-bottom:8px;}
+.card-dot{width:8px;height:8px;border-radius:2px;background:#E8581A;margin-right:6px;display:inline-block;}
+.card-lbl{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#E8581A;}
+.card-title{font-size:13px;font-weight:700;color:#1A1A18;margin-bottom:4px;}
+.card-body{font-size:12px;color:#666;line-height:1.6;}
+
+/* TAGS */
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem;}
+.tag{font-size:11px;padding:4px 11px;border-radius:4px;border:1px solid #C8D8E8;color:#3A6A8A;background:#EAF4FF;font-weight:500;}
+.tag-em{background:#E8581A;border-color:#E8581A;color:#fff;font-weight:700;}
+
+/* TEACH */
+.teach-row{display:flex;gap:8px;margin-top:1.25rem;}
+@media(max-width:500px){.teach-row{flex-direction:column;}}
+.teach-seg{border-radius:8px;padding:1rem;}
+.teach-min{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;margin-bottom:3px;}
+.tm1{color:#E8581A;}.tm2{color:#0D3A5E;}.tm3{color:#1A5A8A;}
+.teach-name{font-size:12px;font-weight:700;color:#0D3A5E;margin-bottom:2px;}
+.teach-note{font-size:11px;color:#4A7A9A;}
+
+/* TIMELINE */
+.tl-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:8px;overflow:hidden;margin-top:1.5rem;border:1px solid rgba(255,255,255,0.5);}
+@media(max-width:600px){.tl-row{grid-template-columns:1fr 1fr;}}
+.tl-box{padding:1.1rem;border-right:1px solid rgba(255,255,255,0.5);}
+.tl-box:last-child{border-right:none;}
+.tl-n{font-family:'Noto Serif TC',serif;font-size:28px;color:rgba(13,58,94,0.1);font-weight:700;margin-bottom:4px;}
+.tl-time{font-size:10px;color:#E8581A;font-weight:700;letter-spacing:0.07em;margin-bottom:3px;}
+.tl-name{font-size:12px;font-weight:700;color:#0D3A5E;margin-bottom:4px;}
+.tl-desc{font-size:11px;color:#4A7A9A;line-height:1.5;}
+
+/* SCORE TABLE */
+.score-tbl{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;}
+.score-tbl thead th{font-size:10px;font-weight:700;padding:11px 13px;text-align:left;background:#E8581A;color:#fff;letter-spacing:0.07em;text-transform:uppercase;}
+.score-tbl tbody tr:nth-child(odd) td{background:#fff;}
+.score-tbl tbody tr:nth-child(even) td{background:#F0F7FF;}
+.score-tbl td{font-size:12px;padding:12px 13px;vertical-align:middle;border-top:1px solid #E0EEFA;}
+.score-pct{font-family:'Noto Serif TC',serif;font-size:20px;color:#E8581A;font-weight:700;}
+.bar-wrap{height:3px;background:#D8E8F4;border-radius:2px;margin-top:4px;}
+.bar-fill{height:3px;border-radius:2px;background:#E8581A;}
+
+/* SUBMIT */
+.sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+@media(max-width:500px){.sub-grid{grid-template-columns:1fr;}}
+.sub-item{background:#F0F8FF;border:1px solid #C8D8F0;border-radius:8px;padding:1.1rem;border-top:3px solid #E8581A;}
+.sub-n{font-family:'Noto Serif TC',serif;font-size:24px;color:rgba(13,58,94,0.13);font-weight:700;margin-bottom:6px;}
+.sub-title{font-size:12px;font-weight:700;color:#1A3A6A;margin-bottom:3px;}
+.sub-body{font-size:11px;color:#4A7A9A;line-height:1.55;}
+
+/* RULES */
+.rules{display:flex;flex-direction:column;gap:8px;margin-top:1.1rem;}
+.rule{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:6px;background:#EAF4FF;border-left:2px solid #E8581A;}
+.rule-ck{font-size:15px;color:#E8581A;margin-top:1px;}
+.rule-t{font-size:12px;color:#1A4A6A;line-height:1.55;}
+
+/* CTA */
+h2.cta-h2{font-family:'Noto Serif TC',serif;font-size:28px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:0.5rem;}
+.cta-sub{font-size:13px;color:rgba(255,255,255,0.75);margin-bottom:1.75rem;line-height:1.6;}
+.cta-btn{display:inline-block;font-size:14px;font-weight:700;color:#E8581A;background:#fff;padding:14px 32px;border-radius:6px;text-decoration:none;transition:opacity .15s;}
+.cta-btn:hover{opacity:.9;}
+.cta-email{margin-top:1.25rem;font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.04em;}
+
+/* FOOTER */
+footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;width:100%;}
+.footer-t{font-size:11px;color:#4A7A9A;}
+@media(max-width:500px){footer{flex-direction:column;gap:6px;}}
+
+/* RESPONSIVE HERO */
+@media(max-width:768px){
+  .hero{flex-direction:column;}
+  .hero-left{width:100%;padding:2.5rem 1.5rem 1.5rem;}
+  .hero-right{width:100%;min-height:320px;position:relative;}
+  .hero-right svg{position:relative;width:100%;height:auto;}
+  h1.hero-h1{font-size:28px;}
+  nav{padding:0 1rem;}
+  .nav-links{display:none;}
+  .s-blue,.s-blue-mid,.s-white{padding:2rem 1.5rem;}
+  .stats-bar{padding:1rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-accent"></div>
+    <div>
+      <span class="nav-name">數位教學演示競賽</span>
+      <span class="nav-sub">銘傳大學師資培育中心</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#purpose">競賽目的</a></li>
+    <li><a href="#content">競賽內容</a></li>
+    <li><a href="#flow">試教流程</a></li>
+    <li><a href="#score">評分標準</a></li>
+    <li><a href="#submit">繳交資料</a></li>
+    <li><a href="#signup" class="nav-reg">前往報名</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <span class="hero-badge">114-2 學年度 · 現正開放報名</span>
+    <h1 class="hero-h1">以 AI<br>賦能教學<br><em>打造未來</em><br><em>教育力</em></h1>
+    <p class="hero-sub">鼓勵師資培育生運用 AI 與數位工具，以教育議題為核心，設計具創意與實踐性的教學方案。</p>
+    <div class="hero-btns">
+      <a href="#signup" class="btn-main">立即報名參賽 →</a>
+      <a href="#" class="btn-sec">下載說明 ↓</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+    <defs>
+      <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0F4FF"/><stop offset="100%" stop-color="#D8E4F8"/></linearGradient>
+      <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8E0FF"/><stop offset="100%" stop-color="#A0C8F0"/></linearGradient>
+      <radialGradient id="bc" cx="62%" cy="38%" r="42%"><stop offset="0%" stop-color="#D0E8FF" stop-opacity="0.9"/><stop offset="100%" stop-color="#EEF6FF" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="900" height="540" fill="#EEF6FF"/>
+    <circle cx="540" cy="220" r="240" fill="url(#bc)"/>
+    <!-- brain bg -->
+    <g opacity="0.10" fill="none" stroke="#4A8AE8" stroke-width="1.2">
+      <path d="M610,40 C660,28 715,60 728,115 C741,170 722,208 698,232 C674,256 648,262 629,256 C610,250 584,232 578,196 C572,160 572,104 610,40 Z"/>
+      <circle cx="650" cy="122" r="5" fill="#4A8AE8" opacity="0.5"/><circle cx="674" cy="105" r="4" fill="#4A8AE8" opacity="0.5"/>
+      <circle cx="670" cy="148" r="4.5" fill="#4A8AE8" opacity="0.5"/><circle cx="628" cy="132" r="4" fill="#4A8AE8" opacity="0.5"/>
+      <circle cx="688" cy="130" r="4" fill="#4A8AE8" opacity="0.5"/><circle cx="648" cy="168" r="3.5" fill="#4A8AE8" opacity="0.5"/>
+      <line x1="650" y1="127" x2="670" y2="110"/><line x1="650" y1="127" x2="666" y2="148"/>
+      <line x1="650" y1="127" x2="632" y2="132"/><line x1="670" y1="110" x2="684" y2="130"/>
+      <line x1="666" y1="148" x2="684" y2="130"/><line x1="666" y1="148" x2="648" y2="168"/>
+    </g>
+    <!-- AI icons -->
+    <g transform="translate(310,55)"><rect width="58" height="40" rx="12" fill="#CAE9FF"/><circle cx="17" cy="20" r="4.5" fill="#7AB0E0"/><circle cx="29" cy="20" r="4.5" fill="#7AB0E0"/><circle cx="41" cy="20" r="4.5" fill="#7AB0E0"/><path d="M12,40 L22,52 L34,40" fill="#CAE9FF"/></g>
+    <g transform="translate(468,120)"><rect width="40" height="29" rx="9" fill="#E8581A"/><circle cx="11" cy="14" r="3.5" fill="#fff" opacity="0.85"/><circle cx="20" cy="14" r="3.5" fill="#fff" opacity="0.85"/><circle cx="29" cy="14" r="3.5" fill="#fff" opacity="0.85"/><path d="M9,29 L18,38 L26,29" fill="#E8581A"/></g>
+    <g transform="translate(716,58)"><circle cx="30" cy="30" r="30" fill="none" stroke="#D8E8F8" stroke-width="2"/><rect x="12" y="34" width="8" height="14" rx="2.5" fill="#4A8AE8"/><rect x="24" y="25" width="8" height="23" rx="2.5" fill="#1A5AE8"/><rect x="36" y="30" width="8" height="18" rx="2.5" fill="#4A8AE8"/></g>
+    <g transform="translate(790,132)"><circle cx="26" cy="26" r="26" fill="none" stroke="#D8E8F8" stroke-width="2"/><circle cx="26" cy="26" r="9" fill="none" stroke="#E8581A" stroke-width="2.5"/><circle cx="26" cy="26" r="4.5" fill="#E8581A"/><rect x="23.5" y="9" width="5" height="6" rx="1.5" fill="#E8581A"/><rect x="23.5" y="37" width="5" height="6" rx="1.5" fill="#E8581A"/><rect x="9" y="23.5" width="6" height="5" rx="1.5" fill="#E8581A"/><rect x="37" y="23.5" width="6" height="5" rx="1.5" fill="#E8581A"/></g>
+    <g transform="translate(524,195)"><circle cx="26" cy="26" r="26" fill="none" stroke="#D8E8F8" stroke-width="2"/><circle cx="26" cy="15" r="4.5" fill="#4A8AE8"/><circle cx="14" cy="35" r="4.5" fill="#4A8AE8"/><circle cx="38" cy="35" r="4.5" fill="#4A8AE8"/><line x1="26" y1="20" x2="14" y2="30" stroke="#4A8AE8" stroke-width="1.8"/><line x1="26" y1="20" x2="38" y2="30" stroke="#4A8AE8" stroke-width="1.8"/><line x1="18" y1="35" x2="34" y2="35" stroke="#4A8AE8" stroke-width="1.8"/></g>
+    <g transform="translate(500,48)"><circle cx="26" cy="26" r="26" fill="none" stroke="#D8E8F8" stroke-width="2"/><rect x="12" y="14" width="28" height="24" rx="4" fill="none" stroke="#4A8AE8" stroke-width="1.8"/><circle cx="20" cy="22" r="3.5" fill="#4A8AE8"/><path d="M12,33 L23,23 L32,30 L40,25 L40,38 L12,38 Z" fill="#CAE9FF"/></g>
+    <!-- dots -->
+    <g fill="#E8581A" opacity="0.5"><circle cx="280" cy="68" r="3"/><circle cx="290" cy="68" r="3"/><circle cx="300" cy="68" r="3"/><circle cx="280" cy="78" r="3"/><circle cx="290" cy="78" r="3"/><circle cx="300" cy="78" r="3"/><circle cx="280" cy="88" r="3"/><circle cx="290" cy="88" r="3"/><circle cx="300" cy="88" r="3"/></g>
+    <g fill="#A8C8F0" opacity="0.55"><circle cx="280" cy="430" r="3"/><circle cx="290" cy="430" r="3"/><circle cx="280" cy="440" r="3"/><circle cx="290" cy="440" r="3"/><circle cx="280" cy="450" r="3"/><circle cx="290" cy="450" r="3"/></g>
+    <!-- table -->
+    <rect x="285" y="335" width="450" height="13" rx="6.5" fill="url(#tg)"/><rect x="308" y="348" width="9" height="46" rx="4.5" fill="#C8D8F0"/><rect x="718" y="348" width="9" height="46" rx="4.5" fill="#C8D8F0"/>
+    <!-- laptops -->
+    <rect x="295" y="280" width="100" height="66" rx="6" fill="#E8EEFF" stroke="#B8C8E8" stroke-width="1.2"/><rect x="302" y="287" width="86" height="52" rx="4" fill="url(#sg)"/>
+    <circle cx="336" cy="304" r="6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="358" cy="295" r="5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="358" cy="313" r="5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="378" cy="304" r="6" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <line x1="342" y1="304" x2="353" y2="295" stroke="rgba(255,255,255,0.7)" stroke-width="1"/><line x1="342" y1="304" x2="353" y2="313" stroke="rgba(255,255,255,0.7)" stroke-width="1"/><line x1="363" y1="295" x2="372" y2="304" stroke="rgba(255,255,255,0.7)" stroke-width="1"/><line x1="363" y1="313" x2="372" y2="304" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+    <rect x="308" y="326" width="58" height="4" rx="2" fill="rgba(255,255,255,0.5)"/><rect x="308" y="332" width="42" height="3" rx="1.5" fill="rgba(255,255,255,0.35)"/><rect x="292" y="344" width="106" height="6" rx="3" fill="#C8D8F0"/>
+    <rect x="440" y="276" width="104" height="68" rx="6" fill="#E8EEFF" stroke="#B8C8E8" stroke-width="1.2"/><rect x="447" y="283" width="90" height="54" rx="4" fill="url(#sg)"/>
+    <circle cx="483" cy="302" r="6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="505" cy="293" r="5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="505" cy="311" r="5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="524" cy="302" r="6" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <line x1="489" y1="302" x2="500" y2="293" stroke="rgba(255,255,255,0.7)" stroke-width="1"/><line x1="489" y1="302" x2="500" y2="311" stroke="rgba(255,255,255,0.7)" stroke-width="1"/><line x1="510" y1="293" x2="518" y2="302" stroke="rgba(255,255,255,0.7)" stroke-width="1"/><line x1="510" y1="311" x2="518" y2="302" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+    <rect x="453" y="324" width="60" height="4" rx="2" fill="rgba(255,255,255,0.5)"/><rect x="453" y="330" width="44" height="3" rx="1.5" fill="rgba(255,255,255,0.35)"/><rect x="437" y="342" width="110" height="6" rx="3" fill="#C8D8F0"/>
+    <rect x="592" y="282" width="98" height="63" rx="6" fill="#E8EEFF" stroke="#B8C8E8" stroke-width="1.2"/><rect x="599" y="289" width="84" height="50" rx="4" fill="url(#sg)"/>
+    <circle cx="632" cy="306" r="6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="652" cy="297" r="5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="652" cy="315" r="5" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="670" cy="306" r="5.5" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <line x1="638" y1="306" x2="647" y2="297" stroke="rgba(255,255,255,0.7)" stroke-width="1"/><line x1="638" y1="306" x2="647" y2="315" stroke="rgba(255,255,255,0.7)" stroke-width="1"/><line x1="657" y1="297" x2="664" y2="306" stroke="rgba(255,255,255,0.7)" stroke-width="1"/><line x1="657" y1="315" x2="664" y2="306" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+    <rect x="605" y="326" width="54" height="4" rx="2" fill="rgba(255,255,255,0.5)"/><rect x="605" y="332" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.35)"/><rect x="589" y="343" width="104" height="6" rx="3" fill="#C8D8F0"/>
+    <!-- mug -->
+    <rect x="474" y="338" width="32" height="30" rx="6" fill="#E8581A"/><path d="M506,345 Q518,345 518,357 Q518,369 506,369" fill="none" stroke="#E8581A" stroke-width="3.5" stroke-linecap="round"/><rect x="477" y="341" width="26" height="9" rx="2.5" fill="#FF8050" opacity="0.45"/>
+    <!-- student 1 -->
+    <circle cx="330" cy="272" r="26" fill="#F5C8A0"/><path d="M304,270 C304,238 356,238 356,270" fill="#2A1A10"/><path d="M304,270 C299,295 301,318 308,342" stroke="#2A1A10" stroke-width="16" fill="none" stroke-linecap="round"/><circle cx="322" cy="266" r="3" fill="#1A1A18"/><circle cx="338" cy="266" r="3" fill="#1A1A18"/><path d="M323,278 Q330,284 337,278" fill="none" stroke="#1A1A18" stroke-width="1.8" stroke-linecap="round"/><circle cx="315" cy="274" r="6" fill="#F5A0A0" opacity="0.3"/><circle cx="345" cy="274" r="6" fill="#F5A0A0" opacity="0.3"/><rect x="310" y="296" width="40" height="46" rx="14" fill="#F0F0F0"/><line x1="354" y1="308" x2="378" y2="332" stroke="#4A4A4A" stroke-width="3" stroke-linecap="round"/><circle cx="379" cy="333" r="2.5" fill="#E8581A"/>
+    <!-- student 2 -->
+    <circle cx="492" cy="262" r="27" fill="#F5C8A0"/><path d="M465,260 C465,228 519,228 519,260" fill="#2A180A"/><circle cx="482" cy="255" r="3" fill="#1A1A18"/><circle cx="502" cy="255" r="3" fill="#1A1A18"/><path d="M483,269 Q492,276 501,269" fill="none" stroke="#1A1A18" stroke-width="1.8" stroke-linecap="round"/><circle cx="476" cy="262" r="7" fill="#F5A0A0" opacity="0.3"/><circle cx="508" cy="262" r="7" fill="#F5A0A0" opacity="0.3"/><path d="M484,288 Q478,300 476,313" stroke="#F5C8A0" stroke-width="8" fill="none" stroke-linecap="round"/><circle cx="475" cy="316" r="7" fill="#F5C8A0"/><rect x="468" y="288" width="48" height="50" rx="15" fill="#4A78D8"/><rect x="484" y="288" width="18" height="22" rx="4" fill="#3A68C8"/>
+    <!-- student 3 headphones -->
+    <circle cx="618" cy="258" r="26" fill="#F5C8A0"/><path d="M592,256 C592,226 644,226 644,256" fill="#B87840"/><path d="M592,256 C587,280 589,302 596,322" stroke="#C88848" stroke-width="15" fill="none" stroke-linecap="round"/><circle cx="608" cy="252" r="3" fill="#1A1A18"/><circle cx="628" cy="252" r="3" fill="#1A1A18"/><path d="M609,264 Q618,271 627,264" fill="none" stroke="#1A1A18" stroke-width="1.8" stroke-linecap="round"/><path d="M590,250 Q590,226 618,226 Q646,226 646,250" fill="none" stroke="#6A6A6A" stroke-width="4.5" stroke-linecap="round"/><rect x="587" y="246" width="9" height="16" rx="4.5" fill="#5A5A5A"/><rect x="640" y="246" width="9" height="16" rx="4.5" fill="#5A5A5A"/><rect x="597" y="282" width="44" height="48" rx="14" fill="#E8E0D8"/>
+    <!-- student 4 glasses -->
+    <circle cx="748" cy="260" r="26" fill="#F5C8A0"/><path d="M722,258 C722,228 774,228 774,258" fill="#2A200A"/><circle cx="738" cy="254" r="3" fill="#1A1A18"/><circle cx="758" cy="254" r="3" fill="#1A1A18"/><path d="M739,267 Q748,273 757,267" fill="none" stroke="#1A1A18" stroke-width="1.8" stroke-linecap="round"/><rect x="729" y="250" width="14" height="10" rx="5" fill="none" stroke="#4A4A4A" stroke-width="1.8"/><rect x="749" y="250" width="14" height="10" rx="5" fill="none" stroke="#4A4A4A" stroke-width="1.8"/><line x1="743" y1="255" x2="749" y2="255" stroke="#4A4A4A" stroke-width="1.4"/><rect x="728" y="284" width="44" height="50" rx="14" fill="#3A68C8"/><rect x="740" y="284" width="18" height="20" rx="4" fill="#2A58B8"/>
+    <!-- teacher -->
+    <rect x="422" y="172" width="64" height="86" rx="20" fill="#F5F0E8"/><rect x="440" y="172" width="28" height="28" rx="9" fill="#EDE8E0"/><rect x="430" y="254" width="20" height="64" rx="9" fill="#C8A878"/><rect x="458" y="254" width="20" height="64" rx="9" fill="#C8A878"/>
+    <rect x="356" y="195" width="50" height="68" rx="7" fill="#D8E8F8" stroke="#B8C8E8" stroke-width="1.5"/><rect x="362" y="201" width="38" height="54" rx="5" fill="#EAF4FF"/>
+    <rect x="368" y="208" width="26" height="4" rx="2" fill="#4A8AE8"/><rect x="368" y="215" width="20" height="3" rx="1.5" fill="#C8D8F0"/><rect x="368" y="221" width="22" height="3" rx="1.5" fill="#C8D8F0"/><rect x="368" y="229" width="24" height="9" rx="4" fill="#E8581A" opacity="0.85"/>
+    <path d="M424,196 Q402,193 370,200" stroke="#F5C8A0" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M484,200 Q512,188 528,180" stroke="#F5C8A0" stroke-width="12" fill="none" stroke-linecap="round"/><circle cx="530" cy="178" r="9" fill="#F5C8A0"/>
+    <circle cx="454" cy="148" r="30" fill="#F5C8A0"/><path d="M424,145 C424,114 484,114 484,145" fill="#3A2010"/><circle cx="454" cy="112" r="12" fill="#3A2010"/>
+    <circle cx="444" cy="142" r="3" fill="#1A1A18"/><circle cx="464" cy="142" r="3" fill="#1A1A18"/><path d="M445,154 Q454,161 463,154" fill="none" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="436" cy="150" r="6" fill="#F5A0A0" opacity="0.35"/><circle cx="472" cy="150" r="6" fill="#F5A0A0" opacity="0.35"/>
+    <!-- ground -->
+    <path d="M0,468 C80,452 180,472 300,462 C420,452 530,470 650,460 C760,450 840,466 900,458 L900,540 L0,540 Z" fill="#0D2248"/>
+    <path d="M0,485 C100,470 240,490 380,480 C520,470 660,488 800,478 C860,474 890,480 900,477 L900,540 L0,540 Z" fill="#081830" opacity="0.75"/>
+    <ellipse cx="120" cy="470" rx="22" ry="10" fill="#1A3A6A" opacity="0.75"/><ellipse cx="480" cy="463" rx="18" ry="9" fill="#1A3A6A" opacity="0.65"/><ellipse cx="780" cy="466" rx="20" ry="9" fill="#1A3A6A" opacity="0.65"/>
+    <!-- + deco -->
+    <g stroke="#B8D4F0" stroke-width="1.8" stroke-linecap="round" opacity="0.55"><line x1="296" y1="158" x2="296" y2="170"/><line x1="290" y1="164" x2="302" y2="164"/><line x1="748" y1="88" x2="748" y2="100"/><line x1="742" y1="94" x2="754" y2="94"/><line x1="832" y1="216" x2="832" y2="228"/><line x1="826" y1="222" x2="838" y2="222"/></g>
+    </svg>
+  </div>
+</div>
+
+<!-- WAVE 1 -->
+<div class="wave-block" style="background:#EEF6FF;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#CAE9FF"/>
+  <path d="M0,30 C240,65 540,18 840,52 C1140,86 1320,36 1440,58 L1440,0 L0,0 Z" fill="#D8F0FF" opacity="0.8"/>
+  <path d="M0,48 C216,22 432,68 648,44 C864,20 1080,60 1296,38 C1368,30 1410,42 1440,40 L1440,0 L0,0 Z" fill="#EEF6FF"/>
+</svg>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-n">2</span><span class="stat-l">競賽階段</span></div>
+  <div class="stat-item"><span class="stat-n">15'</span><span class="stat-l">試教時間</span></div>
+  <div class="stat-item"><span class="stat-n">4</span><span class="stat-l">評分面向</span></div>
+  <div class="stat-item"><span class="stat-n">MCU</span><span class="stat-l">銘傳師資培育生</span></div>
+</div>
+
+<!-- WAVE 2 -->
+<div class="wave-block" style="background:#CAE9FF;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#fff"/>
+  <path d="M0,30 C240,58 540,16 840,46 C1140,76 1320,32 1440,52 L1440,0 L0,0 Z" fill="#D8F0FF" opacity="0.8"/>
+  <path d="M0,46 C216,22 432,62 648,40 C864,18 1080,56 1296,36 C1368,28 1410,40 1440,38 L1440,0 L0,0 Z" fill="#CAE9FF"/>
+</svg>
+</div>
+
+<!-- SECTION 1 -->
+<section id="purpose" class="s-white">
+  <span class="s-label">壹 · 競賽目的</span>
+  <h2 class="sec-h2">為什麼舉辦這場競賽？</h2>
+  <p class="sec-desc">從教室出發，以 AI 為槳，划向更有意義的教育現場。</p>
+  <div class="goals">
+    <div class="goal"><span class="goal-n">1</span><span class="goal-t">鼓勵教育工作者運用 AI 與數位工具，發展創新教學模式</span></div>
+    <div class="goal"><span class="goal-n">2</span><span class="goal-t">促進教育議題融入教學，培養學生素養能力</span></div>
+    <div class="goal"><span class="goal-n">3</span><span class="goal-t">強化教學交流與專業發展，建立共好的教育生態</span></div>
+  </div>
+</section>
+
+<!-- WAVE 3 -->
+<div class="wave-block" style="background:#fff;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#B0D8F5"/>
+  <path d="M0,62 C300,82 600,48 900,72 C1140,92 1320,60 1440,72 L1440,90 L0,90 Z" fill="#CAE9FF" opacity="0.7"/>
+  <path d="M0,46 C240,70 480,26 780,54 C1080,82 1260,40 1440,58 L1440,0 L0,0 Z" fill="#fff"/>
+</svg>
+</div>
+
+<!-- SECTION 2 -->
+<section id="content" class="s-blue-mid">
+  <span class="s-label">貳 · 競賽內容</span>
+  <h2 class="sec-h2 sec-h2-blue" style="margin-bottom:0.5rem;">競賽形式與教案規範</h2>
+  <p class="sec-desc sec-desc-blue">分為教案預備與現場試教兩大階段，完整體驗教學創作的過程。</p>
+  <div class="cards-2">
+    <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">教案規範</span></div><p class="card-title">教案設計規範</p><p class="card-body">A4 格式呈現教學目標、素養指標、流程、評量，含至少一項法定教育議題</p></div>
+    <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">AI 規範</span></div><p class="card-title">AI 協作規範</p><p class="card-body">提交 AI 協作報告，含使用方式、至少 3 個 Prompts，及在地化調整說明</p></div>
+    <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">創新設計</span></div><p class="card-title">創新教學設計</p><p class="card-body">說明數位工具融入、合作學習設計，或跨領域與情境式教學的應用方式</p></div>
+    <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">設計理念</span></div><p class="card-title">設計說明</p><p class="card-body">簡要說明教案設計理念與情境設定，提升整體完整性與說服力</p></div>
+  </div>
+  <span class="s-label s-label-blue" style="display:block;margin-bottom:0.5rem;">教育議題涵蓋範圍</span>
+  <div class="tags">
+    <span class="tag tag-em">性別平等</span><span class="tag tag-em">人權</span><span class="tag tag-em">環境</span><span class="tag tag-em">海洋</span>
+    <span class="tag">科技</span><span class="tag">資訊</span><span class="tag">能源</span><span class="tag">安全</span><span class="tag">防災</span><span class="tag">閱讀素養</span>
+  </div>
+</section>
+
+<!-- WAVE 4 -->
+<div class="wave-block" style="background:#B0D8F5;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#fff"/>
+  <path d="M0,28 C360,58 720,14 1080,44 C1260,60 1368,30 1440,40 L1440,0 L0,0 Z" fill="#D8EEFA" opacity="0.7"/>
+  <path d="M0,48 C180,26 420,66 672,44 C924,22 1176,62 1440,40 L1440,0 L0,0 Z" fill="#B0D8F5"/>
+</svg>
+</div>
+
+<!-- SECTION 3 -->
+<section id="flow" class="s-white">
+  <span class="s-label">參 · 試教流程</span>
+  <h2 class="sec-h2" style="margin-bottom:0.5rem;">現場試教 15 分鐘架構</h2>
+  <p class="sec-desc">競賽分為教案預備（2 hr）與現場演示（1 hr）兩段，合計 3 小時。</p>
+  <div class="teach-row">
+    <div class="teach-seg" style="flex:1;background:#EAF4FF;border:1px solid #C8D8F0;border-radius:8px;padding:1rem;"><p class="teach-min tm1">1–3'</p><p class="teach-name" style="color:#1A3A6A;">動機引導</p><p class="teach-note">AI 教材展示</p></div>
+    <div class="teach-seg" style="flex:2.5;background:#D8ECFA;border:1px solid #B8D4F0;border-radius:8px;padding:1rem;"><p class="teach-min tm2">4–12'</p><p class="teach-name" style="color:#0D3A5E;">核心教學</p><p class="teach-note">互動活動展開</p></div>
+    <div class="teach-seg" style="flex:1;background:#EAF4FF;border:1px solid #C8D8F0;border-radius:8px;padding:1rem;"><p class="teach-min tm3">13–15'</p><p class="teach-name" style="color:#1A3A6A;">總結回饋</p><p class="teach-note">學習反思</p></div>
+  </div>
+  <div class="tl-row" style="background:rgba(0,80,160,0.06);">
+    <div class="tl-box" style="background:#F0F8FF;"><p class="tl-n">01</p><p class="tl-time">3 月中旬</p><p class="tl-name">開放報名</p><p class="tl-desc">填寫表單，提交初步構想</p></div>
+    <div class="tl-box" style="background:#EAF4FF;"><p class="tl-n">02</p><p class="tl-time">4 月上旬</p><p class="tl-name">作品提交</p><p class="tl-desc">繳交教案、教材、AI 報告</p></div>
+    <div class="tl-box" style="background:#F0F8FF;"><p class="tl-n">03</p><p class="tl-time">5 月初</p><p class="tl-name">初審結果</p><p class="tl-desc">公布晉級名單與回饋意見</p></div>
+    <div class="tl-box" style="background:#EAF4FF;"><p class="tl-n">04</p><p class="tl-time">5 月下旬</p><p class="tl-name">決賽頒獎</p><p class="tl-desc">現場演示、提問、頒獎</p></div>
+  </div>
+</section>
+
+<!-- WAVE 5 -->
+<div class="wave-block" style="background:#fff;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#CAE9FF"/>
+  <path d="M0,64 C360,82 720,50 1080,74 C1260,86 1368,64 1440,72 L1440,90 L0,90 Z" fill="#D8F0FF" opacity="0.8"/>
+  <path d="M0,50 C240,74 540,28 840,56 C1140,84 1320,46 1440,62 L1440,0 L0,0 Z" fill="#fff"/>
+</svg>
+</div>
+
+<!-- SECTION 4 -->
+<section id="score" class="s-blue">
+  <span class="s-label">肆 · 評分標準</span>
+  <h2 class="sec-h2 sec-h2-blue" style="margin-bottom:0.5rem;">四大評分面向</h2>
+  <p class="sec-desc sec-desc-blue">教學表現佔最高比重，兼顧教案品質、內容深度與 AI 創意應用。</p>
+  <table class="score-tbl">
+    <thead><tr><th style="width:32%;">評分項目</th><th style="width:22%;">比例</th><th>說明</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="font-size:13px;">教學表現</strong></td><td><p class="score-pct">40%</p><div class="bar-wrap"><div class="bar-fill" style="width:40%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">口語表達 · 互動設計 · 時間掌控</span></td></tr>
+      <tr><td><strong style="font-size:13px;">教案完整度</strong></td><td><p class="score-pct">30%</p><div class="bar-wrap"><div class="bar-fill" style="width:30%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">目標明確 · 流程合理 · 評量具體</span></td></tr>
+      <tr><td><strong style="font-size:13px;">教學內容</strong></td><td><p class="score-pct">20%</p><div class="bar-wrap"><div class="bar-fill" style="width:20%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">符合教育議題 · 具創意與深度</span></td></tr>
+      <tr><td><strong style="font-size:13px;">AI 應用創意</strong></td><td><p class="score-pct">10%</p><div class="bar-wrap"><div class="bar-fill" style="width:10%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">善用 AI 提升教學品質</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- WAVE 6 -->
+<div class="wave-block" style="background:#CAE9FF;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#fff"/>
+  <path d="M0,28 C300,52 660,18 960,42 C1200,62 1344,30 1440,44 L1440,0 L0,0 Z" fill="#D8F0FF" opacity="0.7"/>
+  <path d="M0,46 C192,24 456,64 720,42 C984,20 1248,60 1440,38 L1440,0 L0,0 Z" fill="#CAE9FF"/>
+</svg>
+</div>
+
+<!-- SECTION 5 -->
+<section id="submit" class="s-white">
+  <span class="s-label">伍 · 繳交資料</span>
+  <h2 class="sec-h2" style="margin-bottom:1.5rem;">三份必繳文件</h2>
+  <div class="sub-grid" style="margin-bottom:2.5rem;">
+    <div class="sub-item"><p class="sub-n">01</p><p class="sub-title">教案 PDF</p><p class="sub-body">含教學目標、素養指標、教學流程與評量方式</p></div>
+    <div class="sub-item"><p class="sub-n">02</p><p class="sub-title">AI 協作報告</p><p class="sub-body">使用方式 + 3 個 Prompts + 在地化調整說明</p></div>
+    <div class="sub-item"><p class="sub-n">03</p><p class="sub-title">教學簡報</p><p class="sub-body">可附互動連結或數位媒材，輔助現場演示</p></div>
+  </div>
+  <span class="s-label">陸 · 作品規範</span>
+  <div class="rules">
+    <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">須為原創作品，不得侵犯他人著作權</span></div>
+    <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">AI 生成內容需標註來源與使用工具名稱</span></div>
+    <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">引用資料須清楚標示出處</span></div>
+  </div>
+</section>
+
+<!-- WAVE 7 -->
+<div class="wave-block" style="background:#fff;">
+<svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
+  <rect width="1440" height="90" fill="#E8581A"/>
+  <path d="M0,62 C336,82 696,46 1056,70 C1248,82 1368,56 1440,68 L1440,90 L0,90 Z" fill="#F08050" opacity="0.6"/>
+  <path d="M0,48 C264,72 552,24 864,52 C1176,80 1320,42 1440,58 L1440,0 L0,0 Z" fill="#fff"/>
+</svg>
+</div>
+
+<!-- CTA -->
+<section id="signup" class="s-orange">
+  <h2 class="cta-h2">準備好展示你的教學創意了嗎？</h2>
+  <p class="cta-sub">銘傳大學師資培育生 · 歡迎報名參賽</p>
+  <a href="mailto:digitalinstruction0001@gmail.com" class="cta-btn">立即報名參賽 →</a>
+  <p class="cta-email">digitalinstruction0001@gmail.com</p>
+</section>
+
+<footer>
+  <span class="footer-t">© 2025 銘傳大學師資培育中心 · 數位教學演示競賽</span>
+  <span class="footer-t">網頁設計 / 何立亭</span>
+</footer>
+
+</body>
+</html>
