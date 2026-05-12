@@ -107,9 +107,10 @@ h2.sec-h2-blue{color:#0D3A5E;}
 .teach-note{font-size:13px;color:#4A7A9A;}
 
 /* ── TIMELINE ── */
-.tl-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:8px;overflow:hidden;margin-top:1.5rem;border:1px solid rgba(255,255,255,0.5);}
-.tl-box{padding:1.1rem;border-right:1px solid rgba(255,255,255,0.5);}
+.tl-box{padding:1.1rem;border-right:1px solid rgba(255,255,255,0.5);background:#F0F8FF;border:1px solid #A8C8E8 !important;border-radius:4px;}
 .tl-box:last-child{border-right:none;}
+.tl-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-radius:8px;overflow:visible;margin-top:1.5rem;}
+.teach-seg{border-radius:8px;padding:1rem;border:1.5px solid #A8C8E8 !important;}
 .tl-n{font-family:'Noto Serif TC',serif;font-size:28px;color:rgba(13,58,94,0.1);font-weight:700;margin-bottom:4px;}
 .tl-time{font-size:10px;color:#E8581A;font-weight:700;letter-spacing:0.07em;margin-bottom:3px;}
 .tl-name{font-size:14px;font-weight:700;color:#0D3A5E;margin-bottom:4px;}
@@ -264,9 +265,8 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <li class="nav-dropdown">
       <a href="photos.html">活動照片 ▾</a>
       <ul class="nav-submenu">
-        <li><a href="photos.html">全部照片</a></li>
-        <li><a href="photos.html#y2024">2024 活動照片</a></li>
-        <li><a href="photos.html#y2025">2025 活動照片</a></li>
+        <li><a href="photos.html#y2026">2026 活動照片</a></li>
+        <li><a href="photos.html#y2027">2027 活動照片</a></li>
       </ul>
     </li>
     <li><a href="share.html">作品分享</a></li>
@@ -330,7 +330,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <!-- WAVE 2 -->
 <div class="wave-block" style="background:#CAE9FF;">
 <svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
-  <rect width="1440" height="90" fill="#fff"/>
+  <rect width="1440" height="90" fill="#EEF6FF"/>
   <path d="M0,30 C240,58 540,16 840,46 C1140,76 1320,32 1440,52 L1440,0 L0,0 Z" fill="#D8F0FF" opacity="0.8"/>
   <path d="M0,46 C216,22 432,62 648,40 C864,18 1080,56 1296,36 C1368,28 1410,40 1440,38 L1440,0 L0,0 Z" fill="#CAE9FF"/>
 </svg>
@@ -364,7 +364,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <h2 class="sec-h2 sec-h2-blue reveal" style="margin-bottom:0.5rem;">馬拉松式現場比賽</h2>
   <p class="sec-desc sec-desc-blue reveal">現場抽題後即時設計教案，考驗團隊合作、時間規劃與 AI 數位教學的綜合應用能力。</p>
   <div class="cards-2 reveal">
-    <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">組隊方式</span></div><p class="card-title">團體賽制</p><p class="card-body">每隊約 3 名學生 + 1 位指導教授（擔任觀察員），採邀請賽形式</p></div>
+    <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">組隊方式</span></div><p class="card-title">團體賽制</p><p class="card-body">每隊約 3–4 名學生 + 1 位指導教授（擔任觀察員），採邀請賽形式</p></div>
     <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">比賽方式</span></div><p class="card-title">現場抽題設計</p><p class="card-body">所有隊伍以同一題目進行教學設計，現場 3 小時準備，考驗即時應變與 AI 工具應用能力</p></div>
     <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">演示流程</span></div><p class="card-title">說課 + 演示 + 答辯</p><p class="card-body">每組說課 5 分鐘說明設計理念，教學演示 15 分鐘，再接受評審提問答辯 5 分鐘</p></div>
     <div class="card"><div class="card-icon-row"><div class="card-dot"></div><span class="card-lbl">觀摩交流</span></div><p class="card-title">跨校交流時段</p><p class="card-body">安排跨校交流與茶敘，影音記錄全程，事後製作短影音公開展示推廣</p></div>
@@ -380,7 +380,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <!-- WAVE 4 -->
 <div class="wave-block" style="background:#B0D8F5;">
 <svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
-  <rect width="1440" height="90" fill="#fff"/>
+  <rect width="1440" height="90" fill="#EEF6FF"/>
   <path d="M0,28 C360,58 720,14 1080,44 C1260,60 1368,30 1440,40 L1440,0 L0,0 Z" fill="#D8EEFA" opacity="0.7"/>
   <path d="M0,48 C180,26 420,66 672,44 C924,22 1176,62 1440,40 L1440,0 L0,0 Z" fill="#B0D8F5"/>
 </svg>
@@ -417,14 +417,14 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <section id="score" class="s-blue">
   <span class="s-label reveal">肆 · 演示架構</span>
   <h2 class="sec-h2 sec-h2-blue reveal" style="margin-bottom:0.5rem;">每組演示三階段</h2>
-  <p class="sec-desc sec-desc-blue reveal">邀請賽不排名、不評分，每組依序完成說課、演示、答辯，評審最後給予建設性回饋與鼓勵。</p>
+  <p class="sec-desc sec-desc-blue reveal">每組依序完成說課、演示、答辯，評審最後給予建設性回饋與鼓勵。</p>
   <table class="score-tbl reveal">
     <thead><tr><th style="width:32%;">評分項目</th><th style="width:22%;">比例</th><th>說明</th></tr></thead>
     <tbody>
       <tr><td><strong style="font-size:13px;">說課</strong></td><td><p class="score-pct">5'</p><div class="bar-wrap"><div class="bar-fill" style="width:33%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">說明教案設計理念 · AI 工具選擇理由 · 教學目標</span></td></tr>
       <tr><td><strong style="font-size:13px;">教學演示</strong></td><td><p class="score-pct">15'</p><div class="bar-wrap"><div class="bar-fill" style="width:100%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">模擬真實課堂 · 實際操作數位工具 · 展現教學技巧</span></td></tr>
       <tr><td><strong style="font-size:13px;">提問答辯</strong></td><td><p class="score-pct">5'</p><div class="bar-wrap"><div class="bar-fill" style="width:33%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">評審提問，考驗即時應變能力</span></td></tr>
-      <tr><td><strong style="font-size:13px;">評審講評</strong></td><td><p class="score-pct">回饋</p><div class="bar-wrap"><div class="bar-fill" style="width:50%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">建設性回饋 · 精神鼓勵 · 不排名通通有獎</span></td></tr>
+      <tr><td><strong style="font-size:13px;">評審講評</strong></td><td><p class="score-pct">回饋</p><div class="bar-wrap"><div class="bar-fill" style="width:50%;"></div></div></td><td><span style="font-size:12px;color:#3A6A8A;">建設性回饋 · 精神鼓勵</span></td></tr>
     </tbody>
   </table>
 </section>
@@ -432,7 +432,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <!-- WAVE 6 -->
 <div class="wave-block" style="background:#CAE9FF;">
 <svg viewBox="0 0 1440 90" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:90px;display:block;">
-  <rect width="1440" height="90" fill="#fff"/>
+  <rect width="1440" height="90" fill="#EEF6FF"/>
   <path d="M0,28 C300,52 660,18 960,42 C1200,62 1344,30 1440,44 L1440,0 L0,0 Z" fill="#D8F0FF" opacity="0.7"/>
   <path d="M0,46 C192,24 456,64 720,42 C984,20 1248,60 1440,38 L1440,0 L0,0 Z" fill="#CAE9FF"/>
 </svg>
@@ -444,7 +444,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <h2 class="sec-h2" style="margin-bottom:1.5rem;">三份必繳文件</h2>
   <div class="sub-grid" style="margin-bottom:2.5rem;">
     <div class="sub-item"><p class="sub-n">01</p><p class="sub-title">教案 PDF</p><p class="sub-body">含教學目標、素養指標、教學流程與評量方式</p></div>
-    <div class="sub-item"><p class="sub-n">02</p><p class="sub-title">AI 協作報告</p><p class="sub-body">使用方式 + 3 個 Prompts + 在地化調整說明</p></div>
+    <div class="sub-item"><p class="sub-n">02</p><p class="sub-title">AI 協作報告</p><p class="sub-body">使用方式說明</p></div>
     <div class="sub-item"><p class="sub-n">03</p><p class="sub-title">教學簡報</p><p class="sub-body">可附互動連結或數位媒材，輔助現場演示</p></div>
   </div>
   <span class="s-label reveal">陸 · 注意事項</span>
@@ -452,7 +452,6 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">比賽採現場抽題，參賽者事先無法得知題目，請勿提前準備相關教案</span></div>
     <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">帶隊指導教授於準備階段可自由觀察各組，但不得提供任何直接指導</span></div>
     <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">影音記錄人員將全程拍攝，內容在比賽結束前保密，事後取得同意後公開</span></div>
-    <div class="rule"><span class="rule-ck">✓</span><span class="rule-t">本次為邀請賽，不進行勝負評分，所有參賽隊伍皆獲得獎項肯定</span></div>
   </div>
 </section>
 
@@ -516,7 +515,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 <!-- CTA -->
 <section id="signup" class="s-orange">
   <h2 class="cta-h2 fade-up delay-1">準備好接受 AI 教學挑戰了嗎？</h2>
-  <p class="cta-sub fade-up delay-2">跨校師資培育生組隊參賽 · 邀請賽不排名 · 通通有獎</p>
+  <p class="cta-sub fade-up delay-2">跨校師資培育生組隊參賽</p>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="cta-btn fade-up delay-3">立即報名參賽 →</a>
   <p class="cta-email">digitalinstruction0001@gmail.com</p>
 </section>
