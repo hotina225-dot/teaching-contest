@@ -37,81 +37,30 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5r
 .nav-drawer a.active{font-weight:700;color:#E8A070;}
 .mob-sub{font-size:14px !important;color:#AAA !important;padding:11px 1.5rem 11px 2.5rem !important;background:rgba(0,0,0,0.2);}
 .mob-reg{background:#E8581A !important;color:#fff !important;font-weight:700;text-align:center;margin:1rem 1.25rem;border-radius:8px;padding:13px !important;border-bottom:none !important;display:block;}
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .nav-hamburger{display:flex;}
-  nav{padding:0 1.25rem;}
-}
+@media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}nav{padding:0 1.25rem;}}
 
 .page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;width:100%;}
 .page-label{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.5rem;display:block;}
 h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#0D3A5E;margin-bottom:0.5rem;}
 .page-desc{font-size:14px;color:#3A6A8A;}
-.page-year{display:inline-block;margin-top:0.75rem;background:#E8581A;color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px;}
 .wave{display:block;width:100%;height:50px;}
-.section{padding:2rem 2.5rem 3rem;max-width:1100px;margin:0 auto;}
-.work-item{padding:1.5rem 2rem;border-radius:14px;margin-bottom:2rem;}
-.work-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem;}
-.work-header-left{display:flex;align-items:center;gap:1.25rem;}
-.work-rank{font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;line-height:1;}
-.work-name{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:#0D3A5E;line-height:1;}
-.work-open-btn{display:inline-block;font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:10px 20px;border-radius:6px;text-decoration:none;white-space:nowrap;}
-.work-open-btn:hover{background:#C84A10;}
-.work-preview{border-radius:10px;overflow:hidden;width:100%;}
-.work-preview iframe{border-radius:8px;border:1px solid #D8E8F0;display:block;width:100%;}
+
+.section{padding:4rem 2.5rem;max-width:800px;margin:0 auto;text-align:center;}
+.coming-soon-icon{font-size:64px;margin-bottom:1.5rem;}
+.coming-soon-title{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:#0D3A5E;margin-bottom:0.75rem;}
+.coming-soon-desc{font-size:15px;color:#5A88A8;line-height:1.8;}
+
 footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
 .footer-t{font-size:13px;color:#4A7A9A;}
-@media(max-width:768px){
-  .section{padding:1.5rem 1rem;}
-  .work-item{padding:1rem;}
-  .work-name{font-size:20px;}
-  .work-header{flex-direction:column;align-items:flex-start;}
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from{opacity:0;transform:translateY(30px);}
-  to{opacity:1;transform:translateY(0);}
-}
-.fade-up{opacity:0;animation:fadeUp 0.65s ease forwards;}
-.delay-1{animation-delay:0.1s;}
-.delay-2{animation-delay:0.2s;}
-.delay-3{animation-delay:0.3s;}
-.delay-4{animation-delay:0.4s;}
-.delay-5{animation-delay:0.5s;}
-.delay-6{animation-delay:0.6s;}
-
-/* Scroll reveal */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.65s ease,transform 0.65s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-
-/* Hover float */
-.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,80,160,0.12);transition:transform 0.25s ease,box-shadow 0.25s ease;}
-.goal:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,80,160,0.08);transition:transform 0.25s ease,box-shadow 0.25s ease;}
-.sub-item:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,80,160,0.12);transition:transform 0.25s ease,box-shadow 0.25s ease;}
-.tl-box:hover{background:rgba(255,255,255,0.7) !important;transition:background 0.2s ease;}
-.album-card:hover{transform:translateY(-4px) !important;}
-.work-item:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.08);transition:transform 0.25s ease,box-shadow 0.25s ease;}
-.file-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,80,160,0.1);transition:transform 0.25s ease,box-shadow 0.25s ease;}
-
-/* Counter animation */
-@keyframes countUp {
-  from{opacity:0;transform:scale(0.8);}
-  to{opacity:1;transform:scale(1);}
-}
-.stat-n{animation:countUp 0.6s ease forwards;}
+@media(max-width:768px){footer{flex-direction:column;gap:6px;}.section{padding:3rem 1.25rem;}}
 </style>
 </head>
 <body>
-
 <div class="nav-wrapper">
 <nav>
   <a class="nav-brand" href="index.html">
     <img src="unnamed.png" alt="Logo" style="height:36px;width:auto;"/>
-    <div>
-      <span class="nav-name">數位教學演示競賽</span>
-      <span class="nav-sub">銘傳大學師資培育中心</span>
-    </div>
+    <div><span class="nav-name">數位教學演示競賽</span><span class="nav-sub">銘傳大學師資培育中心</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="index.html">首頁</a></li>
@@ -128,12 +77,9 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <li><a href="download.html">檔案下載</a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>
   </ul>
-  <button class="nav-hamburger" onclick="openDrawer()" aria-label="選單">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-hamburger" onclick="openDrawer()" aria-label="選單"><span></span><span></span><span></span></button>
 </nav>
 </div>
-
 <div class="nav-overlay" id="navOverlay" onclick="closeDrawer()"></div>
 <div class="nav-drawer" id="navDrawer">
   <button class="nav-drawer-close" onclick="closeDrawer()">✕</button>
@@ -149,10 +95,9 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </div>
 
 <div class="page-hero">
-  <span class="page-label fade-up delay-1">作品分享</span>
-  <h1 class="page-title fade-up delay-2">歷屆優秀教案作品</h1>
-  <p class="page-desc fade-up delay-3">收錄競賽得獎教案，供師資培育生參考學習</p>
-  <span class="page-year">2025 年度</span>
+  <span class="page-label">作品分享</span>
+  <h1 class="page-title">歷屆優秀教案作品</h1>
+  <p class="page-desc">收錄競賽得獎教案，供師資培育生參考學習</p>
 </div>
 
 <svg class="wave" viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -161,72 +106,9 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </svg>
 
 <div class="section">
-
-  <div class="work-item reveal" style="border-left:5px solid #F5C840;background:#FFF8EE;">
-    <div class="work-header">
-      <div class="work-header-left">
-        <p class="work-rank" style="color:#E8A020;">🥇 第一名</p>
-        <p class="work-name">黃鼎強</p>
-      </div>
-      <a href="https://drive.google.com/file/d/1ObQWsoEQBdhHbT3KhydyvR4yF7WTqBSf/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
-    </div>
-    <div class="work-preview">
-      <iframe src="https://drive.google.com/file/d/1ObQWsoEQBdhHbT3KhydyvR4yF7WTqBSf/preview" height="480" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="work-item reveal" style="border-left:5px solid #A8C0D8;background:#F0F5FA;">
-    <div class="work-header">
-      <div class="work-header-left">
-        <p class="work-rank" style="color:#6A8AAA;">🥈 第二名</p>
-        <p class="work-name">易品涵</p>
-      </div>
-      <a href="https://drive.google.com/file/d/1xWHjXt83gbAsMl0681kooo_7zI0uRacQ/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
-    </div>
-    <div class="work-preview">
-      <iframe src="https://drive.google.com/file/d/1xWHjXt83gbAsMl0681kooo_7zI0uRacQ/preview" height="480" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="work-item reveal" style="border-left:5px solid #E8B090;background:#FFF4EE;">
-    <div class="work-header">
-      <div class="work-header-left">
-        <p class="work-rank" style="color:#C87840;">🥉 第三名</p>
-        <p class="work-name">胡逸敏</p>
-      </div>
-      <a href="https://drive.google.com/file/d/1bZ8KcvCyaCYtfBpJpcNImsLG901aSJV_/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
-    </div>
-    <div class="work-preview">
-      <iframe src="https://drive.google.com/file/d/1bZ8KcvCyaCYtfBpJpcNImsLG901aSJV_/preview" height="480" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="work-item reveal" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
-    <div class="work-header">
-      <div class="work-header-left">
-        <p class="work-rank" style="color:#4A8A8A;">✦ 佳作</p>
-        <p class="work-name">李芳瑜</p>
-      </div>
-      <a href="https://drive.google.com/file/d/17fB2IomXtPtymCL6V49MMoqMoLyc6Svx/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
-    </div>
-    <div class="work-preview">
-      <iframe src="https://drive.google.com/file/d/17fB2IomXtPtymCL6V49MMoqMoLyc6Svx/preview" height="480" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="work-item reveal" style="border-left:5px solid #90C8C8;background:#EEF8F8;">
-    <div class="work-header">
-      <div class="work-header-left">
-        <p class="work-rank" style="color:#4A8A8A;">✦ 佳作</p>
-        <p class="work-name">蔡鈞彥</p>
-      </div>
-      <a href="https://drive.google.com/file/d/1o_BSGG__6Q0_mEre5PWgOAdcC5Kq-MQF/view?usp=sharing" target="_blank" class="work-open-btn">開啟完整 PDF ↗</a>
-    </div>
-    <div class="work-preview">
-      <iframe src="https://drive.google.com/file/d/1o_BSGG__6Q0_mEre5PWgOAdcC5Kq-MQF/preview" height="480" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
+  <div class="coming-soon-icon">📂</div>
+  <p class="coming-soon-title">作品即將上線</p>
+  <p class="coming-soon-desc">本屆競賽作品正在整理中<br/>比賽結束後將陸續公開得獎教案，敬請期待</p>
 </div>
 
 <footer>
@@ -258,52 +140,5 @@ function closeDrawer(){
   document.body.style.overflow = '';
 }
 </script>
-
-<script>
-// ── SCROLL REVEAL ──
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if(entry.isIntersecting){
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, i * 80);
-      observer.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.12});
-revealEls.forEach(el => observer.observe(el));
-
-// ── COUNTER ANIMATION for stats ──
-function animateCount(el, target, duration=1200){
-  let start = 0;
-  const isNum = !isNaN(parseInt(target));
-  if(!isNum) return;
-  const num = parseInt(target);
-  const step = num / (duration / 16);
-  const timer = setInterval(() => {
-    start += step;
-    if(start >= num){
-      el.textContent = target;
-      clearInterval(timer);
-    } else {
-      el.textContent = Math.floor(start);
-    }
-  }, 16);
-}
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const el = entry.target;
-      const original = el.getAttribute('data-target') || el.textContent;
-      el.setAttribute('data-target', original);
-      animateCount(el, original);
-      statObserver.unobserve(el);
-    }
-  });
-}, {threshold: 0.5});
-document.querySelectorAll('.stat-n').forEach(el => statObserver.observe(el));
-</script>
-
 </body>
 </html>

@@ -37,81 +37,30 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2.5r
 .nav-drawer a.active{font-weight:700;color:#E8A070;}
 .mob-sub{font-size:14px !important;color:#AAA !important;padding:11px 1.5rem 11px 2.5rem !important;background:rgba(0,0,0,0.2);}
 .mob-reg{background:#E8581A !important;color:#fff !important;font-weight:700;text-align:center;margin:1rem 1.25rem;border-radius:8px;padding:13px !important;border-bottom:none !important;display:block;}
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .nav-hamburger{display:flex;}
-  nav{padding:0 1.25rem;}
-}
+@media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}nav{padding:0 1.25rem;}}
 
 .page-hero{background:linear-gradient(135deg,#CAE9FF 0%,#B0D8F5 100%);padding:3.5rem 2.5rem 2.5rem;text-align:center;width:100%;}
 .page-label{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#E8581A;margin-bottom:0.5rem;display:block;}
 h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;color:#0D3A5E;margin-bottom:0.5rem;}
 .page-desc{font-size:14px;color:#3A6A8A;}
 .wave{display:block;width:100%;height:50px;}
-.section{padding:2rem 2.5rem 3rem;max-width:1000px;margin:0 auto;}
-.file-card{background:#fff;border:1px solid #D8E8F4;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,80,160,0.06);margin-bottom:2rem;}
-.file-card-header{display:flex;align-items:center;justify-content:space-between;padding:1.5rem;border-bottom:1px solid #E8F0FA;}
-.file-header-left{display:flex;align-items:center;gap:14px;}
-.file-type-badge{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;background:#FFEEEE;color:#C8201A;}
-.file-name{font-size:15px;font-weight:700;color:#0D3A5E;margin-bottom:3px;}
-.file-desc{font-size:12px;color:#7A9AB8;}
-.btn-download{font-size:13px;font-weight:700;color:#fff;background:#E8581A;padding:10px 20px;border-radius:6px;text-decoration:none;display:inline-block;}
-.btn-download:hover{background:#C84A10;}
-.file-preview{padding:1.25rem 1.5rem;background:#F7F9FF;}
-.preview-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#A8B8C8;margin-bottom:10px;}
-.file-preview iframe{border-radius:8px;border:1px solid #D8E8F4;display:block;width:100%;}
+
+.section{padding:4rem 2.5rem;max-width:800px;margin:0 auto;text-align:center;}
+.coming-soon-icon{font-size:64px;margin-bottom:1.5rem;}
+.coming-soon-title{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:#0D3A5E;margin-bottom:0.75rem;}
+.coming-soon-desc{font-size:15px;color:#5A88A8;line-height:1.8;}
+
 footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
 .footer-t{font-size:13px;color:#4A7A9A;}
-@media(max-width:768px){
-  .section{padding:1.5rem 1rem;}
-  .file-card-header{flex-direction:column;align-items:flex-start;gap:12px;}
-  .btn-download{width:100%;text-align:center;}
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from{opacity:0;transform:translateY(30px);}
-  to{opacity:1;transform:translateY(0);}
-}
-.fade-up{opacity:0;animation:fadeUp 0.65s ease forwards;}
-.delay-1{animation-delay:0.1s;}
-.delay-2{animation-delay:0.2s;}
-.delay-3{animation-delay:0.3s;}
-.delay-4{animation-delay:0.4s;}
-.delay-5{animation-delay:0.5s;}
-.delay-6{animation-delay:0.6s;}
-
-/* Scroll reveal */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.65s ease,transform 0.65s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-
-/* Hover float */
-.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,80,160,0.12);transition:transform 0.25s ease,box-shadow 0.25s ease;}
-.goal:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,80,160,0.08);transition:transform 0.25s ease,box-shadow 0.25s ease;}
-.sub-item:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,80,160,0.12);transition:transform 0.25s ease,box-shadow 0.25s ease;}
-.tl-box:hover{background:rgba(255,255,255,0.7) !important;transition:background 0.2s ease;}
-.album-card:hover{transform:translateY(-4px) !important;}
-.work-item:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.08);transition:transform 0.25s ease,box-shadow 0.25s ease;}
-.file-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,80,160,0.1);transition:transform 0.25s ease,box-shadow 0.25s ease;}
-
-/* Counter animation */
-@keyframes countUp {
-  from{opacity:0;transform:scale(0.8);}
-  to{opacity:1;transform:scale(1);}
-}
-.stat-n{animation:countUp 0.6s ease forwards;}
+@media(max-width:768px){footer{flex-direction:column;gap:6px;}.section{padding:3rem 1.25rem;}}
 </style>
 </head>
 <body>
-
 <div class="nav-wrapper">
 <nav>
   <a class="nav-brand" href="index.html">
     <img src="unnamed.png" alt="Logo" style="height:36px;width:auto;"/>
-    <div>
-      <span class="nav-name">數位教學演示競賽</span>
-      <span class="nav-sub">銘傳大學師資培育中心</span>
-    </div>
+    <div><span class="nav-name">數位教學演示競賽</span><span class="nav-sub">銘傳大學師資培育中心</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="index.html">首頁</a></li>
@@ -128,12 +77,9 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <li><a href="download.html" class="active">檔案下載</a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="nav-reg">前往報名</a></li>
   </ul>
-  <button class="nav-hamburger" onclick="openDrawer()" aria-label="選單">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-hamburger" onclick="openDrawer()" aria-label="選單"><span></span><span></span><span></span></button>
 </nav>
 </div>
-
 <div class="nav-overlay" id="navOverlay" onclick="closeDrawer()"></div>
 <div class="nav-drawer" id="navDrawer">
   <button class="nav-drawer-close" onclick="closeDrawer()">✕</button>
@@ -149,9 +95,9 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </div>
 
 <div class="page-hero">
-  <span class="page-label fade-up delay-1">檔案下載</span>
-  <h1 class="page-title fade-up delay-2">競賽相關檔案</h1>
-  <p class="page-desc fade-up delay-3">下載競賽說明書等相關資料</p>
+  <span class="page-label">檔案下載</span>
+  <h1 class="page-title">競賽相關檔案</h1>
+  <p class="page-desc">下載競賽說明書等相關資料</p>
 </div>
 
 <svg class="wave" viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -160,22 +106,9 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </svg>
 
 <div class="section">
-  <div class="file-card reveal">
-    <div class="file-card-header">
-      <div class="file-header-left">
-        <div class="file-type-badge">PDF</div>
-        <div>
-          <p class="file-name">114年度數位教學演示競賽說明書</p>
-          <p class="file-desc">競賽目的、參賽對象、評分標準、繳交規範完整說明</p>
-        </div>
-      </div>
-      <a href="https://drive.google.com/file/d/15jBAsfKbDwXU86eqvf5q9lb02Oo0lS6A/view?usp=sharing" target="_blank" class="btn-download">下載 PDF ↓</a>
-    </div>
-    <div class="file-preview">
-      <p class="preview-label">預覽</p>
-      <iframe src="https://drive.google.com/file/d/15jBAsfKbDwXU86eqvf5q9lb02Oo0lS6A/preview" height="500" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
+  <div class="coming-soon-icon">📄</div>
+  <p class="coming-soon-title">檔案準備中</p>
+  <p class="coming-soon-desc">本屆競賽相關說明文件正在更新中<br/>敬請稍候，資料上線後將立即公告</p>
 </div>
 
 <footer>
@@ -207,52 +140,5 @@ function closeDrawer(){
   document.body.style.overflow = '';
 }
 </script>
-
-<script>
-// ── SCROLL REVEAL ──
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if(entry.isIntersecting){
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, i * 80);
-      observer.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.12});
-revealEls.forEach(el => observer.observe(el));
-
-// ── COUNTER ANIMATION for stats ──
-function animateCount(el, target, duration=1200){
-  let start = 0;
-  const isNum = !isNaN(parseInt(target));
-  if(!isNum) return;
-  const num = parseInt(target);
-  const step = num / (duration / 16);
-  const timer = setInterval(() => {
-    start += step;
-    if(start >= num){
-      el.textContent = target;
-      clearInterval(timer);
-    } else {
-      el.textContent = Math.floor(start);
-    }
-  }, 16);
-}
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const el = entry.target;
-      const original = el.getAttribute('data-target') || el.textContent;
-      el.setAttribute('data-target', original);
-      animateCount(el, original);
-      statObserver.unobserve(el);
-    }
-  });
-}, {threshold: 0.5});
-document.querySelectorAll('.stat-n').forEach(el => statObserver.observe(el));
-</script>
-
 </body>
 </html>
