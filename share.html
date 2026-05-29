@@ -50,6 +50,18 @@ h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;c
 .coming-soon-title{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:#0D3A5E;margin-bottom:0.75rem;}
 .coming-soon-desc{font-size:15px;color:#5A88A8;line-height:1.8;}
 
+.works-section{padding:3.5rem 2.5rem;max-width:920px;margin:0 auto;width:100%;flex:1;}
+.share-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
+.work-card{background:#fff;border:1px solid #D8E8F5;border-radius:16px;padding:2rem;text-align:left;box-shadow:0 4px 16px rgba(13,58,94,0.06);display:flex;flex-direction:column;}
+.work-badge{display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:0.1em;color:#E8581A;background:#FFF3EE;padding:5px 13px;border-radius:100px;margin-bottom:1.1rem;}
+.work-title{font-family:'Noto Serif TC',serif;font-size:19px;font-weight:700;color:#0D3A5E;line-height:1.5;margin-bottom:0.6rem;}
+.work-meta{font-size:13px;color:#E8581A;font-weight:500;margin-bottom:1.2rem;}
+.work-designers{font-size:14px;color:#7A9AB8;margin-bottom:1.6rem;line-height:1.7;}
+.work-designers strong{display:block;font-size:16px;color:#0D3A5E;font-weight:700;margin-top:3px;}
+.work-btn{margin-top:auto;align-self:flex-start;background:#E8581A;color:#fff;font-size:14px;font-weight:700;text-decoration:none;padding:11px 24px;border-radius:8px;transition:background 0.2s ease;}
+.work-btn:hover{background:#D14810;}
+@media(max-width:768px){.works-section{padding:2.5rem 1.25rem;}.work-card{padding:1.5rem;}}
+
 footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;margin-top:auto;}
 .footer-t{font-size:13px;color:#4A7A9A;}
 @media(max-width:768px){footer{flex-direction:column;gap:6px;}.section{padding:3rem 1.25rem;}}
@@ -68,9 +80,8 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <li class="nav-dropdown">
       <a href="photos.html">活動照片 ▾</a>
       <ul class="nav-submenu">
-        <li><a href="photos.html">全部照片</a></li>
-        <li><a href="photos.html#y2024">2024 活動照片</a></li>
-        <li><a href="photos.html#y2025">2025 活動照片</a></li>
+        <li><a href="photos.html#y2026">2026 活動照片</a></li>
+        <li><a href="photos.html#y2027">2027 活動照片</a></li>
       </ul>
     </li>
     <li><a href="share.html" class="active">作品分享</a></li>
@@ -86,9 +97,8 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <a href="index.html">首頁</a>
   <a href="index.html#schedule">活動時程表</a>
   <a href="photos.html">活動照片</a>
-  <a href="photos.html" class="mob-sub">→ 全部照片</a>
-  <a href="photos.html#y2024" class="mob-sub">→ 2024 活動照片</a>
-  <a href="photos.html#y2025" class="mob-sub">→ 2025 活動照片</a>
+  <a href="photos.html#y2026" class="mob-sub">→ 2026 活動照片</a>
+  <a href="photos.html#y2027" class="mob-sub">→ 2027 活動照片</a>
   <a href="share.html" class="active">作品分享</a>
   <a href="download.html">檔案下載</a>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="mob-reg">前往報名</a>
@@ -105,10 +115,26 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <path d="M0,25 C240,50 480,0 720,25 C960,50 1200,0 1440,25 L1440,0 L0,0 Z" fill="#B0D8F5"/>
 </svg>
 
-<div class="section">
-  <div class="coming-soon-icon">📂</div>
-  <p class="coming-soon-title">作品即將上線</p>
-  <p class="coming-soon-desc">本屆競賽作品正在整理中<br/>比賽結束後將陸續公開得獎教案，敬請期待</p>
+<div class="works-section">
+  <div class="share-grid">
+
+    <div class="work-card">
+      <span class="work-badge">第一組</span>
+      <p class="work-title">資訊科技教案</p>
+      <p class="work-meta">資訊科技</p>
+      <p class="work-designers">設計者<strong>林00、簡00、蘇00</strong></p>
+      <a class="work-btn" href="https://docs.google.com/document/d/1TXGIyJXDyeUJqFJbP5cgIm62TLl9-Vgn/edit?usp=drive_link" target="_blank" rel="noopener">查看教案 →</a>
+    </div>
+
+    <div class="work-card">
+      <span class="work-badge">第二組</span>
+      <p class="work-title">「迷因」背後的刻板標籤：別讓演算法綁架你的性別價值觀</p>
+      <p class="work-meta">綜合活動 · 性別平等教育 · 八年級</p>
+      <p class="work-designers">設計者<strong>高00、何00、簡00</strong></p>
+      <a class="work-btn" href="https://docs.google.com/document/d/1KqSSRNW9mbl6OQBjcLTb3ntoohWxYMta9EV5pRtTipo/edit?usp=drive_link" target="_blank" rel="noopener">查看教案 →</a>
+    </div>
+
+  </div>
 </div>
 
 <footer>
