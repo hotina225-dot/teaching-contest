@@ -50,6 +50,16 @@ h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;c
 .coming-soon-title{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:#0D3A5E;margin-bottom:0.75rem;}
 .coming-soon-desc{font-size:15px;color:#5A88A8;line-height:1.8;}
 
+.dl-section{padding:3.5rem 2.5rem;max-width:760px;margin:0 auto;width:100%;flex:1;}
+.dl-card{display:flex;align-items:center;gap:1.25rem;background:#fff;border:1px solid #D8E8F5;border-radius:14px;padding:1.5rem 1.75rem;box-shadow:0 4px 16px rgba(13,58,94,0.06);}
+.dl-icon{flex-shrink:0;width:52px;height:52px;border-radius:12px;background:#EAF4FC;display:flex;align-items:center;justify-content:center;font-size:26px;}
+.dl-info{flex:1;text-align:left;min-width:0;}
+.dl-name{font-family:'Noto Serif TC',serif;font-size:17px;font-weight:700;color:#0D3A5E;margin-bottom:3px;}
+.dl-meta{font-size:12px;color:#7A9AB8;}
+.dl-btn{flex-shrink:0;background:#E8581A;color:#fff;font-size:14px;font-weight:700;text-decoration:none;padding:10px 22px;border-radius:8px;transition:background 0.2s ease;}
+.dl-btn:hover{background:#D14810;}
+@media(max-width:768px){.dl-section{padding:2.5rem 1.25rem;}.dl-card{flex-wrap:wrap;gap:1rem;padding:1.25rem;}.dl-btn{width:100%;text-align:center;}}
+
 footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;margin-top:auto;}
 .footer-t{font-size:13px;color:#4A7A9A;}
 @media(max-width:768px){footer{flex-direction:column;gap:6px;}.section{padding:3rem 1.25rem;}}
@@ -68,9 +78,8 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
     <li class="nav-dropdown">
       <a href="photos.html">活動照片 ▾</a>
       <ul class="nav-submenu">
-        <li><a href="photos.html">全部照片</a></li>
-        <li><a href="photos.html#y2024">2024 活動照片</a></li>
-        <li><a href="photos.html#y2025">2025 活動照片</a></li>
+        <li><a href="photos.html#y2026">2026 活動照片</a></li>
+        <li><a href="photos.html#y2027">2027 活動照片</a></li>
       </ul>
     </li>
     <li><a href="share.html">作品分享</a></li>
@@ -86,9 +95,8 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <a href="index.html">首頁</a>
   <a href="index.html#schedule">活動時程表</a>
   <a href="photos.html">活動照片</a>
-  <a href="photos.html" class="mob-sub">→ 全部照片</a>
-  <a href="photos.html#y2024" class="mob-sub">→ 2024 活動照片</a>
-  <a href="photos.html#y2025" class="mob-sub">→ 2025 活動照片</a>
+  <a href="photos.html#y2026" class="mob-sub">→ 2026 活動照片</a>
+  <a href="photos.html#y2027" class="mob-sub">→ 2027 活動照片</a>
   <a href="share.html">作品分享</a>
   <a href="download.html" class="active">檔案下載</a>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIkEFt5OnVVoQntzf8JLZQsn7aGVdTRQHP3DzloA4X4dVKoA/viewform" target="_blank" class="mob-reg">前往報名</a>
@@ -105,10 +113,15 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <path d="M0,25 C240,50 480,0 720,25 C960,50 1200,0 1440,25 L1440,0 L0,0 Z" fill="#B0D8F5"/>
 </svg>
 
-<div class="section">
-  <div class="coming-soon-icon">📄</div>
-  <p class="coming-soon-title">檔案準備中</p>
-  <p class="coming-soon-desc">本屆競賽相關說明文件正在更新中<br/>敬請稍候，資料上線後將立即公告</p>
+<div class="dl-section">
+  <div class="dl-card">
+    <div class="dl-icon">📄</div>
+    <div class="dl-info">
+      <p class="dl-name">課程活動設計格式（數位融入）</p>
+      <p class="dl-meta">Word 文件 (.docx) · 2026 教案設計範本</p>
+    </div>
+    <a class="dl-btn" href="lesson-plan-template-2026.docx" download>下載</a>
+  </div>
 </div>
 
 <footer>
