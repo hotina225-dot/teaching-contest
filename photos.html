@@ -58,6 +58,20 @@ h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;c
 .coming-card-title{font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;color:#0D3A5E;margin-bottom:6px;}
 .coming-card-desc{font-size:13px;color:#5A88A8;}
 
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
+.photo-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;cursor:pointer;display:block;background:#EAF4FC;box-shadow:0 2px 8px rgba(13,58,94,0.08);transition:transform 0.2s ease,box-shadow 0.2s ease;}
+.photo-grid img:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(13,58,94,0.18);}
+@media(max-width:768px){.photo-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;}}
+
+.lightbox{display:none;position:fixed;inset:0;background:rgba(10,25,40,0.92);z-index:3000;align-items:center;justify-content:center;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:92vw;max-height:86vh;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,0.5);}
+.lightbox-close{position:absolute;top:18px;right:24px;font-size:34px;color:#fff;background:none;border:none;cursor:pointer;line-height:1;}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);font-size:40px;color:#fff;background:none;border:none;cursor:pointer;padding:0 18px;user-select:none;}
+.lightbox-prev{left:6px;}
+.lightbox-next{right:6px;}
+@media(max-width:768px){.lightbox-nav{font-size:30px;padding:0 10px;}}
+
 footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
 .footer-t{font-size:13px;color:#4A7A9A;}
 @media(max-width:768px){
@@ -124,13 +138,15 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 </div>
 
 <div id="y2026" class="year-section">
-  <p class="year-heading">2026 年活動照片</p>
-  <div class="coming-card">
-    <div class="coming-card-icon">📷</div>
-    <div class="coming-card-info">
-      <p class="coming-card-title">照片即將上線</p>
-      <p class="coming-card-desc">2026 年活動照片正在整理中，比賽結束後將陸續公開，敬請期待</p>
-    </div>
+  <p class="year-heading">2026 活動照片</p>
+  <div class="photo-grid">
+    <img src="2026-01.jpg" alt="2026 AI 數位教學比賽活動照片 1" loading="lazy"/>
+    <img src="2026-02.jpg" alt="2026 AI 數位教學比賽活動照片 2" loading="lazy"/>
+    <img src="2026-03.jpg" alt="2026 AI 數位教學比賽活動照片 3" loading="lazy"/>
+    <img src="2026-04.jpg" alt="2026 AI 數位教學比賽活動照片 4" loading="lazy"/>
+    <img src="2026-05.jpg" alt="2026 AI 數位教學比賽活動照片 5" loading="lazy"/>
+    <img src="2026-06.jpg" alt="2026 AI 數位教學比賽活動照片 6" loading="lazy"/>
+    <img src="2026-07.jpg" alt="2026 AI 數位教學比賽活動照片 7" loading="lazy"/>
   </div>
 </div>
 
@@ -143,6 +159,13 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
       <p class="coming-card-desc">2027 年活動照片將於比賽結束後公開，敬請期待</p>
     </div>
   </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="關閉">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)" aria-label="上一張">&#8249;</button>
+  <img id="lightboxImg" src="" alt=""/>
+  <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)" aria-label="下一張">&#8250;</button>
 </div>
 
 <footer>
@@ -182,6 +205,35 @@ document.querySelectorAll('.year-tab').forEach(tab => {
     document.querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
   });
+});
+
+const galleryImgs = Array.from(document.querySelectorAll('.photo-grid img'));
+let lbIndex = 0;
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightboxImg');
+galleryImgs.forEach((img, i) => {
+  img.addEventListener('click', () => { lbIndex = i; openLightbox(); });
+});
+function openLightbox(){
+  lbImg.src = galleryImgs[lbIndex].src;
+  lbImg.alt = galleryImgs[lbIndex].alt;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function navLightbox(d){
+  lbIndex = (lbIndex + d + galleryImgs.length) % galleryImgs.length;
+  lbImg.src = galleryImgs[lbIndex].src;
+  lbImg.alt = galleryImgs[lbIndex].alt;
+}
+document.addEventListener('keydown', e => {
+  if(!lb.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLightbox();
+  else if(e.key === 'ArrowRight') navLightbox(1);
+  else if(e.key === 'ArrowLeft') navLightbox(-1);
 });
 </script>
 </body>
