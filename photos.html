@@ -63,6 +63,17 @@ h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;c
 .photo-grid img:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(13,58,94,0.18);}
 @media(max-width:768px){.photo-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;}}
 
+.photo-grid figure{margin:0;display:flex;flex-direction:column;}
+.photo-grid figcaption{font-size:12.5px;color:#4A7A9A;line-height:1.55;margin-top:8px;padding:0 2px;}
+@media(max-width:768px){.photo-grid figcaption{font-size:11.5px;}}
+
+.event-detail{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:#D8E8F5;border:1px solid #D8E8F5;border-radius:14px;overflow:hidden;margin-bottom:1.75rem;box-shadow:0 4px 16px rgba(13,58,94,0.06);}
+.event-detail-item{background:#fff;padding:1.1rem 1.4rem;display:flex;flex-direction:column;gap:6px;}
+.ed-label{font-size:11px;font-weight:700;letter-spacing:0.12em;color:#E8581A;}
+.ed-value{font-size:15px;font-weight:500;color:#0D3A5E;line-height:1.5;}
+.ed-value a{color:#0D3A5E;text-decoration:underline;text-underline-offset:3px;}
+.ed-value a:hover{color:#E8581A;}
+
 .lightbox{display:none;position:fixed;inset:0;background:rgba(10,25,40,0.92);z-index:3000;align-items:center;justify-content:center;}
 .lightbox.open{display:flex;}
 .lightbox img{max-width:92vw;max-height:86vh;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,0.5);}
@@ -70,7 +81,8 @@ h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;c
 .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);font-size:40px;color:#fff;background:none;border:none;cursor:pointer;padding:0 18px;user-select:none;}
 .lightbox-prev{left:6px;}
 .lightbox-next{right:6px;}
-@media(max-width:768px){.lightbox-nav{font-size:30px;padding:0 10px;}}
+.lightbox-caption{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#fff;font-size:14.5px;line-height:1.5;padding:0 64px;text-shadow:0 1px 5px rgba(0,0,0,0.7);}
+@media(max-width:768px){.lightbox-nav{font-size:30px;padding:0 10px;}.lightbox-caption{font-size:12.5px;padding:0 30px;bottom:16px;}}
 
 footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;}
 .footer-t{font-size:13px;color:#4A7A9A;}
@@ -139,14 +151,20 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
 
 <div id="y2026" class="year-section">
   <p class="year-heading">2026 活動照片</p>
+  <div class="event-detail">
+    <div class="event-detail-item"><span class="ed-label">活動流程表日期</span><span class="ed-value">114 年 5 月 27 日（星期三）</span></div>
+    <div class="event-detail-item"><span class="ed-label">比賽日期</span><span class="ed-value">115 年 5 月 27 日（星期三）</span></div>
+    <div class="event-detail-item"><span class="ed-label">比賽時間</span><span class="ed-value">18:00 – 21:30</span></div>
+    <div class="event-detail-item"><span class="ed-label">比賽地點</span><span class="ed-value"><a href="https://maps.google.com/?q=銘傳大學師資培育中心" target="_blank" rel="noopener">銘傳大學師資培育中心 11410 教室 ↗</a></span></div>
+  </div>
   <div class="photo-grid">
-    <img src="2026-01.jpg" alt="2026 AI 數位教學比賽活動照片 1" loading="lazy"/>
-    <img src="2026-02.jpg" alt="2026 AI 數位教學比賽活動照片 2" loading="lazy"/>
-    <img src="2026-03.jpg" alt="2026 AI 數位教學比賽活動照片 3" loading="lazy"/>
-    <img src="2026-04.jpg" alt="2026 AI 數位教學比賽活動照片 4" loading="lazy"/>
-    <img src="2026-05.jpg" alt="2026 AI 數位教學比賽活動照片 5" loading="lazy"/>
-    <img src="2026-06.jpg" alt="2026 AI 數位教學比賽活動照片 6" loading="lazy"/>
-    <img src="2026-07.jpg" alt="2026 AI 數位教學比賽活動照片 7" loading="lazy"/>
+    <figure><img src="2026-01.jpg" alt="評審頒發獎狀及獎品予參賽者" data-caption="邀請評審頒發獎狀及獎品予參賽者，並與得獎隊伍合影留念" loading="lazy"/><figcaption>邀請評審頒發獎狀及獎品予參賽者</figcaption></figure>
+    <figure><img src="2026-02.jpg" alt="評審講評" data-caption="評審針對各組準備歷程與教學演示表現進行講評" loading="lazy"/><figcaption>評審針對各組表現進行講評</figcaption></figure>
+    <figure><img src="2026-03.jpg" alt="參賽團隊現場準備" data-caption="參賽團隊於現場抽題後即時討論並設計教案" loading="lazy"/><figcaption>參賽團隊現場抽題後即時設計教案</figcaption></figure>
+    <figure><img src="2026-04.jpg" alt="運用 AI 數位工具設計教學" data-caption="參賽者運用電腦及 AI 數位工具進行教學設計" loading="lazy"/><figcaption>運用 AI 數位工具進行教學設計</figcaption></figure>
+    <figure><img src="2026-05.jpg" alt="各組討論教學流程" data-caption="各組把握準備時間討論教學流程與分工" loading="lazy"/><figcaption>各組討論教學流程與分工</figcaption></figure>
+    <figure><img src="2026-06.jpg" alt="全體師生合影" data-caption="比賽結束後評審、指導教授與全體參賽師生合影留念" loading="lazy"/><figcaption>比賽結束後全體師生合影留念</figcaption></figure>
+    <figure><img src="2026-07.jpg" alt="頒發感謝狀予與會貴賓" data-caption="頒發感謝狀予擔任評審之與會貴賓" loading="lazy"/><figcaption>頒發感謝狀予擔任評審之貴賓</figcaption></figure>
   </div>
 </div>
 
@@ -166,6 +184,7 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)" aria-label="上一張">&#8249;</button>
   <img id="lightboxImg" src="" alt=""/>
   <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)" aria-label="下一張">&#8250;</button>
+  <p class="lightbox-caption" id="lightboxCaption"></p>
 </div>
 
 <footer>
@@ -211,12 +230,18 @@ const galleryImgs = Array.from(document.querySelectorAll('.photo-grid img'));
 let lbIndex = 0;
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lightboxImg');
+const lbCaption = document.getElementById('lightboxCaption');
 galleryImgs.forEach((img, i) => {
   img.addEventListener('click', () => { lbIndex = i; openLightbox(); });
 });
+function setLightboxContent(){
+  const img = galleryImgs[lbIndex];
+  lbImg.src = img.src;
+  lbImg.alt = img.alt;
+  lbCaption.textContent = img.getAttribute('data-caption') || '';
+}
 function openLightbox(){
-  lbImg.src = galleryImgs[lbIndex].src;
-  lbImg.alt = galleryImgs[lbIndex].alt;
+  setLightboxContent();
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -226,8 +251,7 @@ function closeLightbox(){
 }
 function navLightbox(d){
   lbIndex = (lbIndex + d + galleryImgs.length) % galleryImgs.length;
-  lbImg.src = galleryImgs[lbIndex].src;
-  lbImg.alt = galleryImgs[lbIndex].alt;
+  setLightboxContent();
 }
 document.addEventListener('keydown', e => {
   if(!lb.classList.contains('open')) return;

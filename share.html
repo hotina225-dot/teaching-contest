@@ -62,6 +62,30 @@ h1.page-title{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:700;c
 .work-btn:hover{background:#D14810;}
 @media(max-width:768px){.works-section{padding:2.5rem 1.25rem;}.work-card{padding:1.5rem;}}
 
+.year-tabs{display:flex;gap:10px;padding:1.5rem 2.5rem;background:#EEF6FF;position:sticky;top:60px;z-index:50;max-width:920px;margin:0 auto;width:100%;}
+.year-tab{font-size:13px;font-weight:700;color:#7A9AB8;padding:8px 20px;border:2px solid #C8D8F0;border-radius:100px;text-decoration:none;background:#fff;cursor:pointer;}
+.year-tab:hover,.year-tab.active{background:#CAE9FF;color:#0D3A5E;border-color:#7AB0D8;}
+
+.year-section{padding:1rem 2.5rem 3rem;max-width:920px;margin:0 auto;width:100%;}
+.year-heading{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;color:#0D3A5E;margin-bottom:1.5rem;}
+
+.event-meta{font-size:13px;color:#7A9AB8;line-height:1.9;margin:-0.4rem 0 1.75rem;padding-left:2px;}
+.event-meta b{color:#5A88A8;font-weight:700;}
+.event-meta .sep{color:#C8D8F0;margin:0 9px;}
+.event-meta a{color:#7A9AB8;text-decoration:underline;text-underline-offset:2px;}
+.event-meta a:hover{color:#E8581A;}
+@media(max-width:768px){.event-meta .sep{display:none;}.event-meta span.line{display:block;}}
+
+.coming-card{display:flex;align-items:center;gap:2rem;background:#fff;border:2px dashed #A8D4F0;border-radius:16px;padding:2rem 2.5rem;}
+.coming-card-icon{font-size:48px;flex-shrink:0;}
+.coming-card-title{font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;color:#0D3A5E;margin-bottom:6px;}
+.coming-card-desc{font-size:13px;color:#5A88A8;}
+@media(max-width:768px){
+  .year-tabs{padding:1rem 1.25rem;flex-wrap:wrap;}
+  .year-section{padding:0.5rem 1.25rem 2rem;}
+  .coming-card{padding:1.25rem;gap:1rem;flex-direction:column;text-align:center;}
+}
+
 footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-content:space-between;background:#CAE9FF;margin-top:auto;}
 .footer-t{font-size:13px;color:#4A7A9A;}
 @media(max-width:768px){footer{flex-direction:column;gap:6px;}.section{padding:3rem 1.25rem;}}
@@ -115,7 +139,16 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
   <path d="M0,25 C240,50 480,0 720,25 C960,50 1200,0 1440,25 L1440,0 L0,0 Z" fill="#B0D8F5"/>
 </svg>
 
-<div class="works-section">
+<div class="year-tabs">
+  <a href="#y2026" class="year-tab active">2026 年</a>
+  <a href="#y2027" class="year-tab">2027 年</a>
+</div>
+
+<div id="y2026" class="year-section">
+  <p class="year-heading">2026 年優秀教案</p>
+  <p class="event-meta">
+    <span class="line"><b>比賽日期</b> 115 年 5 月 27 日（三）<span class="sep">·</span></span><span class="line">18:00 – 21:30<span class="sep">·</span></span><span class="line"><a href="https://maps.google.com/?q=銘傳大學師資培育中心" target="_blank" rel="noopener">銘傳大學師資培育中心 11410 教室</a></span>
+  </p>
   <div class="share-grid">
 
     <div class="work-card">
@@ -134,6 +167,17 @@ footer{padding:1.25rem 2.5rem;border-top:2px solid #E8581A;display:flex;justify-
       <a class="work-btn" href="https://docs.google.com/document/d/1KqSSRNW9mbl6OQBjcLTb3ntoohWxYMta9EV5pRtTipo/edit?usp=drive_link" target="_blank" rel="noopener">查看教案 →</a>
     </div>
 
+  </div>
+</div>
+
+<div id="y2027" class="year-section">
+  <p class="year-heading">2027 年優秀教案</p>
+  <div class="coming-card">
+    <div class="coming-card-icon">📄</div>
+    <div class="coming-card-info">
+      <p class="coming-card-title">教案即將上線</p>
+      <p class="coming-card-desc">2027 年得獎教案將於比賽結束後公開，敬請期待</p>
+    </div>
   </div>
 </div>
 
@@ -165,6 +209,16 @@ function closeDrawer(){
   document.getElementById('navOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
+document.querySelectorAll('.year-tab').forEach(tab => {
+  tab.addEventListener('click', e => {
+    e.preventDefault();
+    const id = tab.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el) window.scrollTo({top: el.offsetTop - 120, behavior: 'smooth'});
+    document.querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
 </script>
 </body>
 </html>
